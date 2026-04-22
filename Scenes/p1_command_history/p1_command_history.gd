@@ -22,11 +22,6 @@ func _physics_process(delta: float) -> void:
 		"p1left", "p1right", "p1up", "p1down"
 	)
 	
-	#input_attack[0] = Input.is_action_pressed("p1-1")
-	#input_attack[1] = Input.is_action_pressed("p1-2")
-	#input_attack[2] = Input.is_action_pressed("p1-3")
-	#input_attack[3] = Input.is_action_pressed("p1-4")
-	
 	input_attack = [
 		Input.is_action_pressed("p1-1"),
 		Input.is_action_pressed("p1-2"),
