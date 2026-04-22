@@ -14,6 +14,15 @@ func spawn_dir_command(command_type: Command.CommandTypes) -> void:
 	add_child(command)
 	command.global_position = command_start_point.global_position
 
+func spawn_attack_command(command_type: Command.CommandTypes) -> void:
+	GlobalSignal.TickInputP1.emit()
+	
+	var command : Command = command_scn.instantiate()
+	command.command_type = command_type
+	add_child(command)
+	command.global_position = command_start_point.global_position
+	command.global_position.y += 32
+
 func spawn_belt_box(posx : float, y_offset: float) -> void:
 	var belt_box : Sprite2D = belt_box_scn.instantiate()
 	add_child(belt_box)

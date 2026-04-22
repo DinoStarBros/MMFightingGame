@@ -5,17 +5,17 @@ class_name P1Inputs
 
 const diag : float = sqrt(2)/2
 
-var inputack_count_true : int
 var input_dir : Vector2:
 	set(value):
 		if input_dir == value: return
 		input_dir = value
 		spawn_dir(input_dir)
 
-var input_attack : Array = [false, false, false, false]:
+var input_attack : Array[bool] = [false, false, false, false]:
 	set(value):
 		if input_attack == value: return
 		input_attack = value
+		_spawn_attack(input_attack)
 
 func spawn_dir(dir: Vector2) -> void:
 	match dir:
@@ -39,9 +39,43 @@ func spawn_dir(dir: Vector2) -> void:
 		Vector2(diag, diag):
 			sspawner.spawn_dir_command(Command.CommandTypes.DOWN_RIGHT)
 
-#func spawn_attack(inp_atk: Array) -> void:
-	##if input_attack.count(true) == inp_atk.count(true): return
-	##if input_attack == inp_atk: return
-	#print(input_attack)
-	#input_attack = inp_atk
-	#print(input_attack)
+func _spawn_attack(input: Array):
+	match input:
+
+		[false, false, false, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.NEUTRAL)
+
+		[true, false, false, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.ONE)
+		[false, true, false, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.TWO)
+		[false, false, true, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.THREE)
+		[false, false, false, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.FOUR)
+
+		[true, true, false, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.ONE_TWO)
+		[false, true, true, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.TWO_THREE)
+		[false, false, true, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.THREE_FOUR)
+		[true, false, false, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.ONE_FOUR)
+
+		[true, false, true, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.ONE_THREE)
+		[false, true, false, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.TWO_FOUR)
+
+		[true, true, true, false]:
+			sspawner.spawn_attack_command(Command.CommandTypes.ONE_TWO_THREE)
+		[false, true, true, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.TWO_THREE_FOUR)
+		[true, false, true, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.THREE_FOUR_ONE)
+		[true, true, false, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.ONE_FOUR_TWO)
+
+		[true, true, true, true]:
+			sspawner.spawn_attack_command(Command.CommandTypes.ALL_FOUR)
