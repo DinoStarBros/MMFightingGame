@@ -1,12 +1,12 @@
 extends Node
-class_name StuffSpawner
+class_name P1StuffSpawner
 
 @onready var command_start_point: Marker2D = %dir_command_start_point
 
 const command_scn : PackedScene = preload("uid://cxvup7qmlxmko")
 const belt_box_scn : PackedScene = preload("uid://m6ny2ssxdku6")
 
-func spawn_command(command_type: Command.CommandTypes) -> void:
+func spawn_dir_command(command_type: Command.CommandTypes) -> void:
 	GlobalSignal.TickInputP1.emit()
 	
 	var command : Command = command_scn.instantiate()

@@ -11,10 +11,10 @@ script = ExtResource("1_4nxwf")
 unique_name_in_owner = true
 position = Vector2(1272, 560)
 
-[node name="StuffSpawner" type="Node" parent="." unique_id=52194027]
-unique_name_in_owner = true
-script = ExtResource("2_sluw8")
-
 [node name="P1Inputs" type="Node" parent="." unique_id=2091861082]
 unique_name_in_owner = true
 script = ExtResource("3_3nlub")
+
+[node name="P1StuffSpawner" type="Node" parent="." unique_id=52194027]
+unique_name_in_owner = true
+script = ExtResource("2_sluw8")
