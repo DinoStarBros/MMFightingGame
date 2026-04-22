@@ -51,6 +51,12 @@ folder_colors={
 "res://Screens/": "yellow"
 }
 
+[layer_names]
+
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Hurtboxes"
+2d_physics/layer_3="Hitboxes"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
