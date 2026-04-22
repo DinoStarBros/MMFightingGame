@@ -6,3 +6,4 @@ enum CharacterSide {
 }
 
 @export var character_side : CharacterSide
+@export var input_reader : InputReader

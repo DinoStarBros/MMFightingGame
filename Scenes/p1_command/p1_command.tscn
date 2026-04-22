@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://1kyhtk3l1uw8" path="res://Scenes/p1_command/p1_command.gd" id="1_2c7kg"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_2c7kg"]
-_data = PackedByteArray("AAADAAUAAAABAAAAUAAAAFAAAACcAQAAUklGRpQBAABXRUJQVlA4TIgBAAAvT8ATEDdAJmAx8QTT0yeGGgTZNiPcKe6PMDIBixURR2h5vDqY/wC8F7akH69iAHJtO44UCbPXx+2ZDDgTASYRn38MlP5TY3sb0X8HbiMpUhbqYKB6ul4huyKiMtZVgw83kdFNtfUmpK2EMuxalJQ2lCFpY/v8RU6wKBWlSmWoNIFSCoWy0gwMoJj9SiuI4X37cSyqjcmtKBcR5Rto0xezA/3thjcMgQlMiRZiZcwP9Bd1CyXICypC4pAyJN4vOi+GZPSxYRfuJ9ZFZOf54+Mm23mUUNMpTcwK9SsHRiVKA6MS3ZAc136QTAngxrmhBdnVhssLzEWpCUJfuoPSJ1a5uoHiIQIDWWmmS4h5gYJKlUrvD2H+pcQkQYOQUifYlHlFTLSuNFNQ0ECNVBrffsE2d8fj5aqLf185WX7c136gX3d5ffdPT1fu4fZwuJj97Ae/r2+cD97Ac+K52Q/0666VB8/H2sBzM/vYD/RrrrDLc8F54ZzsD9+z0Pn3YJfnhXPDPnaG71woAA==")
+_data = PackedByteArray("AAADAAUAAAABAAAAUAAAAFAAAACKAQAAUklGRoIBAABXRUJQVlA4THYBAAAvT8ATEDdAJmAx8QTT0yeGGgTZNiPcKe6PMDIBixURR2h5vDqY/wC8F7akH69iAHJtO44UfcxeH7dnMuBMBJhEfP4xIP1f6sH0NqL/Dty2cSRt8dY73cWvCFkoy7dCopnkwkMRh2yft4KcEjTiRZIYIaEX+z8xwgfBSCaIEf52MIhEcoINIpiMhHhcWvz3todQSEwhij43bjjp7tvmq882rTk+t2FzIzY34nKKnxeKsKjXxHf1LZblT3RAcU42oSQVxDQjYXWYnKUj2QlimpEq1O8kfbKpKsaIVFEdnAoVTrf7OJwviqQEu6g9EYNkQfTbhQY6RgCJpN5mhIn1fBKEzocRLpbzJmkGxLDRMdMTVbHxIfZ6m4OKRpFLEsJpl9evrzt053w4Hq/LwV8vr/LZD/jrlvXve3x5uVGH+8PhSr32g983t3VPtD/rHu0H/HWL9qO+QPtRX7DuzX7AX7dUL3xvtC/qo1+wD/yN3q97oz77AU+1EA==")
 size_override = Vector2(80, 80)
 
 [sub_resource type="Animation" id="Animation_8116r"]
@@ -61,7 +61,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://Art/commandHistoryStuff.aseprite",
 "source_uid": 7186618426679782770
 }
-metadata/_aseprite_wizard_source_file_hash_ = "222d4bc870a4a6bf27c52a04c4cd77c2"
+metadata/_aseprite_wizard_source_file_hash_ = "4dd3a2ebf708d38430aad3e75f813490"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=66460505]
 libraries/ = SubResource("AnimationLibrary_kyoik")

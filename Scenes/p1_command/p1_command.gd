@@ -2,6 +2,8 @@ extends Node2D
 class_name Command
 
 enum CommandTypes {
+	NEUTRAL,
+	
 	RIGHT, UP_RIGHT,
 	UP, UP_LEFT,
 	LEFT, DOWN_LEFT,
@@ -12,8 +14,6 @@ enum CommandTypes {
 	ONE_THREE, TWO_FOUR,
 	ONE_TWO_THREE, TWO_THREE_FOUR, THREE_FOUR_ONE, ONE_FOUR_TWO,
 	ALL_FOUR,
-	
-	NEUTRAL,
 	
 }
 
