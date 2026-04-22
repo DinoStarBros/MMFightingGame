@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cuij304o7bqou"]
+
+[ext_resource type="Script" uid="uid://d2esub8pkfnf3" path="res://Scenes/p1_command_history/p1_command_history.gd" id="1_4nxwf"]
+[ext_resource type="Script" uid="uid://cp1mej2mlhybi" path="res://Scenes/p1_command_history/p1_stuff_spawner.gd" id="2_sluw8"]
+[ext_resource type="Script" uid="uid://g406edel25bn" path="res://Scenes/p1_command_history/p_1_inputs.gd" id="3_3nlub"]
+
+[node name="p1_command_history" type="Node2D" unique_id=1725422575]
+script = ExtResource("1_4nxwf")
+
+[node name="dir_command_start_point" type="Marker2D" parent="." unique_id=864022042]
+unique_name_in_owner = true
+position = Vector2(1272, 560)
+
+[node name="StuffSpawner" type="Node" parent="." unique_id=52194027]
+unique_name_in_owner = true
+script = ExtResource("2_sluw8")
+
+[node name="P1Inputs" type="Node" parent="." unique_id=2091861082]
+unique_name_in_owner = true
+script = ExtResource("3_3nlub")

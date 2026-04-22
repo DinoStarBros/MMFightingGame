@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d121p07cvbaga" path="res://Characters/JohnFight/john_fight.gd" id="1_17b07"]
 [ext_resource type="PackedScene" uid="uid://idc0d4kye7qi" path="res://CharacterAnims/JohnFight/john_fight_anims.tscn" id="2_fqhhd"]
-[ext_resource type="PackedScene" uid="uid://cuij304o7bqou" path="res://Scenes/command_history/command_history.tscn" id="3_mf22c"]
+[ext_resource type="PackedScene" uid="uid://cuij304o7bqou" path="res://Scenes/p1_command_history/p1_command_history.tscn" id="3_mf22c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)

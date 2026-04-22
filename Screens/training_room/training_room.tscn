@@ -8,7 +8,7 @@
 script = ExtResource("1_2mw5h")
 
 [node name="Ground" parent="." unique_id=548214944 instance=ExtResource("2_n6oql")]
-position = Vector2(640, 600)
+position = Vector2(640, 482)
 
 [node name="UIStuff" type="CanvasLayer" parent="." unique_id=1507901714]
 
@@ -38,4 +38,4 @@ text = "Quit
 [node name="Fighters" type="Node2D" parent="." unique_id=357628340]
 
 [node name="JohnFight" parent="Fighters" unique_id=1012419678 instance=ExtResource("3_68gu7")]
-position = Vector2(121, 390)
+position = Vector2(121, 242)

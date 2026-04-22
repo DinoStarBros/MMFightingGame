@@ -27,6 +27,5 @@ func _ready() -> void:
 
 func _tick_input() -> void:
 	global_position += velocity
-
-func _physics_process(delta: float) -> void:
-	pass
+	if global_position.x <= -16:
+		queue_free()

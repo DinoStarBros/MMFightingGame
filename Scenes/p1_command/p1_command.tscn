@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cxvup7qmlxmko"]
 
-[ext_resource type="Script" uid="uid://1kyhtk3l1uw8" path="res://Scenes/command/command.gd" id="1_a5vkt"]
+[ext_resource type="Script" uid="uid://1kyhtk3l1uw8" path="res://Scenes/p1_command/p1_command.gd" id="1_2c7kg"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_a5vkt"]
 _data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAACWAQAAUklGRo4BAABXRUJQVlA4TIEBAAAvP8APEB8gEEhS2B92DYFAkr/OgAsEkpT2h3v+A/BXgeSGduNIeuCchqEwn9kcQcNREHWse/V24iwuUD9OWcZkENF/hW3bNkyn/YkkkQYtkYZBkj4rnxEAouOkgRTSSRnUn7z/sVk6dNXt5jMCojotDFKSSK9I64Wy8rRafJoijVk6AStl6WtN2VrQLKUTJ5JEGr7gkAZQC2UAPQFoAGJiQACkk8bdIR2gjDQ8Vs2k58aJWRmS5Ol4Wnn6rIxIayfmT0OnhdOUgQfU7eZQlg53h7z/MUgnQAZIwFwIoAOYCymgHKDIkzQcoHyRB4AGSCDRQO7DcjumvAxqH16PV6/XV0+H/hzR4zP6+AyC6ueIl7HHi16DpqQhaZf0FGUnm7QdIv3kdcohTg5Jm6CrNaK3Ea09oP5MHorWFpCq7w+vb9++1vHqgFKylCy/H0ZJSCzykihnnV/MPi7k57C1eo6Lbz9HXBhX9m/fxpo0BF8uXB4XWiP+T2n4Wkq2hsTF1MUfAA==")
@@ -28,7 +28,7 @@ _data = {
 }
 
 [node name="Command" type="Node2D" unique_id=1327090221]
-script = ExtResource("1_a5vkt")
+script = ExtResource("1_2c7kg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1660068108]
 unique_name_in_owner = true
@@ -37,7 +37,6 @@ texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_a5vkt")
 hframes = 4
 vframes = 4
-frame = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
