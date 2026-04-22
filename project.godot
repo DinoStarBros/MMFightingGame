@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="MMFightingGame"
-run/main_scene="uid://b1l0c0lyigohh"
+run/main_scene="uid://djq2p3mu3u3s2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*uid://j20v4cg7v8m1"
+Global="*uid://ivtmt3hnoiib"
 
 [display]
 
@@ -22,6 +27,20 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://Audio/": "orange",
+"res://GlobalScripts/": "purple",
+"res://Scenes/": "green",
+"res://Screens/": "yellow"
+}
 
 [physics]
 

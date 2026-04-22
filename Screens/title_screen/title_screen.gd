@@ -7,5 +7,5 @@ func _ready() -> void:
 	)
 	
 	%play.pressed.connect(
-		func(): pass
+		func(): SceneManager.change_scene("res://Screens/training_room/training_room.tscn")
 	)
