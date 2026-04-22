@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://idc0d4kye7qi"]
+
+[ext_resource type="Script" uid="uid://bx32navn8v4eu" path="res://CharacterAnims/JohnFight/john_fight_anims.gd" id="1_2mi20"]
+[ext_resource type="Texture2D" uid="uid://cwnmwnse0gw42" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo1.png" id="2_m2yew"]
+
+[node name="JohnFightAnims" type="Node2D" unique_id=1228057302]
+script = ExtResource("1_2mi20")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=233840107]
+
+[node name="GroundCombo1" type="Sprite2D" parent="." unique_id=1968570009]
+texture = ExtResource("2_m2yew")
+hframes = 8
