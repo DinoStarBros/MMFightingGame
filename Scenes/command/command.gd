@@ -7,7 +7,10 @@ enum CommandTypes {
 	LEFT, DOWN_LEFT,
 	DOWN, DOWN_RIGHT,
 	
-	ONE, TWO, THREE, FOUR
+	ONE, TWO, THREE, FOUR,
+	
+	NEUTRAL,
+	
 }
 
 @onready var sprite: Sprite2D = %Sprite2D
@@ -15,9 +18,15 @@ enum CommandTypes {
 var command_type : CommandTypes
 var velocity : Vector2
 
+func _init() -> void:
+	GlobalSignal.TickInputP1.connect(_tick_input)
+
 func _ready() -> void:
 	sprite.frame = command_type + 1
 	velocity.x = -sprite.scale.x * 16
 
-func _physics_process(delta: float) -> void:
+func _tick_input() -> void:
 	global_position += velocity
+
+func _physics_process(delta: float) -> void:
+	pass

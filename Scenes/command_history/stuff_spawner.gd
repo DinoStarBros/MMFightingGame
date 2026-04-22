@@ -1,0 +1,21 @@
+extends Node
+class_name StuffSpawner
+
+@onready var command_start_point: Marker2D = %command_start_point
+
+const command_scn : PackedScene = preload("res://Scenes/command/command.tscn")
+const belt_box_scn = preload("uid://m6ny2ssxdku6")
+
+func spawn_command(command_type: Command.CommandTypes) -> void:
+	GlobalSignal.TickInputP1.emit()
+	
+	var command : Command = command_scn.instantiate()
+	command.command_type = command_type
+	add_child(command)
+	command.global_position = command_start_point.global_position
+
+func spawn_belt_box(posx : float) -> void:
+	var belt_box : Sprite2D = belt_box_scn.instantiate()
+	add_child(belt_box)
+	belt_box.global_position.x = posx + command_start_point.global_position.x
+	belt_box.global_position.y = command_start_point.global_position.y

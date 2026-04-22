@@ -16,7 +16,7 @@ shape = SubResource("RectangleShape2D_17b07")
 debug_color = Color(0.7112961, 0.48489213, 0, 0)
 
 [node name="JohnFightAnims" parent="." unique_id=1228057302 instance=ExtResource("2_fqhhd")]
-position = Vector2(0, -46)
+position = Vector2(0, -38)
 scale = Vector2(5.3, 5.3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]

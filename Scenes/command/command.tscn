@@ -3,16 +3,36 @@
 [ext_resource type="Script" uid="uid://1kyhtk3l1uw8" path="res://Scenes/command/command.gd" id="1_a5vkt"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_a5vkt"]
-_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAACAAQAAUklGRngBAABXRUJQVlA4TGsBAAAvP8APEBcw//M///MfgAfJDe3GkfTA2zAU5jObI2g4CqKOda/eTpzFBerHKcuYiSCi/2rTNmCUqXwiSaRBS6RhkKTPymcEgOg4aSCFdFIG9Tvvv22WDl11u/mMgKhOC4OUJNIr0nqhrDytFqUp0pilE7BSlr7WlK0FzVI6cSJJpOELDmkAtVAG0BOABiAmBgRAOmncHdIBykjDY/VMen6cmJUhSZ6Op5Wnz8qItHZiLg2dFk5TBh5Qt5tDWTrcHfL+2yCdABkgAfMhgA5gPqSAcoAiT9JwgPLFHgAaIIFEA7kPy+2Y9jKofXg9Xr1eXz0d+nNEj8/o4zMIqp8jXsYeL3oNmpKGpF3SU5SdbNJ2iPST12mHODkkbYKu1ojeRrT2gPo9eShaW0Cqvj28vn79UserA0rJUrL8dhglIbHYS6Kc9X6RfVzIz2Fr9RwXtZ8jLowr+9evY00a+r9aI/5NafhaSraGxEXqogMA")
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAACWAQAAUklGRo4BAABXRUJQVlA4TIEBAAAvP8APEB8gEEhS2B92DYFAkr/OgAsEkpT2h3v+A/BXgeSGduNIeuCchqEwn9kcQcNREHWse/V24iwuUD9OWcZkENF/hW3bNkyn/YkkkQYtkYZBkj4rnxEAouOkgRTSSRnUn7z/sVk6dNXt5jMCojotDFKSSK9I64Wy8rRafJoijVk6AStl6WtN2VrQLKUTJ5JEGr7gkAZQC2UAPQFoAGJiQACkk8bdIR2gjDQ8Vs2k58aJWRmS5Ol4Wnn6rIxIayfmT0OnhdOUgQfU7eZQlg53h7z/MUgnQAZIwFwIoAOYCymgHKDIkzQcoHyRB4AGSCDRQO7DcjumvAxqH16PV6/XV0+H/hzR4zP6+AyC6ueIl7HHi16DpqQhaZf0FGUnm7QdIv3kdcohTg5Jm6CrNaK3Ea09oP5MHorWFpCq7w+vb9++1vHqgFKylCy/H0ZJSCzykihnnV/MPi7k57C1eo6Lbz9HXBhX9m/fxpo0BF8uXB4XWiP+T2n4Wkq2hsTF1MUfAA==")
 size_override = Vector2(64, 64)
 
+[sub_resource type="Animation" id="Animation_8116r"]
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kyoik"]
+_data = {
+&"default": SubResource("Animation_8116r")
+}
 
 [node name="Command" type="Node2D" unique_id=1327090221]
 script = ExtResource("1_a5vkt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1660068108]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 0, 1)
 texture_filter = 1
 texture = SubResource("PortableCompressedTexture2D_a5vkt")
 hframes = 4
@@ -39,7 +59,7 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://Art/commandHistoryStuff.aseprite",
 "source_uid": 7186618426679782770
 }
-metadata/_aseprite_wizard_source_file_hash_ = "a171dd7cf2861cc73a5b92e7ec677bbd"
+metadata/_aseprite_wizard_source_file_hash_ = "3e6a85ef040507b1d134bafbfb31fcc0"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=66460505]
 libraries/ = SubResource("AnimationLibrary_kyoik")

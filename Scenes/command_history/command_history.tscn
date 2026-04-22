@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://cuij304o7bqou"]
 
 [ext_resource type="Script" uid="uid://d2esub8pkfnf3" path="res://Scenes/command_history/command_history.gd" id="1_q8m2r"]
+[ext_resource type="Script" uid="uid://cp1mej2mlhybi" path="res://Scenes/command_history/stuff_spawner.gd" id="2_g8204"]
 
 [node name="command_history" type="Node2D" unique_id=1725422575]
 script = ExtResource("1_q8m2r")
 
 [node name="command_start_point" type="Marker2D" parent="." unique_id=864022042]
 unique_name_in_owner = true
-position = Vector2(1158, 585)
+position = Vector2(1272, 560)
+
+[node name="StuffSpawner" type="Node" parent="." unique_id=52194027]
+unique_name_in_owner = true
+script = ExtResource("2_g8204")
