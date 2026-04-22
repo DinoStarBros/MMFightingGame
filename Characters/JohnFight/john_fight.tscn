@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://biyhsoc4h15fu" path="res://Characters/JohnFight/forward.gd" id="5_fn73y"]
 [ext_resource type="Script" uid="uid://ccomh81lsgw3o" path="res://Characters/JohnFight/idle.gd" id="6_2st6u"]
 [ext_resource type="PackedScene" uid="uid://cpni1q7bd30sg" path="res://Components/InputReader/input_reader.tscn" id="7_th7mi"]
+[ext_resource type="Script" uid="uid://djxm2phipbel8" path="res://Characters/JohnFight/back.gd" id="8_l57mv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -52,3 +53,6 @@ script = ExtResource("6_2st6u")
 
 [node name="Forward" type="Node" parent="StateMachine" unique_id=892806659]
 script = ExtResource("5_fn73y")
+
+[node name="Back" type="Node" parent="StateMachine" unique_id=111879738]
+script = ExtResource("8_l57mv")
