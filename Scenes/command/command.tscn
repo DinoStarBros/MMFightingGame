@@ -1,0 +1,45 @@
+[gd_scene format=4 uid="uid://cxvup7qmlxmko"]
+
+[ext_resource type="Script" uid="uid://1kyhtk3l1uw8" path="res://Scenes/command/command.gd" id="1_a5vkt"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_a5vkt"]
+_data = PackedByteArray("AAADAAUAAAABAAAAQAAAAEAAAACAAQAAUklGRngBAABXRUJQVlA4TGsBAAAvP8APEBcw//M///MfgAfJDe3GkfTA2zAU5jObI2g4CqKOda/eTpzFBerHKcuYiSCi/2rTNmCUqXwiSaRBS6RhkKTPymcEgOg4aSCFdFIG9Tvvv22WDl11u/mMgKhOC4OUJNIr0nqhrDytFqUp0pilE7BSlr7WlK0FzVI6cSJJpOELDmkAtVAG0BOABiAmBgRAOmncHdIBykjDY/VMen6cmJUhSZ6Op5Wnz8qItHZiLg2dFk5TBh5Qt5tDWTrcHfL+2yCdABkgAfMhgA5gPqSAcoAiT9JwgPLFHgAaIIFEA7kPy+2Y9jKofXg9Xr1eXz0d+nNEj8/o4zMIqp8jXsYeL3oNmpKGpF3SU5SdbNJ2iPST12mHODkkbYKu1ojeRrT2gPo9eShaW0Cqvj28vn79UserA0rJUrL8dhglIbHYS6Kc9X6RfVzIz2Fr9RwXtZ8jLowr+9evY00a+r9aI/5NafhaSraGxEXqogMA")
+size_override = Vector2(64, 64)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kyoik"]
+
+[node name="Command" type="Node2D" unique_id=1327090221]
+script = ExtResource("1_a5vkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1660068108]
+unique_name_in_owner = true
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_a5vkt")
+hframes = 4
+vframes = 4
+frame = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"scale": "1.0",
+"slice": "",
+"source": "res://Art/commandHistoryStuff.aseprite",
+"source_uid": 7186618426679782770
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a171dd7cf2861cc73a5b92e7ec677bbd"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=66460505]
+libraries/ = SubResource("AnimationLibrary_kyoik")

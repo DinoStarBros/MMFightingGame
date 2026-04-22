@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bx32navn8v4eu" path="res://CharacterAnims/JohnFight/john_fight_anims.gd" id="1_2mi20"]
 [ext_resource type="Texture2D" uid="uid://cwnmwnse0gw42" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo1.png" id="2_m2yew"]
+[ext_resource type="PackedScene" uid="uid://b22elq4qgcjq7" path="res://Components/HurtboxComponent/hurtbox_component.tscn" id="3_4dt3n"]
+[ext_resource type="PackedScene" uid="uid://cmd1vlynxp72q" path="res://Components/HitboxComponent/hitbox_component.tscn" id="4_ci7t1"]
 
 [node name="JohnFightAnims" type="Node2D" unique_id=1228057302]
 script = ExtResource("1_2mi20")
@@ -11,3 +13,7 @@ script = ExtResource("1_2mi20")
 [node name="GroundCombo1" type="Sprite2D" parent="." unique_id=1968570009]
 texture = ExtResource("2_m2yew")
 hframes = 8
+
+[node name="HurtboxComponent" parent="." unique_id=1415980216 instance=ExtResource("3_4dt3n")]
+
+[node name="HitboxComponent" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]

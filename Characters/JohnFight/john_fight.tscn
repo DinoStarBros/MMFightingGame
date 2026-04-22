@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d121p07cvbaga" path="res://Characters/JohnFight/john_fight.gd" id="1_17b07"]
 [ext_resource type="PackedScene" uid="uid://idc0d4kye7qi" path="res://CharacterAnims/JohnFight/john_fight_anims.tscn" id="2_fqhhd"]
+[ext_resource type="PackedScene" uid="uid://cuij304o7bqou" path="res://Scenes/command_history/command_history.tscn" id="3_mf22c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
 
 [node name="JohnFight" type="CharacterBody2D" unique_id=1012419678]
 script = ExtResource("1_17b07")
+metadata/_edit_vertical_guides_ = [1282.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929916068]
 shape = SubResource("RectangleShape2D_17b07")
@@ -16,3 +18,7 @@ debug_color = Color(0.7112961, 0.48489213, 0, 0)
 [node name="JohnFightAnims" parent="." unique_id=1228057302 instance=ExtResource("2_fqhhd")]
 position = Vector2(0, -46)
 scale = Vector2(5.3, 5.3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
+
+[node name="command_history" parent="CanvasLayer" unique_id=1725422575 instance=ExtResource("3_mf22c")]
