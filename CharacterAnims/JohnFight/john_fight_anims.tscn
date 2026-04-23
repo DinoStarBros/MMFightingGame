@@ -1,19 +1,75 @@
 [gd_scene format=3 uid="uid://idc0d4kye7qi"]
 
 [ext_resource type="Script" uid="uid://bx32navn8v4eu" path="res://CharacterAnims/JohnFight/john_fight_anims.gd" id="1_2mi20"]
-[ext_resource type="Texture2D" uid="uid://cwnmwnse0gw42" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo1.png" id="2_m2yew"]
 [ext_resource type="PackedScene" uid="uid://b22elq4qgcjq7" path="res://Components/HurtboxComponent/hurtbox_component.tscn" id="3_4dt3n"]
 [ext_resource type="PackedScene" uid="uid://cmd1vlynxp72q" path="res://Components/HitboxComponent/hitbox_component.tscn" id="4_ci7t1"]
+[ext_resource type="Texture2D" uid="uid://bywkmxvx1yj6" path="res://CharacterAnims/JohnFight/JohnFightSprites/Run.png" id="5_ci7t1"]
+[ext_resource type="PackedScene" uid="uid://dmxbvlpwic47o" path="res://Scenes/frame/frame.tscn" id="6_xi5uw"]
 
-[node name="JohnFightAnims" type="Node2D" unique_id=1228057302]
+[node name="JohnFightAnims" type="Node2D" unique_id=1228057302 node_paths=PackedStringArray("frames_parent")]
 script = ExtResource("1_2mi20")
+current_frame_idx = 1
+frames_parent = NodePath("frames_parent")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=233840107]
-
-[node name="GroundCombo1" type="Sprite2D" parent="." unique_id=1968570009]
-texture = ExtResource("2_m2yew")
-hframes = 8
 
 [node name="HurtboxComponent" parent="." unique_id=1415980216 instance=ExtResource("3_4dt3n")]
 
 [node name="HitboxComponent" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
+
+[node name="frames_parent" type="Node2D" parent="." unique_id=593757272]
+
+[node name="Run1" parent="frames_parent" unique_id=405307672 instance=ExtResource("6_xi5uw")]
+visible = false
+
+[node name="Run" type="Sprite2D" parent="frames_parent/Run1" unique_id=1942313099]
+texture = ExtResource("5_ci7t1")
+hframes = 8
+
+[node name="Run2" parent="frames_parent" unique_id=586994607 instance=ExtResource("6_xi5uw")]
+visible = false
+
+[node name="Run" type="Sprite2D" parent="frames_parent/Run2" unique_id=1950630622]
+texture = ExtResource("5_ci7t1")
+hframes = 8
+frame = 1
+
+[node name="Run3" parent="frames_parent" unique_id=749267122 instance=ExtResource("6_xi5uw")]
+visible = false
+
+[node name="Run" type="Sprite2D" parent="frames_parent/Run3" unique_id=240310698]
+texture = ExtResource("5_ci7t1")
+hframes = 8
+frame = 2
+
+[node name="Run4" parent="frames_parent" unique_id=1035405521 instance=ExtResource("6_xi5uw")]
+visible = false
+
+[node name="Run" type="Sprite2D" parent="frames_parent/Run4" unique_id=976321940]
+texture = ExtResource("5_ci7t1")
+hframes = 8
+frame = 4
+
+[node name="Run5" parent="frames_parent" unique_id=922647149 instance=ExtResource("6_xi5uw")]
+visible = false
+
+[node name="Run" type="Sprite2D" parent="frames_parent/Run5" unique_id=1181708533]
+texture = ExtResource("5_ci7t1")
+hframes = 8
+frame = 5
+
+[node name="Run6" parent="frames_parent" unique_id=2058179318 instance=ExtResource("6_xi5uw")]
+visible = false
+
+[node name="Run" type="Sprite2D" parent="frames_parent/Run6" unique_id=1176958225]
+texture = ExtResource("5_ci7t1")
+hframes = 8
+frame = 6
+
+[node name="Run7" parent="frames_parent" unique_id=758391947 instance=ExtResource("6_xi5uw")]
+visible = false
+
+[node name="Run" type="Sprite2D" parent="frames_parent/Run7" unique_id=1275631524]
+texture = ExtResource("5_ci7t1")
+hframes = 8
+frame = 7

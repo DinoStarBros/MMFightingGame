@@ -4,3 +4,12 @@ extends Node2D
 ## Just so that I don't have to stare at a cluttered ass scene tree
 ## And for convenience
 class_name CharacterAnim
+
+@export var current_frame_idx : int = 0
+@export var frames_parent : Node2D
+
+var frame : int = 0
+var current_frame : Frame
+var is_all_frames_loaded : bool = false
+
+@onready var all_frames : Array[Frame]
