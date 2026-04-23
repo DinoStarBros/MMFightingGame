@@ -6,10 +6,8 @@ extends Node2D
 class_name CharacterAnim
 
 @export var current_frame_idx : int = 0
-@export var frames_parent : Node2D
+@export var animation_parent_nodes : Dictionary
 
 var frame : int = 0
 var current_frame : Frame
 var is_all_frames_loaded : bool = false
-
-@onready var all_frames : Array[Frame]
