@@ -15,15 +15,20 @@ func physics_update(delta: float) -> void:
 func forward_dir_pressed_handling(delta: float) -> void:
 	var dir_history : Array = p.input_reader.dir_history
 	var atk_history : Array = p.input_reader.atk_history
+	var frames_since_last_dir_input : int = p.input_reader.frames_since_last_dir_input
+	var frames_since_last_atk_input : int = p.input_reader.frames_since_last_atk_input
+	var dir_frames_length_history : Array = p.input_reader.dir_frames_length_history
+	var atk_frames_length_history : Array = p.input_reader.atk_frames_length_history
 	
 	if (
+	frames_since_last_dir_input <= 10
+	and
 	dir_history[p.input_reader.input_limit - 2] == Command.CommandTypes.RIGHT
 	and
 	dir_history[p.input_reader.input_limit - 3] == Command.CommandTypes.NEUTRAL
 	and
 	dir_history[p.input_reader.input_limit - 4] == Command.CommandTypes.RIGHT
 	):
-		
 		p.velocity.x = p.forward_dash_speed
 		state_machine.change_state("ForwardDash")
 	

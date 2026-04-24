@@ -23,6 +23,7 @@ character_anim = NodePath("JohnFightAnims")
 forward_move_speed = 350.0
 backward_move_speed = -200.0
 forward_dash_speed = 700.0
+f_dash_friction = 0.95
 backward_dash_speed = -500.0
 metadata/_edit_vertical_guides_ = [1282.0]
 

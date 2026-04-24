@@ -4,3 +4,37 @@
 
 [node name="InputReader" type="Node2D" unique_id=1706886587]
 script = ExtResource("1_wgd5w")
+
+[node name="frame_since_dir" type="Label" parent="." unique_id=1682419850]
+unique_name_in_owner = true
+offset_left = -18.0
+offset_top = -120.0
+offset_right = 28.0
+offset_bottom = -97.0
+text = "67777"
+
+[node name="frame_since_atk" type="Label" parent="." unique_id=1908882416]
+unique_name_in_owner = true
+offset_left = -18.0
+offset_top = -103.0
+offset_right = 28.0
+offset_bottom = -80.0
+text = "67777"
+
+[node name="label" type="CanvasLayer" parent="." unique_id=422526707]
+
+[node name="things" type="VBoxContainer" parent="label" unique_id=1341909091]
+offset_left = 761.0
+offset_top = 105.0
+offset_right = 801.0
+offset_bottom = 155.0
+
+[node name="dir_frames_since_history" type="Label" parent="label/things" unique_id=1362133254]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10[0]"
+
+[node name="atk_frames_since_history" type="Label" parent="label/things" unique_id=2053629901]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10[0]"

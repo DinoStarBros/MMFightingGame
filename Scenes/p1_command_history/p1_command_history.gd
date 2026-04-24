@@ -10,7 +10,7 @@ var input_attack : Array[bool] = [false, false, false, false]:
 		p1_inputs.input_attack = input_attack
 var dir_command_history : Array
 var atk_command_history : Array
-var current_atk : int 
+var current_atk : int
 var current_dir : int
 
 const INPUT_LIMIT : int = 15
@@ -22,7 +22,6 @@ func _ready() -> void:
 	
 	for n in INPUT_LIMIT:
 		dir_command_history.append(0)
-	for n in INPUT_LIMIT:
 		atk_command_history.append(0)
 
 func _physics_process(delta: float) -> void:

@@ -15,9 +15,9 @@ enum CharacterSide {
 @export var jump_velocity: float = 980
 @export_subgroup("Dash Stats")
 @export var forward_dash_speed : float = 800
-@export var f_dash_friction : float = 0.8
+@export var f_dash_friction : float = 0.9
 @export var backward_dash_speed : float = -700
-@export var b_dash_friction : float = 0.8
+@export var b_dash_friction : float = 0.9
 
 @export_category("Frame Data BS")
 @export var f_dash_total_frames : int = 19
