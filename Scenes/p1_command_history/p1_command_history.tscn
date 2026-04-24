@@ -19,14 +19,6 @@ script = ExtResource("3_3nlub")
 unique_name_in_owner = true
 script = ExtResource("2_sluw8")
 
-[node name="frames_since_last_action" type="Label" parent="." unique_id=1454995029]
-unique_name_in_owner = true
-offset_left = 19.0
-offset_top = 66.0
-offset_right = 211.0
-offset_bottom = 89.0
-text = "Frames Since Last Action"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1613130476]
 offset_left = 385.0
 offset_top = 39.0
