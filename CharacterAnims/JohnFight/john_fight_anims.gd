@@ -19,6 +19,9 @@ func walk_backward() -> void:
 func forward_dash() -> void:
 	play_animation("forward_dash")
 
+func back_dash() -> void:
+	play_animation("back_dash")
+
 func play_animation(animation_name : String):
 	anim.stop()
 	anim.play(animation_name)

@@ -21,3 +21,4 @@ enum CharacterSide {
 
 @export_category("Frame Data BS")
 @export var f_dash_total_frames : int = 19
+@export var b_dash_total_frames : int = 23

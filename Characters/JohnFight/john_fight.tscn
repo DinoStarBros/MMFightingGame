@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cpni1q7bd30sg" path="res://Components/InputReader/input_reader.tscn" id="7_th7mi"]
 [ext_resource type="Script" uid="uid://djxm2phipbel8" path="res://Characters/JohnFight/states/back.gd" id="8_l57mv"]
 [ext_resource type="Script" uid="uid://c502a4wubbbr5" path="res://Characters/JohnFight/states/forward_dash.gd" id="9_6rsc1"]
+[ext_resource type="Script" uid="uid://biip0biuy7xx6" path="res://Characters/JohnFight/states/back_dash.gd" id="10_w86kj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -67,3 +68,6 @@ script = ExtResource("8_l57mv")
 
 [node name="ForwardDash" type="Node" parent="StateMachine" unique_id=1756864715]
 script = ExtResource("9_6rsc1")
+
+[node name="BackDash" type="Node" parent="StateMachine" unique_id=27709514]
+script = ExtResource("10_w86kj")

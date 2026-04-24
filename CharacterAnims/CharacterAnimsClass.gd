@@ -25,5 +25,8 @@ func walk_backward() -> void:
 func forward_dash() -> void:
 	assert(false, "Override this function")
 
+func back_dash() -> void:
+	assert(false, "Override this function")
+
 func show_specific_sprite(sprite_name: String) -> void:
 	assert(false, "Override this function")

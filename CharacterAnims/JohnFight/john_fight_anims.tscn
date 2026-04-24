@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cmd1vlynxp72q" path="res://Components/HitboxComponent/hitbox_component.tscn" id="4_ci7t1"]
 [ext_resource type="Texture2D" uid="uid://bywkmxvx1yj6" path="res://CharacterAnims/JohnFight/JohnFightSprites/Run.png" id="5_ci7t1"]
 [ext_resource type="AudioStream" uid="uid://cppxtyh63shtf" path="res://Audio/tresure/walkStep.wav" id="5_xi5uw"]
+[ext_resource type="Texture2D" uid="uid://bwigq2ik7kkfy" path="res://CharacterAnims/JohnFight/JohnFightSprites/TakeHit.png" id="6_dl5dx"]
 [ext_resource type="Texture2D" uid="uid://0p5oyvjobhee" path="res://CharacterAnims/JohnFight/JohnFightSprites/Idle.png" id="6_xi5uw"]
 
 [sub_resource type="Animation" id="Animation_ci7t1"]
@@ -45,6 +46,11 @@ tracks/2/keys = {
 "update": 1,
 "values": [1]
 }
+
+[sub_resource type="Animation" id="Animation_8axca"]
+resource_name = "back_dash"
+length = 0.31666836
+step = 0.016666668
 
 [sub_resource type="Animation" id="Animation_wsgfn"]
 resource_name = "forward_dash"
@@ -106,6 +112,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7t1"]
 _data = {
 &"RESET": SubResource("Animation_ci7t1"),
+&"back_dash": SubResource("Animation_8axca"),
 &"forward_dash": SubResource("Animation_wsgfn"),
 &"idle": SubResource("Animation_xi5uw"),
 &"walk_backward": SubResource("Animation_dl5dx"),
@@ -147,6 +154,9 @@ texture = ExtResource("6_xi5uw")
 texture = SubResource("CompressedTexture2D_xi5uw")
 hframes = 6
 frame = 1
+
+[node name="back_dash" type="Sprite2D" parent="sprites" unique_id=276413467]
+texture = ExtResource("6_dl5dx")
 
 [node name="sfx" type="Node" parent="." unique_id=268261747]
 
