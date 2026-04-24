@@ -1,22 +1,31 @@
 extends CharacterAnim
 class_name JohnFightAnims
 
-func _ready() -> void:
-	await get_tree().process_frame
-	
-	is_all_frames_loaded = true
-	
-	#print(all_frames)
+@onready var anim: AnimationPlayer = %anim
+@onready var sprites_parent: Node2D = %sprites
 
-func _physics_process(delta: float) -> void:
-	if !is_all_frames_loaded: return
+func _ready() -> void:
+	pass
+
+func idle() -> void:
+	play_animation("idle")
+
+func walk_forward() -> void:
+	play_animation("walk_forward")
+
+func walk_backward() -> void:
+	play_animation("walk_backward")
+
+func forward_dash() -> void:
+	play_animation("forward_dash")
+
+func play_animation(animation_name : String):
+	anim.stop()
+	anim.play(animation_name)
+	show_specific_sprite(animation_name)
+
+func show_specific_sprite(sprite_name: String) -> void:
+	for s in sprites_parent.get_children():
+		s.hide()
 	
-	#frame = wrapi(frame + 1, 0, all_frames.size())
-	
-	#current_frame = all_frames[frame]
-	
-	#for frm in all_frames: if frm is Frame:
-	#if frm == current_frame:
-		#frm.is_current_frame = true
-	#else:
-		#frm.is_current_frame = false
+	find_child(sprite_name).show()

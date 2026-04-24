@@ -4,10 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://idc0d4kye7qi" path="res://CharacterAnims/JohnFight/john_fight_anims.tscn" id="2_fqhhd"]
 [ext_resource type="PackedScene" uid="uid://cuij304o7bqou" path="res://Scenes/p1_command_history/p1_command_history.tscn" id="3_mf22c"]
 [ext_resource type="Script" uid="uid://cq31qgpvffhy8" path="res://StateMachineStuff/state_machine.gd" id="4_p1p80"]
-[ext_resource type="Script" uid="uid://biyhsoc4h15fu" path="res://Characters/JohnFight/forward.gd" id="5_fn73y"]
-[ext_resource type="Script" uid="uid://ccomh81lsgw3o" path="res://Characters/JohnFight/idle.gd" id="6_2st6u"]
+[ext_resource type="Script" uid="uid://biyhsoc4h15fu" path="res://Characters/JohnFight/states/forward.gd" id="5_fn73y"]
+[ext_resource type="Script" uid="uid://ccomh81lsgw3o" path="res://Characters/JohnFight/states/idle.gd" id="6_2st6u"]
 [ext_resource type="PackedScene" uid="uid://cpni1q7bd30sg" path="res://Components/InputReader/input_reader.tscn" id="7_th7mi"]
-[ext_resource type="Script" uid="uid://djxm2phipbel8" path="res://Characters/JohnFight/back.gd" id="8_l57mv"]
+[ext_resource type="Script" uid="uid://djxm2phipbel8" path="res://Characters/JohnFight/states/back.gd" id="8_l57mv"]
+[ext_resource type="Script" uid="uid://c502a4wubbbr5" path="res://Characters/JohnFight/states/forward_dash.gd" id="9_6rsc1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -15,9 +16,14 @@ size = Vector2(100, 180)
 [sub_resource type="LabelSettings" id="LabelSettings_fn73y"]
 font_size = 40
 
-[node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader")]
+[node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim")]
 script = ExtResource("1_17b07")
 input_reader = NodePath("InputReader")
+character_anim = NodePath("JohnFightAnims")
+forward_move_speed = 350.0
+backward_move_speed = -200.0
+forward_dash_speed = 700.0
+backward_dash_speed = -500.0
 metadata/_edit_vertical_guides_ = [1282.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929916068]
@@ -27,15 +33,8 @@ debug_color = Color(0.7112961, 0.48489213, 0, 0)
 [node name="InputReader" parent="." unique_id=1706886587 node_paths=PackedStringArray("command_history_node") instance=ExtResource("7_th7mi")]
 command_history_node = NodePath("../CanvasLayer/command_history")
 
-[node name="Label" type="Label" parent="." unique_id=1809092595]
-offset_left = -54.0
-offset_top = -154.0
-offset_right = 46.0
-offset_bottom = -99.0
-text = "State"
-label_settings = SubResource("LabelSettings_fn73y")
-
 [node name="JohnFightAnims" parent="." unique_id=1228057302 instance=ExtResource("2_fqhhd")]
+unique_name_in_owner = true
 position = Vector2(0, -38)
 scale = Vector2(5.3, 5.3)
 
@@ -43,10 +42,18 @@ scale = Vector2(5.3, 5.3)
 
 [node name="command_history" parent="CanvasLayer" unique_id=1725422575 instance=ExtResource("3_mf22c")]
 
+[node name="state" type="Label" parent="CanvasLayer" unique_id=1809092595]
+offset_left = 45.0
+offset_top = 129.0
+offset_right = 145.0
+offset_bottom = 184.0
+text = "State"
+label_settings = SubResource("LabelSettings_fn73y")
+
 [node name="StateMachine" type="Node" parent="." unique_id=2143610001 node_paths=PackedStringArray("initial_state", "debug")]
 script = ExtResource("4_p1p80")
 initial_state = NodePath("Idle")
-debug = NodePath("../Label")
+debug = NodePath("../CanvasLayer/state")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=706117107]
 script = ExtResource("6_2st6u")
@@ -56,3 +63,6 @@ script = ExtResource("5_fn73y")
 
 [node name="Back" type="Node" parent="StateMachine" unique_id=111879738]
 script = ExtResource("8_l57mv")
+
+[node name="ForwardDash" type="Node" parent="StateMachine" unique_id=1756864715]
+script = ExtResource("9_6rsc1")

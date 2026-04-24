@@ -9,8 +9,10 @@ var dir_history : Array
 var current_atk : int 
 var current_dir : int
 
+var input_limit : int
+
 func _ready() -> void:
-	pass
+	input_limit = command_history_node.INPUT_LIMIT
 
 func _physics_process(delta: float) -> void:
 	atk_history = command_history_node.atk_command_history

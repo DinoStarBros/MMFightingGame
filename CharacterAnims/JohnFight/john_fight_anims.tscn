@@ -4,76 +4,151 @@
 [ext_resource type="PackedScene" uid="uid://b22elq4qgcjq7" path="res://Components/HurtboxComponent/hurtbox_component.tscn" id="3_4dt3n"]
 [ext_resource type="PackedScene" uid="uid://cmd1vlynxp72q" path="res://Components/HitboxComponent/hitbox_component.tscn" id="4_ci7t1"]
 [ext_resource type="Texture2D" uid="uid://bywkmxvx1yj6" path="res://CharacterAnims/JohnFight/JohnFightSprites/Run.png" id="5_ci7t1"]
-[ext_resource type="PackedScene" uid="uid://dmxbvlpwic47o" path="res://Scenes/frame/frame.tscn" id="6_xi5uw"]
+[ext_resource type="AudioStream" uid="uid://cppxtyh63shtf" path="res://Audio/tresure/walkStep.wav" id="5_xi5uw"]
+[ext_resource type="Texture2D" uid="uid://0p5oyvjobhee" path="res://CharacterAnims/JohnFight/JohnFightSprites/Idle.png" id="6_xi5uw"]
+
+[sub_resource type="Animation" id="Animation_ci7t1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/walk_forward:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprites/walk_backward:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprites/forward_dash:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_wsgfn"]
+resource_name = "forward_dash"
+length = 0.31666836
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/forward_dash:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.083333336, 0.18333334, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_xi5uw"]
+resource_name = "idle"
+step = 0.016666668
+
+[sub_resource type="Animation" id="Animation_dl5dx"]
+resource_name = "walk_backward"
+length = 1.6
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/walk_backward:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_4dt3n"]
+resource_name = "walk_forward"
+length = 0.8
+loop_mode = 1
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/walk_forward:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.40000004, 0.5, 0.6, 0.70000005),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci7t1"]
+_data = {
+&"RESET": SubResource("Animation_ci7t1"),
+&"forward_dash": SubResource("Animation_wsgfn"),
+&"idle": SubResource("Animation_xi5uw"),
+&"walk_backward": SubResource("Animation_dl5dx"),
+&"walk_forward": SubResource("Animation_4dt3n")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xi5uw"]
+load_path = "res://.godot/imported/Dash.png-a80705b26dc6f70a0e8be7641685e4e1.ctex"
 
 [node name="JohnFightAnims" type="Node2D" unique_id=1228057302]
 script = ExtResource("1_2mi20")
-current_frame_idx = 1
-animation_parent_nodes = {
-"WalkForward": NodePath("frames_parent/Run")
-}
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=233840107]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ci7t1")
 
 [node name="HurtboxComponent" parent="." unique_id=1415980216 instance=ExtResource("3_4dt3n")]
 
 [node name="HitboxComponent" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
 
-[node name="frames_parent" type="Node2D" parent="." unique_id=593757272]
+[node name="sprites" type="Node2D" parent="." unique_id=234839014]
+unique_name_in_owner = true
 
-[node name="Run" type="Node2D" parent="frames_parent" unique_id=1143928799]
-
-[node name="Run1" parent="frames_parent/Run" unique_id=405307672 instance=ExtResource("6_xi5uw")]
-visible = false
-
-[node name="Run" type="Sprite2D" parent="frames_parent/Run/Run1" unique_id=1942313099]
-texture = ExtResource("5_ci7t1")
-hframes = 8
-
-[node name="Run2" parent="frames_parent/Run" unique_id=586994607 instance=ExtResource("6_xi5uw")]
-visible = false
-
-[node name="Run" type="Sprite2D" parent="frames_parent/Run/Run2" unique_id=1950630622]
+[node name="walk_forward" type="Sprite2D" parent="sprites" unique_id=77830011]
 texture = ExtResource("5_ci7t1")
 hframes = 8
 frame = 1
 
-[node name="Run3" parent="frames_parent/Run" unique_id=749267122 instance=ExtResource("6_xi5uw")]
-visible = false
-
-[node name="Run" type="Sprite2D" parent="frames_parent/Run/Run3" unique_id=240310698]
+[node name="walk_backward" type="Sprite2D" parent="sprites" unique_id=1799704692]
 texture = ExtResource("5_ci7t1")
+flip_h = true
 hframes = 8
-frame = 2
+frame = 1
 
-[node name="Run4" parent="frames_parent/Run" unique_id=1035405521 instance=ExtResource("6_xi5uw")]
-visible = false
+[node name="idle" type="Sprite2D" parent="sprites" unique_id=811883521]
+texture = ExtResource("6_xi5uw")
 
-[node name="Run" type="Sprite2D" parent="frames_parent/Run/Run4" unique_id=976321940]
-texture = ExtResource("5_ci7t1")
-hframes = 8
-frame = 4
+[node name="forward_dash" type="Sprite2D" parent="sprites" unique_id=416071482]
+texture = SubResource("CompressedTexture2D_xi5uw")
+hframes = 6
+frame = 1
 
-[node name="Run5" parent="frames_parent/Run" unique_id=922647149 instance=ExtResource("6_xi5uw")]
-visible = false
+[node name="sfx" type="Node" parent="." unique_id=268261747]
 
-[node name="Run" type="Sprite2D" parent="frames_parent/Run/Run5" unique_id=1181708533]
-texture = ExtResource("5_ci7t1")
-hframes = 8
-frame = 5
-
-[node name="Run6" parent="frames_parent/Run" unique_id=2058179318 instance=ExtResource("6_xi5uw")]
-visible = false
-
-[node name="Run" type="Sprite2D" parent="frames_parent/Run/Run6" unique_id=1176958225]
-texture = ExtResource("5_ci7t1")
-hframes = 8
-frame = 6
-
-[node name="Run7" parent="frames_parent/Run" unique_id=758391947 instance=ExtResource("6_xi5uw")]
-visible = false
-
-[node name="Run" type="Sprite2D" parent="frames_parent/Run/Run7" unique_id=1275631524]
-texture = ExtResource("5_ci7t1")
-hframes = 8
-frame = 7
+[node name="walk_step" type="AudioStreamPlayer" parent="sfx" unique_id=165556958]
+stream = ExtResource("5_xi5uw")

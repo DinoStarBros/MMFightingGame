@@ -4,8 +4,8 @@ class_name P1StuffSpawner
 @onready var command_start_point: Marker2D = %dir_command_start_point
 @onready var command_history : P1CommandHistory = get_parent()
 
-const command_scn : PackedScene = preload("uid://cxvup7qmlxmko")
-const belt_box_scn : PackedScene = preload("uid://m6ny2ssxdku6")
+const command_scn : PackedScene = preload("res://Scenes/p1_command/p1_command.tscn")
+const belt_box_scn : PackedScene = preload("res://Scenes/p1_command/p1_belt_box.tscn")
 
 func spawn_dir_command(command_type: Command.CommandTypes) -> void:
 	GlobalSignal.TickInputP1.emit()
@@ -19,7 +19,6 @@ func spawn_dir_command(command_type: Command.CommandTypes) -> void:
 
 func spawn_attack_command(command_type: Command.CommandTypes) -> void:
 	GlobalSignal.TickInputP1.emit()
-	
 	
 	var command : Command = command_scn.instantiate()
 	command.command_type = command_type

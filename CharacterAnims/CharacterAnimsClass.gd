@@ -5,9 +5,25 @@ extends Node2D
 ## And for convenience
 class_name CharacterAnim
 
-@export var current_frame_idx : int = 0
-@export var animation_parent_nodes : Dictionary
+## Signal that gets emitted when an animation is done playing.
+## For stuff that plays and then you go back to idle, like
+## dashing, attacking, etc.
+signal AnimationDone
 
-var frame : int = 0
-var current_frame : Frame
-var is_all_frames_loaded : bool = false
+func emit_anim_done() -> void:
+	AnimationDone.emit()
+
+func idle() -> void:
+	assert(false, "Override this function")
+
+func walk_forward() -> void:
+	assert(false, "Override this function")
+
+func walk_backward() -> void:
+	assert(false, "Override this function")
+
+func forward_dash() -> void:
+	assert(false, "Override this function")
+
+func show_specific_sprite(sprite_name: String) -> void:
+	assert(false, "Override this function")

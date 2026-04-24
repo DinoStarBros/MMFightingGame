@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bffcqjowc7318" path="res://icon.svg" id="2_2iepo"]
 [ext_resource type="Script" uid="uid://cq31qgpvffhy8" path="res://StateMachineStuff/state_machine.gd" id="3_he3t6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he3t6"]
+size = Vector2(54, 851)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7l4e"]
 size = Vector2(1400, 50)
 
@@ -14,7 +17,17 @@ script = ExtResource("1_i7l4e")
 scale = Vector2(10.953125, 0.375)
 texture = ExtResource("2_2iepo")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055758164]
+[node name="lWall" type="CollisionShape2D" parent="." unique_id=784591857]
+position = Vector2(-680, -400.5)
+shape = SubResource("RectangleShape2D_he3t6")
+debug_color = Color(0.6242104, 0.53290874, 7.70092e-07, 0.41960785)
+
+[node name="rWall" type="CollisionShape2D" parent="." unique_id=2116379634]
+position = Vector2(680, -400.5)
+shape = SubResource("RectangleShape2D_he3t6")
+debug_color = Color(0.6242104, 0.53290874, 7.70092e-07, 0.41960785)
+
+[node name="floor" type="CollisionShape2D" parent="." unique_id=1055758164]
 shape = SubResource("RectangleShape2D_i7l4e")
 debug_color = Color(0.6242104, 0.53290874, 7.70092e-07, 0.41960785)
 
