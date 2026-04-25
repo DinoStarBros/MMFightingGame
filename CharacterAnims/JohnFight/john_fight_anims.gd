@@ -33,12 +33,15 @@ func back_dash() -> void:
 
 func standing_light() -> void:
 	play_animation("standing_light")
-	play_sfx_pitch_rand(%light_atk)
+	play_sfx_pitch_rand(%atk)
 
 func standing_medium() -> void:
 	play_animation("standing_medium")
+	play_sfx_pitch_rand(%atk, 0.8)
 
-
+func standing_heavy() -> void:
+	play_animation("standing_heavy")
+	play_sfx_pitch_rand(%heavy_atk_wind, 1.2)
 
 func play_animation(animation_name : String):
 	anim.stop()

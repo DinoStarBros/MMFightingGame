@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://bne1tls41o6wy" path="res://CharacterAnims/JohnFight/JohnFightSprites/JumpAndFall.png" id="9_dow8o"]
 [ext_resource type="AudioStream" uid="uid://daiixog5jq884" path="res://Audio/cardtowersfx/sword_slash.wav" id="11_craq1"]
 [ext_resource type="AudioStream" uid="uid://cw0s6bkxlwn2b" path="res://Audio/splashtownSFX/Jump.wav" id="13_ij605"]
+[ext_resource type="AudioStream" uid="uid://cufbh23n2tx0q" path="res://Audio/whip_windup.wav" id="13_rhcl0"]
+[ext_resource type="AudioStream" uid="uid://dm8hfjkxsi624" path="res://Audio/whip_hit.wav" id="15_23jpl"]
+[ext_resource type="Texture2D" uid="uid://c36ls26jmhln5" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo3.png" id="15_pehwl"]
 
 [sub_resource type="Animation" id="Animation_ci7t1"]
 length = 0.001
@@ -87,6 +90,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1.2, 0.8)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("sprites/standing_medium:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("sprites/standing_heavy:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_8axca"]
@@ -173,6 +200,34 @@ tracks/1/keys = {
 "values": [Vector2(0.8, 1.2), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_pehwl"]
+resource_name = "standing_heavy"
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/standing_heavy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.016666668, 0.16666667, 0.18333334, 0.20000002, 0.21666667, 0.23333335, 0.25, 0.26666668, 0.28333336, 0.3, 0.31666666, 0.33333337),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sfx/heavy_atk_smack:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_h6moj"]
 resource_name = "standing_light"
 length = 0.21666834
@@ -193,6 +248,18 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_rhcl0"]
 resource_name = "standing_medium"
 step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/standing_medium:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.13333334, 0.16666667, 0.18333334, 0.2, 0.21666667, 0.23333335, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
 
 [sub_resource type="Animation" id="Animation_dl5dx"]
 resource_name = "walk_backward"
@@ -238,6 +305,7 @@ _data = {
 &"forward_dash": SubResource("Animation_wsgfn"),
 &"idle": SubResource("Animation_xi5uw"),
 &"jump": SubResource("Animation_dow8o"),
+&"standing_heavy": SubResource("Animation_pehwl"),
 &"standing_light": SubResource("Animation_h6moj"),
 &"standing_medium": SubResource("Animation_rhcl0"),
 &"walk_backward": SubResource("Animation_dl5dx"),
@@ -288,6 +356,7 @@ visible = false
 texture = ExtResource("6_dl5dx")
 
 [node name="standing_light" type="Sprite2D" parent="sprites" unique_id=672655471]
+visible = false
 texture = ExtResource("9_8axca")
 hframes = 8
 frame = 1
@@ -296,7 +365,12 @@ frame = 1
 visible = false
 texture = ExtResource("8_h6moj")
 hframes = 10
-frame = 2
+frame = 1
+
+[node name="standing_heavy" type="Sprite2D" parent="sprites" unique_id=8280806]
+texture = ExtResource("15_pehwl")
+hframes = 14
+frame = 1
 
 [node name="jump" type="Sprite2D" parent="sprites" unique_id=1192703873]
 visible = false
@@ -324,11 +398,23 @@ stream = ExtResource("8_wsgfn")
 volume_db = -5.0
 bus = &"SFX"
 
-[node name="light_atk" type="AudioStreamPlayer" parent="sfx" unique_id=1002095661]
+[node name="atk" type="AudioStreamPlayer" parent="sfx" unique_id=1002095661]
 unique_name_in_owner = true
 stream = ExtResource("11_craq1")
 volume_db = -5.0
 pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="heavy_atk_wind" type="AudioStreamPlayer" parent="sfx" unique_id=396223543]
+unique_name_in_owner = true
+stream = ExtResource("13_rhcl0")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="heavy_atk_smack" type="AudioStreamPlayer" parent="sfx" unique_id=787501517]
+unique_name_in_owner = true
+stream = ExtResource("15_23jpl")
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="jump" type="AudioStreamPlayer" parent="sfx" unique_id=914818439]

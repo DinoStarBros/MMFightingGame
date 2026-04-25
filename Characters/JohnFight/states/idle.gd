@@ -11,11 +11,12 @@ func physics_update(delta: float) -> void:
 	if p.input_reader.current_dir == Command.CommandTypes.LEFT:
 		_back_dir_pressed_handling(delta)
 	
-	if (p.input_reader.current_atk == Command.CommandTypes.ONE
-		and
-		p.frames_since_last_atk_input < p.standing_l_total_frames
-		):
+	if allow_attack(Command.CommandTypes.ONE):
 		state_machine.change_state("StandingLight")
+	if allow_attack(Command.CommandTypes.TWO):
+		state_machine.change_state("StandingMedium")
+	if allow_attack(Command.CommandTypes.THREE):
+		state_machine.change_state("StandingHeavy")
 	
 	if p.input_reader.current_dir == Command.CommandTypes.UP:
 		state_machine.change_state("Jump")
@@ -70,3 +71,10 @@ func _back_dir_pressed_handling(delta: float) -> void:
 	
 		p.velocity.x = p.backward_move_speed
 		state_machine.change_state("Back")
+
+func allow_attack(atk : Command.CommandTypes) -> bool:
+	return (
+		p.input_reader.current_atk == atk
+		and
+		p.frames_since_last_atk_input < p.standing_l_total_frames
+	)

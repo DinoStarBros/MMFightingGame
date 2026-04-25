@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://dc5ur72awjx1w" path="res://Characters/JohnFight/states/forward_jump.gd" id="13_8tblb"]
 [ext_resource type="Script" uid="uid://drka81x0ykyq5" path="res://Characters/JohnFight/states/fall.gd" id="13_un0rh"]
 [ext_resource type="Script" uid="uid://b8jxuqfyv5bfr" path="res://Characters/JohnFight/states/back_jump.gd" id="15_3klag"]
+[ext_resource type="Script" uid="uid://5g65rc1jydtj" path="res://Characters/JohnFight/states/standing_medium.gd" id="16_3klag"]
+[ext_resource type="Script" uid="uid://bq2ptby6pnq4w" path="res://Characters/JohnFight/states/standing_heavy.gd" id="17_ur5bw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -108,3 +110,9 @@ script = ExtResource("13_un0rh")
 
 [node name="StandingLight" type="Node" parent="StateMachine" unique_id=70116017]
 script = ExtResource("11_hucss")
+
+[node name="StandingMedium" type="Node" parent="StateMachine" unique_id=1870471100]
+script = ExtResource("16_3klag")
+
+[node name="StandingHeavy" type="Node" parent="StateMachine" unique_id=406035727]
+script = ExtResource("17_ur5bw")

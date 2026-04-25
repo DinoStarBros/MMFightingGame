@@ -69,7 +69,7 @@ var just_atk : bool = false
 var last_frame_pressed : bool = false
 func just_atk_pressed(attack : Command.CommandTypes) -> bool:
 	
-	var is_pressed : bool = current_atk == Command.CommandTypes.ONE
+	var is_pressed : bool = current_atk == attack
 	var is_just_pressed : bool = is_pressed and not last_frame_pressed
 	last_frame_pressed = is_pressed
 	return is_just_pressed

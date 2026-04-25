@@ -1,7 +1,5 @@
 extends State
 
-var frames : float = 0
-
 func enter() -> void:
 	frames = 0
 	
