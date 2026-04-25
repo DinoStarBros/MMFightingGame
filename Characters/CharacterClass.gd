@@ -35,8 +35,14 @@ var gatling_count : int
 @export var b_dash_total_frames : int = 23
 @export_subgroup("Base Attacks Frames")
 @export var standing_l_total_frames : int = 13
-@export var standing_l_recovery_start_frame : int = 6 ## This is how many frames till u can start buffering/cancels
+@export var standing_l_recovery_start_frame : int = 7 ## This is how many frames till u can start buffering/cancels
 @export var standing_m_total_frames : int = 20
-@export var standing_m_recovery_start_frame : int = 9 ## This is how many frames till u can start buffering/cancels
+@export var standing_m_recovery_start_frame : int = 10 ## This is how many frames till u can start buffering/cancels
 @export var standing_h_total_frames : int = 31
-@export var standing_h_recovery_start_frame : int = 13 ## This is how many frames till u can start buffering/cancels
+@export var standing_h_recovery_start_frame : int = 14 ## This is how many frames till u can start buffering/cancels
+@export_subgroup("Specials")
+@export var qcf_light_frame_total : int = 47
+@export var qcf_l_startup : int = 14
+
+@export_category("Combat Stats")
+@export var bullet_x_speed : float = 1000

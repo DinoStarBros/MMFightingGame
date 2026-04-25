@@ -12,10 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://cwnmwnse0gw42" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo1.png" id="9_8axca"]
 [ext_resource type="Texture2D" uid="uid://bne1tls41o6wy" path="res://CharacterAnims/JohnFight/JohnFightSprites/JumpAndFall.png" id="9_dow8o"]
 [ext_resource type="AudioStream" uid="uid://daiixog5jq884" path="res://Audio/cardtowersfx/sword_slash.wav" id="11_craq1"]
+[ext_resource type="Texture2D" uid="uid://b2e50hn2busxu" path="res://Art/Stuff2/2d_lights_and_shadows_neutral_point_light.webp" id="12_67ub0"]
 [ext_resource type="AudioStream" uid="uid://cw0s6bkxlwn2b" path="res://Audio/splashtownSFX/Jump.wav" id="13_ij605"]
 [ext_resource type="AudioStream" uid="uid://cufbh23n2tx0q" path="res://Audio/whip_windup.wav" id="13_rhcl0"]
 [ext_resource type="AudioStream" uid="uid://dm8hfjkxsi624" path="res://Audio/whip_hit.wav" id="15_23jpl"]
 [ext_resource type="Texture2D" uid="uid://c36ls26jmhln5" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo3.png" id="15_pehwl"]
+[ext_resource type="Texture2D" uid="uid://b0hj6pttdyfvs" path="res://CharacterAnims/JohnFight/JohnFightSprites/ShootGun1.png" id="17_ap1fo"]
+[ext_resource type="AudioStream" uid="uid://byygfe55sfi6t" path="res://Audio/pistol-shot-233473.mp3" id="17_jjsi8"]
 
 [sub_resource type="Animation" id="Animation_ci7t1"]
 length = 0.001
@@ -115,6 +118,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("sprites/qcf_light:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("sprites/qcf_light/PointLight2D:energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_8axca"]
 resource_name = "back_dash"
@@ -198,6 +225,47 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.8, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jjsi8"]
+resource_name = "qcf_light"
+length = 0.78333503
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/qcf_light:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sfx/shoot:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.058253903),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprites/qcf_light/PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.21666668, 0.25, 0.28333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_pehwl"]
@@ -305,6 +373,7 @@ _data = {
 &"forward_dash": SubResource("Animation_wsgfn"),
 &"idle": SubResource("Animation_xi5uw"),
 &"jump": SubResource("Animation_dow8o"),
+&"qcf_light": SubResource("Animation_jjsi8"),
 &"standing_heavy": SubResource("Animation_pehwl"),
 &"standing_light": SubResource("Animation_h6moj"),
 &"standing_medium": SubResource("Animation_rhcl0"),
@@ -368,6 +437,7 @@ hframes = 10
 frame = 1
 
 [node name="standing_heavy" type="Sprite2D" parent="sprites" unique_id=8280806]
+visible = false
 texture = ExtResource("15_pehwl")
 hframes = 14
 frame = 1
@@ -385,6 +455,17 @@ scale = Vector2(1.2, 0.8)
 texture = ExtResource("9_dow8o")
 hframes = 2
 frame = 1
+
+[node name="qcf_light" type="Sprite2D" parent="sprites" unique_id=884511554]
+texture = ExtResource("17_ap1fo")
+hframes = 2
+frame = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="sprites/qcf_light" unique_id=1084510107]
+position = Vector2(18, 0)
+color = Color(1, 1, 0.23921569, 1)
+energy = 0.0
+texture = ExtResource("12_67ub0")
 
 [node name="sfx" type="Node" parent="." unique_id=268261747]
 
@@ -414,6 +495,12 @@ bus = &"SFX"
 [node name="heavy_atk_smack" type="AudioStreamPlayer" parent="sfx" unique_id=787501517]
 unique_name_in_owner = true
 stream = ExtResource("15_23jpl")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="shoot" type="AudioStreamPlayer" parent="sfx" unique_id=588693230]
+unique_name_in_owner = true
+stream = ExtResource("17_jjsi8")
 volume_db = -10.0
 bus = &"SFX"
 

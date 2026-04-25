@@ -8,25 +8,19 @@ func enter() -> void:
 	what_was_pressed = Command.CommandTypes.NEUTRAL
 	allow_buffer = false
 
+func update(delta: float) -> void:
+	if p.input_reader.just_atk_pressed(Command.CommandTypes.THREE):
+		what_was_pressed = Command.CommandTypes.THREE
+
 func physics_update(delta: float) -> void:
 	frames += 1
 	
-	allow_buffer = frames >= p.standing_m_recovery_start_frame
-	
-	if allow_buffer:
-		if p.input_reader.just_atk_pressed(Command.CommandTypes.THREE):
-			what_was_pressed = Command.CommandTypes.THREE
+	if frames >= p.standing_m_recovery_start_frame:
+		if what_was_pressed == Command.CommandTypes.THREE:
+			state_machine.change_state("StandingHeavy")
 	
 	if frames >= p.standing_m_total_frames:
-		if (
-			what_was_pressed == Command.CommandTypes.THREE
-			):
-			
-			state_machine.change_state("StandingHeavy")
-			
-		else:
-			
-			state_machine.change_state("Idle")
+		state_machine.change_state("Idle")
 
 func exit() -> void:
 	what_was_pressed = Command.CommandTypes.NEUTRAL

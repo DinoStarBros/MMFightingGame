@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://cl31yn5mrnyf4"
 SceneManager="*uid://j20v4cg7v8m1"
 Global="*uid://ivtmt3hnoiib"
 GlobalSignal="*uid://bewfdbcmoxiv7"
+References="*uid://p0lscn1txp1w"
 
 [debug]
 

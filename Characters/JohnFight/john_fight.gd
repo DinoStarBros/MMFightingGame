@@ -1,6 +1,8 @@
 extends Character
 class_name JohnFight
 
+@onready var bullet_spawn_point: Marker2D = %BulletSpawnPoint
+
 func _ready() -> void:
 	pass
 

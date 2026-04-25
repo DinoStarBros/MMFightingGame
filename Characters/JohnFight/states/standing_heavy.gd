@@ -11,10 +11,6 @@ func enter() -> void:
 func physics_update(delta: float) -> void:
 	frames += 1
 	
-	allow_buffer = frames >= p.standing_h_recovery_start_frame
-	
-	if allow_buffer:
-		pass
 	
 	if frames >= p.standing_h_total_frames:
 		state_machine.change_state("Idle")

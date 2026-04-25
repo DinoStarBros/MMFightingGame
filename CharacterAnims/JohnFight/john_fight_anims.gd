@@ -43,6 +43,9 @@ func standing_heavy() -> void:
 	play_animation("standing_heavy")
 	play_sfx_pitch_rand(%heavy_atk_wind, 1.2)
 
+func qcf_light() -> void:
+	play_animation("qcf_light")
+
 func play_animation(animation_name : String):
 	anim.stop()
 	anim.play(animation_name)
@@ -54,6 +57,6 @@ func show_specific_sprite(sprite_name: String) -> void:
 	
 	find_child(sprite_name).show()
 
-func play_sfx_pitch_rand(sfx: AudioStreamPlayer, base_pitch: float = 1, pitch_deviation: float = .1) -> void:
+func play_sfx_pitch_rand(sfx: AudioStreamPlayer,base_pitch: float = 1, pitch_deviation: float = .1, start_pos:float=0) -> void:
 	sfx.pitch_scale = base_pitch + randf_range(-pitch_deviation, pitch_deviation)
-	sfx.play()
+	sfx.play(start_pos)

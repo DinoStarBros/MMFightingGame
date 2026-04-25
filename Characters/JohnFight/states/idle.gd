@@ -5,6 +5,7 @@ func enter() -> void:
 	p.character_anim.idle()
 
 func physics_update(delta: float) -> void:
+	
 	if p.input_reader.current_dir == Command.CommandTypes.RIGHT:
 		_forward_dir_pressed_handling(delta)
 	

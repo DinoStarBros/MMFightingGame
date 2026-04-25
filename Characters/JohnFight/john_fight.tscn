@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://b8jxuqfyv5bfr" path="res://Characters/JohnFight/states/back_jump.gd" id="15_3klag"]
 [ext_resource type="Script" uid="uid://5g65rc1jydtj" path="res://Characters/JohnFight/states/standing_medium.gd" id="16_3klag"]
 [ext_resource type="Script" uid="uid://bq2ptby6pnq4w" path="res://Characters/JohnFight/states/standing_heavy.gd" id="17_ur5bw"]
+[ext_resource type="Script" uid="uid://ba6t0fijg8f0c" path="res://Characters/JohnFight/states/light_shoot.gd" id="18_feh3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -48,6 +49,12 @@ command_history_node = NodePath("../CanvasLayer/command_history")
 unique_name_in_owner = true
 position = Vector2(0, -38)
 scale = Vector2(5.3, 5.3)
+
+[node name="Guides" type="Node2D" parent="." unique_id=1503973948]
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="Guides" unique_id=1401360423]
+unique_name_in_owner = true
+position = Vector2(97, -41)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
 
@@ -116,3 +123,6 @@ script = ExtResource("16_3klag")
 
 [node name="StandingHeavy" type="Node" parent="StateMachine" unique_id=406035727]
 script = ExtResource("17_ur5bw")
+
+[node name="QCFLight" type="Node" parent="StateMachine" unique_id=245292477]
+script = ExtResource("18_feh3i")
