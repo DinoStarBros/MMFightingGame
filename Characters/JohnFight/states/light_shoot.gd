@@ -23,8 +23,8 @@ func physics_update(delta: float) -> void:
 	frames += 1
 	
 	if frames >= p.qcf_l_startup and !bullet_spawned:
-		bullet_spawned = true
 		spawn_bullet(bullet_velocity)
+		bullet_spawned = true
 	
 	if frames >= p.qcf_light_frame_total:
 		state_machine.change_state("Idle")
