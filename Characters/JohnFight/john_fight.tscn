@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://djxm2phipbel8" path="res://Characters/JohnFight/states/back.gd" id="8_l57mv"]
 [ext_resource type="Script" uid="uid://c502a4wubbbr5" path="res://Characters/JohnFight/states/forward_dash.gd" id="9_6rsc1"]
 [ext_resource type="Script" uid="uid://biip0biuy7xx6" path="res://Characters/JohnFight/states/back_dash.gd" id="10_w86kj"]
+[ext_resource type="Script" uid="uid://dvpvnaff37mff" path="res://Characters/JohnFight/states/standing_light.gd" id="11_hucss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -19,16 +20,22 @@ font_size = 40
 
 [node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim")]
 script = ExtResource("1_17b07")
-input_reader = NodePath("InputReader")
-character_anim = NodePath("JohnFightAnims")
+character_side = null
 forward_move_speed = 350.0
 backward_move_speed = -200.0
+jump_velocity = null
 forward_dash_speed = 700.0
 f_dash_friction = 0.95
 backward_dash_speed = -500.0
+b_dash_friction = null
+f_dash_total_frames = null
+b_dash_total_frames = null
+input_reader = NodePath("InputReader")
+character_anim = NodePath("JohnFightAnims")
 metadata/_edit_vertical_guides_ = [1282.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929916068]
+visible = false
 shape = SubResource("RectangleShape2D_17b07")
 debug_color = Color(0.7112961, 0.48489213, 0, 0)
 
@@ -71,3 +78,6 @@ script = ExtResource("9_6rsc1")
 
 [node name="BackDash" type="Node" parent="StateMachine" unique_id=27709514]
 script = ExtResource("10_w86kj")
+
+[node name="StandingLight" type="Node" parent="StateMachine" unique_id=70116017]
+script = ExtResource("11_hucss")

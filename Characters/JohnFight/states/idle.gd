@@ -10,9 +10,16 @@ func physics_update(delta: float) -> void:
 	
 	if p.input_reader.current_dir == Command.CommandTypes.LEFT:
 		_back_dir_pressed_handling(delta)
+	
+	if (p.input_reader.current_atk == Command.CommandTypes.ONE
+		and
+		p.frames_since_last_atk_input < p.standing_l_total_frames
+		):
+		state_machine.change_state("StandingLight")
+
+
 
 func _forward_dir_pressed_handling(delta: float) -> void:
-	
 	if (
 	p.dir_frames_length_history[p.input_limit - 3] <= 10
 	and
@@ -35,7 +42,6 @@ func _forward_dir_pressed_handling(delta: float) -> void:
 		state_machine.change_state("Forward")
 
 func _back_dir_pressed_handling(delta: float) -> void:
-	
 	if (
 	p.dir_frames_length_history[p.input_limit - 3] <= 10
 	and

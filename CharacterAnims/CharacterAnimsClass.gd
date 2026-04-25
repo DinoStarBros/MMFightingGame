@@ -28,5 +28,15 @@ func forward_dash() -> void:
 func back_dash() -> void:
 	assert(false, "Override this function")
 
+
+func standing_light() -> void:
+	assert(false, "Override this function")
+
+func standing_medium() -> void:
+	assert(false, "Override this function")
+
+func standing_heavy() -> void:
+	assert(false, "Override this function")
+
 func show_specific_sprite(sprite_name: String) -> void:
 	assert(false, "Override this function")

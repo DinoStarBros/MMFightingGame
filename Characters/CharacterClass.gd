@@ -5,6 +5,14 @@ enum CharacterSide {
 	P1, P2
 }
 
+var dir_history : Array
+var atk_history : Array
+var input_limit : int
+var frames_since_last_dir_input : int
+var frames_since_last_atk_input : int
+var dir_frames_length_history : Array
+var atk_frames_length_history : Array
+
 @export var character_side : CharacterSide
 @export var input_reader : InputReader
 @export var character_anim : CharacterAnim
@@ -20,5 +28,8 @@ enum CharacterSide {
 @export var b_dash_friction : float = 0.9
 
 @export_category("Frame Data BS")
+@export_subgroup("Dash Frames")
 @export var f_dash_total_frames : int = 19
 @export var b_dash_total_frames : int = 23
+@export_subgroup("Base Attacks Frames")
+@export var standing_l_total_frames : int = 13

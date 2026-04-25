@@ -7,6 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://cppxtyh63shtf" path="res://Audio/tresure/walkStep.wav" id="5_xi5uw"]
 [ext_resource type="Texture2D" uid="uid://bwigq2ik7kkfy" path="res://CharacterAnims/JohnFight/JohnFightSprites/TakeHit.png" id="6_dl5dx"]
 [ext_resource type="Texture2D" uid="uid://0p5oyvjobhee" path="res://CharacterAnims/JohnFight/JohnFightSprites/Idle.png" id="6_xi5uw"]
+[ext_resource type="Texture2D" uid="uid://85ytqbis7ocu" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo2.png" id="8_h6moj"]
+[ext_resource type="AudioStream" uid="uid://nj64nd85rtql" path="res://Audio/splashtownSFX/Airdash.wav" id="8_wsgfn"]
+[ext_resource type="Texture2D" uid="uid://cwnmwnse0gw42" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo1.png" id="9_8axca"]
+[ext_resource type="AudioStream" uid="uid://daiixog5jq884" path="res://Audio/cardtowersfx/sword_slash.wav" id="11_craq1"]
 
 [sub_resource type="Animation" id="Animation_ci7t1"]
 length = 0.001
@@ -46,6 +50,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprites/standing_light:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_8axca"]
 resource_name = "back_dash"
@@ -72,6 +88,23 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_xi5uw"]
 resource_name = "idle"
 step = 0.016666668
+
+[sub_resource type="Animation" id="Animation_h6moj"]
+resource_name = "standing_light"
+length = 0.21666834
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/standing_light:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.083333336, 0.10000001, 0.116666675, 0.13333334, 0.15, 0.16666667, 0.18333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 2, 3, 4, 5, 6]
+}
 
 [sub_resource type="Animation" id="Animation_dl5dx"]
 resource_name = "walk_backward"
@@ -115,6 +148,7 @@ _data = {
 &"back_dash": SubResource("Animation_8axca"),
 &"forward_dash": SubResource("Animation_wsgfn"),
 &"idle": SubResource("Animation_xi5uw"),
+&"standing_light": SubResource("Animation_h6moj"),
 &"walk_backward": SubResource("Animation_dl5dx"),
 &"walk_forward": SubResource("Animation_4dt3n")
 }
@@ -137,28 +171,58 @@ libraries/ = SubResource("AnimationLibrary_ci7t1")
 unique_name_in_owner = true
 
 [node name="walk_forward" type="Sprite2D" parent="sprites" unique_id=77830011]
+visible = false
 texture = ExtResource("5_ci7t1")
 hframes = 8
 frame = 1
 
 [node name="walk_backward" type="Sprite2D" parent="sprites" unique_id=1799704692]
+visible = false
 texture = ExtResource("5_ci7t1")
 flip_h = true
 hframes = 8
 frame = 1
 
 [node name="idle" type="Sprite2D" parent="sprites" unique_id=811883521]
+visible = false
 texture = ExtResource("6_xi5uw")
 
 [node name="forward_dash" type="Sprite2D" parent="sprites" unique_id=416071482]
+visible = false
 texture = SubResource("CompressedTexture2D_xi5uw")
 hframes = 6
 frame = 1
 
 [node name="back_dash" type="Sprite2D" parent="sprites" unique_id=276413467]
+visible = false
 texture = ExtResource("6_dl5dx")
+
+[node name="standing_light" type="Sprite2D" parent="sprites" unique_id=672655471]
+texture = ExtResource("9_8axca")
+hframes = 8
+frame = 1
+
+[node name="standing_medium" type="Sprite2D" parent="sprites" unique_id=531833399]
+visible = false
+texture = ExtResource("8_h6moj")
+hframes = 10
+frame = 2
 
 [node name="sfx" type="Node" parent="." unique_id=268261747]
 
 [node name="walk_step" type="AudioStreamPlayer" parent="sfx" unique_id=165556958]
 stream = ExtResource("5_xi5uw")
+bus = &"SFX"
+
+[node name="dash" type="AudioStreamPlayer" parent="sfx" unique_id=619340943]
+unique_name_in_owner = true
+stream = ExtResource("8_wsgfn")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="light_atk" type="AudioStreamPlayer" parent="sfx" unique_id=1002095661]
+unique_name_in_owner = true
+stream = ExtResource("11_craq1")
+volume_db = -5.0
+pitch_scale = 1.2
+bus = &"SFX"

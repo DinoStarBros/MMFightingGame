@@ -18,9 +18,21 @@ func walk_backward() -> void:
 
 func forward_dash() -> void:
 	play_animation("forward_dash")
+	play_sfx_pitch_rand(%dash)
 
 func back_dash() -> void:
 	play_animation("back_dash")
+	play_sfx_pitch_rand(%dash, 0.8)
+
+func standing_light() -> void:
+	play_animation("standing_light")
+	play_sfx_pitch_rand(%light_atk)
+
+func standing_medium() -> void:
+	play_animation("standing_medium")
+
+
+
 
 func play_animation(animation_name : String):
 	anim.stop()
@@ -32,3 +44,7 @@ func show_specific_sprite(sprite_name: String) -> void:
 		s.hide()
 	
 	find_child(sprite_name).show()
+
+func play_sfx_pitch_rand(sfx: AudioStreamPlayer, base_pitch: float = 1, pitch_deviation: float = .1) -> void:
+	sfx.pitch_scale = base_pitch + randf_range(-pitch_deviation, pitch_deviation)
+	sfx.play()
