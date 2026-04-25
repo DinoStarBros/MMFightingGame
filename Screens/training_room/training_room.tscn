@@ -8,7 +8,7 @@
 script = ExtResource("1_2mw5h")
 
 [node name="Ground" parent="." unique_id=548214944 instance=ExtResource("2_n6oql")]
-position = Vector2(640, 482)
+position = Vector2(640, 657)
 
 [node name="UIStuff" type="CanvasLayer" parent="." unique_id=1507901714]
 

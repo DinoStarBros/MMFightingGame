@@ -20,7 +20,7 @@ var atk_frames_length_history : Array
 @export_category("Movement Stats")
 @export var forward_move_speed : float = 500
 @export var backward_move_speed : float = -500
-@export var jump_velocity: float = 980
+@export var jump_speed: float = 700
 @export_subgroup("Dash Stats")
 @export var forward_dash_speed : float = 800
 @export var f_dash_friction : float = 0.9

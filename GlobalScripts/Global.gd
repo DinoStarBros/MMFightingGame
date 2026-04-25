@@ -1,3 +1,3 @@
 extends Node
 
-const GRAVITY : float = 980
+const GRAVITY : float = 1500

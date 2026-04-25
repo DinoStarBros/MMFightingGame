@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://c502a4wubbbr5" path="res://Characters/JohnFight/states/forward_dash.gd" id="9_6rsc1"]
 [ext_resource type="Script" uid="uid://biip0biuy7xx6" path="res://Characters/JohnFight/states/back_dash.gd" id="10_w86kj"]
 [ext_resource type="Script" uid="uid://dvpvnaff37mff" path="res://Characters/JohnFight/states/standing_light.gd" id="11_hucss"]
+[ext_resource type="Script" uid="uid://6hlrfmwrsnfu" path="res://Characters/JohnFight/states/jump.gd" id="12_en13x"]
+[ext_resource type="Script" uid="uid://dc5ur72awjx1w" path="res://Characters/JohnFight/states/forward_jump.gd" id="13_8tblb"]
+[ext_resource type="Script" uid="uid://drka81x0ykyq5" path="res://Characters/JohnFight/states/fall.gd" id="13_un0rh"]
+[ext_resource type="Script" uid="uid://b8jxuqfyv5bfr" path="res://Characters/JohnFight/states/back_jump.gd" id="15_3klag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -20,18 +24,14 @@ font_size = 40
 
 [node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim")]
 script = ExtResource("1_17b07")
-character_side = null
+input_reader = NodePath("InputReader")
+character_anim = NodePath("JohnFightAnims")
 forward_move_speed = 350.0
 backward_move_speed = -200.0
-jump_velocity = null
+jump_speed = 800.0
 forward_dash_speed = 700.0
 f_dash_friction = 0.95
 backward_dash_speed = -500.0
-b_dash_friction = null
-f_dash_total_frames = null
-b_dash_total_frames = null
-input_reader = NodePath("InputReader")
-character_anim = NodePath("JohnFightAnims")
 metadata/_edit_vertical_guides_ = [1282.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929916068]
@@ -50,6 +50,7 @@ scale = Vector2(5.3, 5.3)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
 
 [node name="command_history" parent="CanvasLayer" unique_id=1725422575 instance=ExtResource("3_mf22c")]
+position = Vector2(0, 94)
 
 [node name="state" type="Label" parent="CanvasLayer" unique_id=1809092595]
 offset_left = 45.0
@@ -81,3 +82,15 @@ script = ExtResource("10_w86kj")
 
 [node name="StandingLight" type="Node" parent="StateMachine" unique_id=70116017]
 script = ExtResource("11_hucss")
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=2120498304]
+script = ExtResource("12_en13x")
+
+[node name="ForwardJump" type="Node" parent="StateMachine" unique_id=776523721]
+script = ExtResource("13_8tblb")
+
+[node name="BackJump" type="Node" parent="StateMachine" unique_id=1165425381]
+script = ExtResource("15_3klag")
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1398486933]
+script = ExtResource("13_un0rh")

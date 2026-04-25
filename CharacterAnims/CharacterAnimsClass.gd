@@ -22,6 +22,12 @@ func walk_forward() -> void:
 func walk_backward() -> void:
 	assert(false, "Override this function")
 
+func jump() -> void:
+	assert(false, "Override this function")
+
+func fall() -> void:
+	assert(false, "Override this function")
+
 func forward_dash() -> void:
 	assert(false, "Override this function")
 

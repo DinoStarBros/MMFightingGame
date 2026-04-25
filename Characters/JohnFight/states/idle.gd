@@ -16,7 +16,15 @@ func physics_update(delta: float) -> void:
 		p.frames_since_last_atk_input < p.standing_l_total_frames
 		):
 		state_machine.change_state("StandingLight")
-
+	
+	if p.input_reader.current_dir == Command.CommandTypes.UP:
+		state_machine.change_state("Jump")
+	if p.input_reader.current_dir == Command.CommandTypes.UP_RIGHT:
+		state_machine.change_state("ForwardJump")
+		p.velocity.x = p.forward_move_speed
+	if p.input_reader.current_dir == Command.CommandTypes.UP_LEFT:
+		state_machine.change_state("BackJump")
+		p.velocity.x = p.backward_move_speed
 
 
 func _forward_dir_pressed_handling(delta: float) -> void:

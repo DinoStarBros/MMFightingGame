@@ -16,6 +16,13 @@ func walk_forward() -> void:
 func walk_backward() -> void:
 	play_animation("walk_backward")
 
+func jump() -> void:
+	play_animation("jump")
+	play_sfx_pitch_rand(%jump)
+
+func fall() -> void:
+	play_animation("fall")
+
 func forward_dash() -> void:
 	play_animation("forward_dash")
 	play_sfx_pitch_rand(%dash)
@@ -30,7 +37,6 @@ func standing_light() -> void:
 
 func standing_medium() -> void:
 	play_animation("standing_medium")
-
 
 
 

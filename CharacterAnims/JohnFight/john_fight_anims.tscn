@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://85ytqbis7ocu" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo2.png" id="8_h6moj"]
 [ext_resource type="AudioStream" uid="uid://nj64nd85rtql" path="res://Audio/splashtownSFX/Airdash.wav" id="8_wsgfn"]
 [ext_resource type="Texture2D" uid="uid://cwnmwnse0gw42" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo1.png" id="9_8axca"]
+[ext_resource type="Texture2D" uid="uid://bne1tls41o6wy" path="res://CharacterAnims/JohnFight/JohnFightSprites/JumpAndFall.png" id="9_dow8o"]
 [ext_resource type="AudioStream" uid="uid://daiixog5jq884" path="res://Audio/cardtowersfx/sword_slash.wav" id="11_craq1"]
+[ext_resource type="AudioStream" uid="uid://cw0s6bkxlwn2b" path="res://Audio/splashtownSFX/Jump.wav" id="13_ij605"]
 
 [sub_resource type="Animation" id="Animation_ci7t1"]
 length = 0.001
@@ -62,11 +64,64 @@ tracks/3/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sprites/jump:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sprites/fall:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 0.8)]
+}
 
 [sub_resource type="Animation" id="Animation_8axca"]
 resource_name = "back_dash"
 length = 0.31666836
 step = 0.016666668
+
+[sub_resource type="Animation" id="Animation_ij605"]
+resource_name = "fall"
+length = 0.16666834
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/fall:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprites/fall:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 0.8)]
+}
 
 [sub_resource type="Animation" id="Animation_wsgfn"]
 resource_name = "forward_dash"
@@ -88,6 +143,35 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_xi5uw"]
 resource_name = "idle"
 step = 0.016666668
+
+[sub_resource type="Animation" id="Animation_dow8o"]
+resource_name = "jump"
+length = 0.16666834
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/jump:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprites/jump:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 1.2), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_h6moj"]
 resource_name = "standing_light"
@@ -146,8 +230,10 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_ci7t1"),
 &"back_dash": SubResource("Animation_8axca"),
+&"fall": SubResource("Animation_ij605"),
 &"forward_dash": SubResource("Animation_wsgfn"),
 &"idle": SubResource("Animation_xi5uw"),
+&"jump": SubResource("Animation_dow8o"),
 &"standing_light": SubResource("Animation_h6moj"),
 &"walk_backward": SubResource("Animation_dl5dx"),
 &"walk_forward": SubResource("Animation_4dt3n")
@@ -198,6 +284,7 @@ visible = false
 texture = ExtResource("6_dl5dx")
 
 [node name="standing_light" type="Sprite2D" parent="sprites" unique_id=672655471]
+visible = false
 texture = ExtResource("9_8axca")
 hframes = 8
 frame = 1
@@ -207,6 +294,19 @@ visible = false
 texture = ExtResource("8_h6moj")
 hframes = 10
 frame = 2
+
+[node name="jump" type="Sprite2D" parent="sprites" unique_id=1192703873]
+visible = false
+position = Vector2(-1, 0)
+texture = ExtResource("9_dow8o")
+hframes = 2
+
+[node name="fall" type="Sprite2D" parent="sprites" unique_id=1636403163]
+position = Vector2(-1, 0)
+scale = Vector2(1.2, 0.8)
+texture = ExtResource("9_dow8o")
+hframes = 2
+frame = 1
 
 [node name="sfx" type="Node" parent="." unique_id=268261747]
 
@@ -223,6 +323,13 @@ bus = &"SFX"
 [node name="light_atk" type="AudioStreamPlayer" parent="sfx" unique_id=1002095661]
 unique_name_in_owner = true
 stream = ExtResource("11_craq1")
+volume_db = -5.0
+pitch_scale = 1.2
+bus = &"SFX"
+
+[node name="jump" type="AudioStreamPlayer" parent="sfx" unique_id=914818439]
+unique_name_in_owner = true
+stream = ExtResource("13_ij605")
 volume_db = -5.0
 pitch_scale = 1.2
 bus = &"SFX"
