@@ -13,6 +13,8 @@ var frames_since_last_atk_input : int
 var dir_frames_length_history : Array
 var atk_frames_length_history : Array
 
+var gatling_count : int
+
 @export var character_side : CharacterSide
 @export var input_reader : InputReader
 @export var character_anim : CharacterAnim

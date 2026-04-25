@@ -60,10 +60,20 @@ offset_bottom = 184.0
 text = "State"
 label_settings = SubResource("LabelSettings_fn73y")
 
+[node name="Label" type="Label" parent="." unique_id=956029841]
+unique_name_in_owner = true
+offset_left = -99.0
+offset_top = -136.0
+offset_right = -59.0
+offset_bottom = -113.0
+text = "67"
+
 [node name="StateMachine" type="Node" parent="." unique_id=2143610001 node_paths=PackedStringArray("initial_state", "debug")]
 script = ExtResource("4_p1p80")
 initial_state = NodePath("Idle")
 debug = NodePath("../CanvasLayer/state")
+
+[node name="GroundMovement" type="Node" parent="StateMachine" unique_id=832521131]
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=706117107]
 script = ExtResource("6_2st6u")
@@ -80,8 +90,7 @@ script = ExtResource("9_6rsc1")
 [node name="BackDash" type="Node" parent="StateMachine" unique_id=27709514]
 script = ExtResource("10_w86kj")
 
-[node name="StandingLight" type="Node" parent="StateMachine" unique_id=70116017]
-script = ExtResource("11_hucss")
+[node name="AirMovement" type="Node" parent="StateMachine" unique_id=195753027]
 
 [node name="Jump" type="Node" parent="StateMachine" unique_id=2120498304]
 script = ExtResource("12_en13x")
@@ -94,3 +103,8 @@ script = ExtResource("15_3klag")
 
 [node name="Fall" type="Node" parent="StateMachine" unique_id=1398486933]
 script = ExtResource("13_un0rh")
+
+[node name="GroundAttacks" type="Node" parent="StateMachine" unique_id=1660733088]
+
+[node name="StandingLight" type="Node" parent="StateMachine" unique_id=70116017]
+script = ExtResource("11_hucss")

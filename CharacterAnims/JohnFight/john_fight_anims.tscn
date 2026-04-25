@@ -190,6 +190,10 @@ tracks/0/keys = {
 "values": [0, 1, 1, 2, 2, 3, 4, 5, 6]
 }
 
+[sub_resource type="Animation" id="Animation_rhcl0"]
+resource_name = "standing_medium"
+step = 0.016666668
+
 [sub_resource type="Animation" id="Animation_dl5dx"]
 resource_name = "walk_backward"
 length = 1.6
@@ -235,6 +239,7 @@ _data = {
 &"idle": SubResource("Animation_xi5uw"),
 &"jump": SubResource("Animation_dow8o"),
 &"standing_light": SubResource("Animation_h6moj"),
+&"standing_medium": SubResource("Animation_rhcl0"),
 &"walk_backward": SubResource("Animation_dl5dx"),
 &"walk_forward": SubResource("Animation_4dt3n")
 }
@@ -265,7 +270,6 @@ frame = 1
 [node name="walk_backward" type="Sprite2D" parent="sprites" unique_id=1799704692]
 visible = false
 texture = ExtResource("5_ci7t1")
-flip_h = true
 hframes = 8
 frame = 1
 
@@ -284,7 +288,6 @@ visible = false
 texture = ExtResource("6_dl5dx")
 
 [node name="standing_light" type="Sprite2D" parent="sprites" unique_id=672655471]
-visible = false
 texture = ExtResource("9_8axca")
 hframes = 8
 frame = 1
@@ -302,6 +305,7 @@ texture = ExtResource("9_dow8o")
 hframes = 2
 
 [node name="fall" type="Sprite2D" parent="sprites" unique_id=1636403163]
+visible = false
 position = Vector2(-1, 0)
 scale = Vector2(1.2, 0.8)
 texture = ExtResource("9_dow8o")

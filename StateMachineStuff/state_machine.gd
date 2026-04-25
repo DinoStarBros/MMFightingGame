@@ -8,7 +8,7 @@ var current_state : State
 var states : Dictionary = {}
 
 func _ready() -> void:
-	for child in get_children():
+	for child in get_children(true):
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.state_machine = self

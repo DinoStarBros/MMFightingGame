@@ -64,3 +64,12 @@ func _physics_process(delta: float) -> void:
 	
 	frames_since_last_dir_input += 1
 	frames_since_last_atk_input += 1
+
+var just_atk : bool = false
+var last_frame_pressed : bool = false
+func just_atk_pressed(attack : Command.CommandTypes) -> bool:
+	
+	var is_pressed : bool = current_atk == Command.CommandTypes.ONE
+	var is_just_pressed : bool = is_pressed and not last_frame_pressed
+	last_frame_pressed = is_pressed
+	return is_just_pressed
