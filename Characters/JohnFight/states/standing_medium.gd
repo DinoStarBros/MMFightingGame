@@ -14,10 +14,19 @@ func physics_update(delta: float) -> void:
 	allow_buffer = frames >= p.standing_m_recovery_start_frame
 	
 	if allow_buffer:
-		pass
+		if p.input_reader.just_atk_pressed(Command.CommandTypes.THREE):
+			what_was_pressed = Command.CommandTypes.THREE
 	
 	if frames >= p.standing_m_total_frames:
-		state_machine.change_state("Idle")
+		if (
+			what_was_pressed == Command.CommandTypes.THREE
+			):
+			
+			state_machine.change_state("StandingHeavy")
+			
+		else:
+			
+			state_machine.change_state("Idle")
 
 func exit() -> void:
 	what_was_pressed = Command.CommandTypes.NEUTRAL

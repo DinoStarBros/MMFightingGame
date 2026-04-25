@@ -14,17 +14,18 @@ func update(delta: float) -> void:
 	if allow_buffer:
 		if p.input_reader.just_atk_pressed(Command.CommandTypes.TWO):
 			what_was_pressed = Command.CommandTypes.TWO
+		if p.input_reader.just_atk_pressed(Command.CommandTypes.THREE):
+			what_was_pressed = Command.CommandTypes.THREE
 
 func physics_update(delta: float) -> void:
 	
 	frames += 1
 	
 	if frames >= p.standing_l_total_frames:
-		if (
-			what_was_pressed == Command.CommandTypes.TWO
-			):
-			
+		if what_was_pressed == Command.CommandTypes.TWO:
 			state_machine.change_state("StandingMedium")
+		elif what_was_pressed == Command.CommandTypes.THREE:
+			state_machine.change_state("StandingHeavy")
 			
 		else:
 			
