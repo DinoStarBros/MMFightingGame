@@ -21,6 +21,12 @@ func light_specials_handle() -> void:
 		and
 		p.dir_history[p.input_limit - 4] == Command.CommandTypes.DOWN
 		and 
-		p.input_reader.just_atk_pressed(Command.CommandTypes.ONE)
+		#p.input_reader.just_atk_pressed(Command.CommandTypes.ONE)
+		p.input_reader.current_atk == Command.CommandTypes.ONE
+		and
+		p.frames_since_last_atk_input < p.standing_l_total_frames
+
+		
+		
 		):
 		state_machine.change_state("QCFLight")

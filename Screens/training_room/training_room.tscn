@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d0mc4kdtneakr" path="res://Screens/training_room/training_room.gd" id="1_2mw5h"]
 [ext_resource type="PackedScene" uid="uid://c1vvjrwtg8mjd" path="res://Scenes/ground/ground.tscn" id="2_n6oql"]
 [ext_resource type="PackedScene" uid="uid://cdxvfdhpxmj5b" path="res://Characters/JohnFight/john_fight.tscn" id="3_68gu7"]
+[ext_resource type="PackedScene" uid="uid://hs23v0i258q3" path="res://Dummy/dummy.tscn" id="4_5guaq"]
 
 [node name="training_room" type="Node2D" unique_id=1879368795]
 script = ExtResource("1_2mw5h")
@@ -39,3 +40,6 @@ text = "Quit
 
 [node name="JohnFight" parent="Fighters" unique_id=1012419678 instance=ExtResource("3_68gu7")]
 position = Vector2(121, 242)
+
+[node name="Dummy" parent="Fighters" unique_id=1279721510 instance=ExtResource("4_5guaq")]
+position = Vector2(1012, 515)

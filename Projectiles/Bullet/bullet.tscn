@@ -10,3 +10,7 @@ script = ExtResource("1_0yips")
 texture = ExtResource("2_gd7i5")
 hframes = 3
 vframes = 3
+
+[node name="Duration" type="Timer" parent="." unique_id=907302463]
+unique_name_in_owner = true
+autostart = true

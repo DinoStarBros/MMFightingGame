@@ -54,7 +54,8 @@ folder_colors={
 "res://Components/": "green",
 "res://GlobalScripts/": "purple",
 "res://Scenes/": "green",
-"res://Screens/": "yellow"
+"res://Screens/": "yellow",
+"res://Scripts/": "purple"
 }
 
 [input]

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://idc0d4kye7qi"]
 
 [ext_resource type="Script" uid="uid://bx32navn8v4eu" path="res://CharacterAnims/JohnFight/john_fight_anims.gd" id="1_2mi20"]
-[ext_resource type="PackedScene" uid="uid://b22elq4qgcjq7" path="res://Components/HurtboxComponent/hurtbox_component.tscn" id="3_4dt3n"]
 [ext_resource type="PackedScene" uid="uid://cmd1vlynxp72q" path="res://Components/HitboxComponent/hitbox_component.tscn" id="4_ci7t1"]
 [ext_resource type="Texture2D" uid="uid://bywkmxvx1yj6" path="res://CharacterAnims/JohnFight/JohnFightSprites/Run.png" id="5_ci7t1"]
 [ext_resource type="AudioStream" uid="uid://cppxtyh63shtf" path="res://Audio/tresure/walkStep.wav" id="5_xi5uw"]
@@ -19,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c36ls26jmhln5" path="res://CharacterAnims/JohnFight/JohnFightSprites/GroundCombo3.png" id="15_pehwl"]
 [ext_resource type="Texture2D" uid="uid://b0hj6pttdyfvs" path="res://CharacterAnims/JohnFight/JohnFightSprites/ShootGun1.png" id="17_ap1fo"]
 [ext_resource type="AudioStream" uid="uid://byygfe55sfi6t" path="res://Audio/pistol-shot-233473.mp3" id="17_jjsi8"]
+[ext_resource type="AudioStream" uid="uid://e7fgtf2ti3ki" path="res://Audio/41randsfx/15.wav" id="19_gyt5j"]
 
 [sub_resource type="Animation" id="Animation_ci7t1"]
 length = 0.001
@@ -142,6 +142,18 @@ tracks/9/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("High/hc:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8axca"]
 resource_name = "back_dash"
@@ -197,6 +209,18 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_xi5uw"]
 resource_name = "idle"
 step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("High/hc:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_dow8o"]
 resource_name = "jump"
@@ -267,6 +291,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0, 0.0, 1.0, 0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sfx/shoot2:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_pehwl"]
 resource_name = "standing_heavy"
@@ -295,6 +331,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("High/hc:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.23333335, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_h6moj"]
 resource_name = "standing_light"
@@ -312,6 +360,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 1, 2, 2, 3, 4, 5, 6]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("High/hc:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.10000001, 0.116666675),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_rhcl0"]
 resource_name = "standing_medium"
@@ -327,6 +387,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("High/hc:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.15, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_dl5dx"]
@@ -381,6 +453,9 @@ _data = {
 &"walk_forward": SubResource("Animation_4dt3n")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67ub0"]
+size = Vector2(21, 8)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xi5uw"]
 load_path = "res://.godot/imported/Dash.png-a80705b26dc6f70a0e8be7641685e4e1.ctex"
 
@@ -391,9 +466,12 @@ script = ExtResource("1_2mi20")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ci7t1")
 
-[node name="HurtboxComponent" parent="." unique_id=1415980216 instance=ExtResource("3_4dt3n")]
+[node name="High" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
+position = Vector2(21, -4)
 
-[node name="HitboxComponent" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
+[node name="hc" type="CollisionShape2D" parent="High" unique_id=1378672286]
+shape = SubResource("RectangleShape2D_67ub0")
+debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
 
 [node name="sprites" type="Node2D" parent="." unique_id=234839014]
 unique_name_in_owner = true
@@ -437,7 +515,6 @@ hframes = 10
 frame = 1
 
 [node name="standing_heavy" type="Sprite2D" parent="sprites" unique_id=8280806]
-visible = false
 texture = ExtResource("15_pehwl")
 hframes = 14
 frame = 1
@@ -457,6 +534,7 @@ hframes = 2
 frame = 1
 
 [node name="qcf_light" type="Sprite2D" parent="sprites" unique_id=884511554]
+visible = false
 texture = ExtResource("17_ap1fo")
 hframes = 2
 frame = 1
@@ -502,6 +580,13 @@ bus = &"SFX"
 unique_name_in_owner = true
 stream = ExtResource("17_jjsi8")
 volume_db = -10.0
+bus = &"SFX"
+
+[node name="shoot2" type="AudioStreamPlayer" parent="sfx" unique_id=424346673]
+unique_name_in_owner = true
+stream = ExtResource("19_gyt5j")
+volume_db = -10.0
+pitch_scale = 1.2
 bus = &"SFX"
 
 [node name="jump" type="AudioStreamPlayer" parent="sfx" unique_id=914818439]

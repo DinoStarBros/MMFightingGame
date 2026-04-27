@@ -35,6 +35,7 @@ jump_speed = 800.0
 forward_dash_speed = 700.0
 f_dash_friction = 0.95
 backward_dash_speed = -500.0
+bullet_x_speed = 2000.0
 metadata/_edit_vertical_guides_ = [1282.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929916068]

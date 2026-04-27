@@ -45,4 +45,7 @@ var gatling_count : int
 @export var qcf_l_startup : int = 14
 
 @export_category("Combat Stats")
+@export var standing_l_damage : int = 10
+@export var standing_m_damage : int = 15
+@export var standing_h_damage : int = 25
 @export var bullet_x_speed : float = 1000

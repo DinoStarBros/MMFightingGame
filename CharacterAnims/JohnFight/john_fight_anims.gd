@@ -3,6 +3,7 @@ class_name JohnFightAnims
 
 @onready var anim: AnimationPlayer = %anim
 @onready var sprites_parent: Node2D = %sprites
+@onready var p : Character = get_parent()
 
 func _ready() -> void:
 	pass
@@ -32,6 +33,7 @@ func back_dash() -> void:
 	play_sfx_pitch_rand(%dash, 0.8)
 
 func standing_light() -> void:
+	
 	play_animation("standing_light")
 	play_sfx_pitch_rand(%atk)
 

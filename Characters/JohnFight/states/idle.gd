@@ -19,6 +19,9 @@ func physics_update(delta: float) -> void:
 	if allow_attack(Command.CommandTypes.THREE):
 		state_machine.change_state("StandingHeavy")
 	
+	if allow_attack(Command.CommandTypes.ONE_FOUR):
+		state_machine.change_state("QCFLight")
+	
 	if p.input_reader.current_dir == Command.CommandTypes.UP:
 		state_machine.change_state("Jump")
 	if p.input_reader.current_dir == Command.CommandTypes.UP_RIGHT:
