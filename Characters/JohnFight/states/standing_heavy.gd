@@ -6,7 +6,6 @@ func enter() -> void:
 	
 	p.character_anim.standing_heavy()
 	what_was_pressed = Command.CommandTypes.NEUTRAL
-	allow_buffer = false
 
 func physics_update(delta: float) -> void:
 	frames += 1

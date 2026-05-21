@@ -9,17 +9,15 @@ func enter() -> void:
 	
 	p.character_anim.qcf_light()
 	what_was_pressed = Command.CommandTypes.NEUTRAL
-	allow_buffer = false
 	bullet_spawned = false
 	
 	if p.character_side == p.CharacterSide.P1:
-		bullet_velocity.x = p.bullet_x_speed
+		bullet_velocity.x = p.projectile_x_speed
 	else:
-		bullet_velocity.x = -p.bullet_x_speed
+		bullet_velocity.x = -p.projectile_x_speed
 
 func physics_update(delta: float) -> void:
 	p.velocity.x *= 0.7
-	
 	frames += 1
 	
 	if frames >= p.qcf_l_startup and !bullet_spawned:

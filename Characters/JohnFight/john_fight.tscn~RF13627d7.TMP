@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cdxvfdhpxmj5b"]
+
+[ext_resource type="Script" uid="uid://d121p07cvbaga" path="res://Characters/JohnFight/john_fight.gd" id="1_17b07"]
+[ext_resource type="PackedScene" uid="uid://idc0d4kye7qi" path="res://CharacterAnims/JohnFight/john_fight_anims.tscn" id="2_fqhhd"]
+[ext_resource type="PackedScene" uid="uid://cuij304o7bqou" path="res://Scenes/p1_command_history/p1_command_history.tscn" id="3_mf22c"]
+[ext_resource type="Script" uid="uid://cq31qgpvffhy8" path="res://StateMachineStuff/state_machine.gd" id="4_p1p80"]
+[ext_resource type="Script" uid="uid://biyhsoc4h15fu" path="res://Characters/JohnFight/states/forward.gd" id="5_fn73y"]
+[ext_resource type="Script" uid="uid://ccomh81lsgw3o" path="res://Characters/JohnFight/states/idle.gd" id="6_2st6u"]
+[ext_resource type="PackedScene" uid="uid://cpni1q7bd30sg" path="res://Components/InputReader/input_reader.tscn" id="7_th7mi"]
+[ext_resource type="Script" uid="uid://djxm2phipbel8" path="res://Characters/JohnFight/states/back.gd" id="8_l57mv"]
+[ext_resource type="Script" uid="uid://c502a4wubbbr5" path="res://Characters/JohnFight/states/forward_dash.gd" id="9_6rsc1"]
+[ext_resource type="Script" uid="uid://biip0biuy7xx6" path="res://Characters/JohnFight/states/back_dash.gd" id="10_w86kj"]
+[ext_resource type="Script" uid="uid://bgpcys4el0beh" path="res://Characters/JohnFight/states/jump_startup.gd" id="11_4htpn"]
+[ext_resource type="Script" uid="uid://dvpvnaff37mff" path="res://Characters/JohnFight/states/standing_light.gd" id="11_hucss"]
+[ext_resource type="Script" uid="uid://bukh4s5nqam6t" path="res://Characters/JohnFight/states/jump_recovery.gd" id="12_ecpc3"]
+[ext_resource type="Script" uid="uid://6hlrfmwrsnfu" path="res://Characters/JohnFight/states/jump.gd" id="12_en13x"]
+[ext_resource type="Script" uid="uid://dc5ur72awjx1w" path="res://Characters/JohnFight/states/forward_jump.gd" id="13_8tblb"]
+[ext_resource type="Script" uid="uid://drka81x0ykyq5" path="res://Characters/JohnFight/states/fall.gd" id="13_un0rh"]
+[ext_resource type="Script" uid="uid://b8jxuqfyv5bfr" path="res://Characters/JohnFight/states/back_jump.gd" id="15_3klag"]
+[ext_resource type="Script" uid="uid://5g65rc1jydtj" path="res://Characters/JohnFight/states/standing_medium.gd" id="16_3klag"]
+[ext_resource type="Script" uid="uid://bq2ptby6pnq4w" path="res://Characters/JohnFight/states/standing_heavy.gd" id="17_ur5bw"]
+[ext_resource type="Script" uid="uid://ba6t0fijg8f0c" path="res://Characters/JohnFight/states/light_shoot.gd" id="18_feh3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
+size = Vector2(100, 180)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fn73y"]
+font_size = 40
+
+[node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim")]
+script = ExtResource("1_17b07")
+input_reader = NodePath("InputReader")
+character_anim = NodePath("JohnFightAnims")
+forward_move_speed = 350.0
+backward_move_speed = -200.0
+jump_speed = 800.0
+forward_dash_speed = 700.0
+backward_dash_speed = -500.0
+metadata/_edit_vertical_guides_ = [1282.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929916068]
+visible = false
+shape = SubResource("RectangleShape2D_17b07")
+debug_color = Color(0.7112961, 0.48489213, 0, 0)
+
+[node name="InputReader" parent="." unique_id=1706886587 node_paths=PackedStringArray("command_history_node") instance=ExtResource("7_th7mi")]
+command_history_node = NodePath("../CanvasLayer/command_history")
+
+[node name="JohnFightAnims" parent="." unique_id=1228057302 instance=ExtResource("2_fqhhd")]
+unique_name_in_owner = true
+position = Vector2(0, -38)
+scale = Vector2(5.3, 5.3)
+
+[node name="Guides" type="Node2D" parent="." unique_id=1503973948]
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="Guides" unique_id=1401360423]
+unique_name_in_owner = true
+position = Vector2(97, -41)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
+
+[node name="command_history" parent="CanvasLayer" unique_id=1725422575 instance=ExtResource("3_mf22c")]
+position = Vector2(0, 94)
+
+[node name="state" type="Label" parent="CanvasLayer" unique_id=1809092595]
+offset_left = 45.0
+offset_top = 129.0
+offset_right = 145.0
+offset_bottom = 184.0
+text = "State"
+label_settings = SubResource("LabelSettings_fn73y")
+
+[node name="Label" type="Label" parent="." unique_id=956029841]
+unique_name_in_owner = true
+offset_left = -99.0
+offset_top = -136.0
+offset_right = -59.0
+offset_bottom = -113.0
+text = "67"
+
+[node name="StateMachine" type="Node" parent="." unique_id=2143610001 node_paths=PackedStringArray("initial_state", "debug")]
+script = ExtResource("4_p1p80")
+initial_state = NodePath("Idle")
+debug = NodePath("../CanvasLayer/state")
+
+[node name="GroundMovement" type="Node" parent="StateMachine" unique_id=832521131]
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=706117107]
+script = ExtResource("6_2st6u")
+
+[node name="Forward" type="Node" parent="StateMachine" unique_id=892806659]
+script = ExtResource("5_fn73y")
+
+[node name="Back" type="Node" parent="StateMachine" unique_id=111879738]
+script = ExtResource("8_l57mv")
+
+[node name="ForwardDash" type="Node" parent="StateMachine" unique_id=1756864715]
+script = ExtResource("9_6rsc1")
+
+[node name="BackDash" type="Node" parent="StateMachine" unique_id=27709514]
+script = ExtResource("10_w86kj")
+
+[node name="AirMovement" type="Node" parent="StateMachine" unique_id=195753027]
+
+[node name="JumpStartup" type="Node" parent="StateMachine" unique_id=379345795]
+script = ExtResource("11_4htpn")
+
+[node name="Jump" type="Node" parent="StateMachine" unique_id=2120498304]
+script = ExtResource("12_en13x")
+
+[node name="ForwardJump" type="Node" parent="StateMachine" unique_id=776523721]
+script = ExtResource("13_8tblb")
+
+[node name="BackJump" type="Node" parent="StateMachine" unique_id=1165425381]
+script = ExtResource("15_3klag")
+
+[node name="Fall" type="Node" parent="StateMachine" unique_id=1398486933]
+script = ExtResource("13_un0rh")
+
+[node name="JumpRecovery" type="Node" parent="StateMachine" unique_id=1515631268]
+script = ExtResource("12_ecpc3")
+
+[node name="GroundAttacks" type="Node" parent="StateMachine" unique_id=1660733088]
+
+[node name="StandingLight" type="Node" parent="StateMachine" unique_id=70116017]
+script = ExtResource("11_hucss")
+
+[node name="StandingMedium" type="Node" parent="StateMachine" unique_id=1870471100]
+script = ExtResource("16_3klag")
+
+[node name="StandingHeavy" type="Node" parent="StateMachine" unique_id=406035727]
+script = ExtResource("17_ur5bw")
+
+[node name="QCFLight" type="Node" parent="StateMachine" unique_id=245292477]
+script = ExtResource("18_feh3i")

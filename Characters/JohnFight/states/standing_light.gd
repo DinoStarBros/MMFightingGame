@@ -6,7 +6,6 @@ func enter() -> void:
 	
 	p.character_anim.standing_light()
 	what_was_pressed = Command.CommandTypes.NEUTRAL
-	allow_buffer = false
 
 func update(delta: float) -> void:
 	if p.input_reader.just_atk_pressed(Command.CommandTypes.TWO):

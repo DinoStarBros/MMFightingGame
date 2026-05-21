@@ -7,7 +7,6 @@ var state_machine : StateMachine
 var frames : int = 0
 
 var what_was_pressed : Command.CommandTypes
-var allow_buffer : bool = false
 
 func enter() -> void:
 	pass

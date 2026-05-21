@@ -48,4 +48,4 @@ var gatling_count : int
 @export var standing_l_damage : int = 10
 @export var standing_m_damage : int = 15
 @export var standing_h_damage : int = 25
-@export var bullet_x_speed : float = 1000
+@export var projectile_x_speed : float = 1000
