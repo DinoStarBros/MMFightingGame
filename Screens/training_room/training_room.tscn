@@ -46,6 +46,7 @@ position = Vector2(66, -5)
 position = Vector2(989, 446)
 
 [node name="guy1" type="Sprite2D" parent="Fighters" unique_id=1138650628]
+visible = false
 position = Vector2(323, 505)
 scale = Vector2(5.3, 5.3)
 texture = ExtResource("5_q3gu4")
