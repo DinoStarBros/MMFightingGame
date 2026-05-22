@@ -10,10 +10,7 @@ func enter() -> void:
 	what_was_pressed = Command.CommandTypes.NEUTRAL
 	bullet_spawned = false
 	
-	if p.character_side == p.CharacterSide.P1:
-		bullet_velocity.x = p.projectile_x_speed
-	else:
-		bullet_velocity.x = -p.projectile_x_speed
+	bullet_velocity.x = p.projectile_x_speed * p.current_side_facing
 
 func physics_update(delta: float) -> void:
 	p.apply_friction()
@@ -33,4 +30,4 @@ func spawn_bullet(velocity : Vector2) -> void:
 	var bullet : Projectile = References.bullet_scn.instantiate()
 	References.stage.add_child(bullet)
 	bullet.velocity = velocity
-	bullet.global_position = p.bullet_spawn_point.global_position
+	bullet.global_position = p.global_position
