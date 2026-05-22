@@ -52,6 +52,10 @@ static func upward_dir_pressed(p: Character) -> bool:
 		p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
 	)
 
+# Directional Side Stuff
+static func neutral_pressed(p: Character) -> bool:
+	return p.input_reader.current_dir == Command.CommandTypes.NEUTRAL
+
 static func forward_pressed(p: Character) -> bool:
 	if p.current_side_facing == 1:
 		return p.input_reader.current_dir == Command.CommandTypes.RIGHT

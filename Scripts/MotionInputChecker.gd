@@ -27,16 +27,31 @@ static func quarter_circle_forward(p: Character) -> bool:
 	]
 	
 	## Lenient QCF, pressed down->hold forward, no df
-	var lenient_qcf_d_f_holdf : Array[bool] = [
+	var lenient_qcf_d_holdf : Array[bool] = [
 		forward_pressed(p),
 		is_input_down(p, p.dir_history[p.input_limit - 3])
 	]
 	
 	## Lenient QCF, pressed down->neutral->hold forward, no df
-	var lenient_qcf_d_n_f_holdf : Array[bool] = [
+	var lenient_qcf_d_n_holdf : Array[bool] = [
 		forward_pressed(p),
 		is_input_neutral(p, p.dir_history[p.input_limit - 3]),
 		is_input_down(p, p.dir_history[p.input_limit - 4])
+	]
+	
+	## Lenient QCF, pressed down->tap forward, no df
+	var lenient_qcf_d_tapf : Array[bool] = [
+		neutral_pressed(p),
+		is_input_forward(p, p.dir_history[p.input_limit - 3]),
+		is_input_down(p, p.dir_history[p.input_limit - 4]),
+	]
+	
+	## Lenient QCF, pressed down->neutral->tap forward, no df
+	var lenient_qcf_d_n_tapf : Array[bool] = [
+		neutral_pressed(p),
+		is_input_forward(p, p.dir_history[p.input_limit - 3]),
+		is_input_neutral(p, p.dir_history[p.input_limit - 4]),
+		is_input_down(p, p.dir_history[p.input_limit - 5])
 	]
 	
 	# "not false in" basically means, check if there's no false elements in the array
@@ -46,7 +61,11 @@ static func quarter_circle_forward(p: Character) -> bool:
 	or
 	not false in true_qcf_tapf
 	or
-	not false in lenient_qcf_d_f_holdf
+	not false in lenient_qcf_d_holdf
 	or
-	not false in lenient_qcf_d_n_f_holdf
+	not false in lenient_qcf_d_n_holdf
+	or 
+	not false in lenient_qcf_d_tapf
+	or
+	not false in lenient_qcf_d_n_tapf
 	)
