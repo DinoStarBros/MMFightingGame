@@ -9,10 +9,10 @@ enum CharacterSide {
 ## -1 = Character is currently on the Right, facing left
 ## : Basically, the number is just what way the character
 ## should be facing
-var current_side : int = 1:
+var current_side_facing : int = 1:
 	set(value):
-		current_side = value
-		character_anim.scale.x *= current_side
+		current_side_facing = value
+		character_anim.scale.x *= current_side_facing
 
 var dir_history : Array
 var atk_history : Array

@@ -4,7 +4,7 @@ class_name JohnFight
 @onready var bullet_spawn_point: Marker2D = %BulletSpawnPoint
 
 func _ready() -> void:
-	current_side = -1
+	current_side_facing = -1
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

@@ -3,6 +3,7 @@ extends State
 func enter() -> void:
 	p.character_anim.jump()
 	p.velocity.y = -p.jump_speed
+	p.velocity.x = p.forward_move_speed * p.current_side_facing
 
 func physics_update(delta: float) -> void:
 	

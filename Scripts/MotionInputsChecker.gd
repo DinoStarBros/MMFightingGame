@@ -5,7 +5,7 @@ extends InputCheck
 class_name DirectionInput
 
 static func forward_dash(p: Character) -> bool:
-	if p.current_side == 1:
+	if p.current_side_facing == 1:
 		## Facing Right
 		return (
 		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
@@ -37,7 +37,7 @@ static func forward_dash(p: Character) -> bool:
 		)
 
 static func back_dash(p: Character) -> bool:
-	if p.current_side == 1:
+	if p.current_side_facing == 1:
 		## Facing Right
 		return (
 		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
@@ -90,25 +90,27 @@ static func upward_dir_pressed(p: Character) -> bool:
 		p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
 	)
 
-## This is side dependent. 
-## For the character on the left facing right, their forward would be Right
-## Vice-Versa
+
 static func forward_pressed(p: Character) -> bool:
-	if p.current_side == 1:
-		return (
-			p.input_reader.current_dir == Command.CommandTypes.RIGHT
-		)
+	if p.current_side_facing == 1:
+		return p.input_reader.current_dir == Command.CommandTypes.RIGHT
 	else:
-		return (
-			p.input_reader.current_dir == Command.CommandTypes.LEFT
-		)
+		return p.input_reader.current_dir == Command.CommandTypes.LEFT
 
 static func backward_pressed(p: Character) -> bool:
-	if p.current_side == 1:
-		return (
-			p.input_reader.current_dir == Command.CommandTypes.LEFT
-		)
+	if p.current_side_facing == 1:
+		return p.input_reader.current_dir == Command.CommandTypes.LEFT
 	else:
-		return (
-			p.input_reader.current_dir == Command.CommandTypes.RIGHT
-		)
+		return p.input_reader.current_dir == Command.CommandTypes.RIGHT
+
+static func up_forward_pressed(p: Character) -> bool:
+	if p.current_side_facing == 1:
+		return p.input_reader.current_dir == Command.CommandTypes.UP_RIGHT
+	else:
+		return p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
+
+static func up_backward_pressed(p: Character) -> bool:
+	if p.current_side_facing == 1:
+		return p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
+	else:
+		return p.input_reader.current_dir == Command.CommandTypes.UP_RIGHT

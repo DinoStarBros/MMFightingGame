@@ -16,9 +16,7 @@ func physics_update(delta: float) -> void:
 func jump_handle() -> void:
 	if DirectionInput.dir_pressed(p, Command.CommandTypes.UP):
 		state_machine.change_state("Jump")
-	if DirectionInput.dir_pressed(p, Command.CommandTypes.UP_RIGHT):
+	if DirectionInput.up_forward_pressed(p):
 		state_machine.change_state("ForwardJump")
-		p.velocity.x = p.forward_move_speed
-	if DirectionInput.dir_pressed(p, Command.CommandTypes.UP_LEFT):
+	if DirectionInput.up_backward_pressed(p):
 		state_machine.change_state("BackJump")
-		p.velocity.x = -p.backward_move_speed
