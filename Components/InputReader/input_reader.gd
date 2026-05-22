@@ -42,7 +42,7 @@ var frames_since_last_atk_input : int:
 func _ready() -> void:
 	input_limit = command_history_node.INPUT_LIMIT
 	
-	for n in input_limit:
+	for n in input_limit + 1:
 		dir_frames_length_history.append(0)
 		atk_frames_length_history.append(0)
 

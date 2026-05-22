@@ -1,5 +1,4 @@
 class_name InputCheck
-
 ## For stuff like QCF, DP, QCB, etc. etc.
 ## How many frames you can still hold the last direction input of a 
 ## motion input and still makes it register when pressing the attack
@@ -8,6 +7,16 @@ class_name InputCheck
 ##  This is in frames
 const MOTION_INPUT_BUFFER_WINDOW : float = 30
 const DASH_TAP_WINDOW : float = 12
+
+## Just a place to store the classes that inherit this 
+## InputCheckClass
+func whos_inheriting_this_class() -> void:
+	@warning_ignore("standalone_expression")
+	DirectionInput
+	@warning_ignore("standalone_expression")
+	MotionInput
+	@warning_ignore("standalone_expression")
+	AttackInput
 
 ## Makes it so that this motion only registers once when you've just pressed it.
 static func dir_just_pressed(p: Character, dir : Command.CommandTypes) -> bool:

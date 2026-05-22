@@ -68,28 +68,6 @@ static func back_dash(p: Character) -> bool:
 		p.dir_history[p.input_limit - 4] == Command.CommandTypes.RIGHT
 		)
 
-static func quarter_circle_forward(p: Character) -> bool:
-	if p.current_side_facing == 1:
-		return (
-		p.input_reader.current_dir == Command.CommandTypes.RIGHT
-		and
-		p.dir_history[p.input_limit - 3] == Command.CommandTypes.DOWN_RIGHT
-		and
-		p.dir_history[p.input_limit - 4] == Command.CommandTypes.DOWN
-		and
-		p.frames_since_last_dir_input <= MOTION_INPUT_BUFFER_WINDOW
-		)
-	else:
-		return (
-		p.input_reader.current_dir == Command.CommandTypes.LEFT
-		and
-		p.dir_history[p.input_limit - 3] == Command.CommandTypes.DOWN_LEFT
-		and
-		p.dir_history[p.input_limit - 4] == Command.CommandTypes.DOWN
-		and
-		p.frames_since_last_dir_input <= MOTION_INPUT_BUFFER_WINDOW
-		)
-
 ## For any upward direction input
 static func upward_dir_pressed(p: Character) -> bool:
 	return (
@@ -99,7 +77,6 @@ static func upward_dir_pressed(p: Character) -> bool:
 		or 
 		p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
 	)
-
 
 static func forward_pressed(p: Character) -> bool:
 	if p.current_side_facing == 1:

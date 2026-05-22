@@ -95,7 +95,8 @@ func qcf_specials_handle() -> void:
 
 ## All grounded attacks/actions, like LMH attacks, Fireball, DP, etc.
 func grounded_attacks_handle() -> void:
-	if DirectionInput.quarter_circle_forward(self):
+	
+	if MotionInput.quarter_circle_forward(self):
 		qcf_specials_handle()
 	else:
 		lmh_attacks_handle()
