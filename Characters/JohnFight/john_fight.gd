@@ -18,7 +18,14 @@ func _physics_process(delta: float) -> void:
 	atk_frames_length_history = input_reader.atk_frames_length_history
 	
 	if not is_on_floor():
-		if velocity.y >= 0: # Falling
-			velocity.y += Global.GRAVITY * delta * 2
-		else: # Jumping
-			velocity.y += Global.GRAVITY * delta * 1.5
+		if velocity.y >= 0: 
+			# Falling
+			velocity.y += Global.GRAVITY * delta * 3.4
+		else:
+			# Jumping
+			velocity.y += Global.GRAVITY * delta * 2.9
+	
+	# 3
+	# 22
+	# 20
+	# 1

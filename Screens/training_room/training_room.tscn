@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1vvjrwtg8mjd" path="res://Scenes/ground/ground.tscn" id="2_n6oql"]
 [ext_resource type="PackedScene" uid="uid://cdxvfdhpxmj5b" path="res://Characters/JohnFight/john_fight.tscn" id="3_68gu7"]
 [ext_resource type="PackedScene" uid="uid://hs23v0i258q3" path="res://Dummy/dummy.tscn" id="4_5guaq"]
+[ext_resource type="Texture2D" uid="uid://0p5oyvjobhee" path="res://CharacterAnims/JohnFight/JohnFightSprites/Idle.png" id="5_q3gu4"]
 
 [node name="training_room" type="Node2D" unique_id=1879368795]
 script = ExtResource("1_2mw5h")
@@ -39,7 +40,20 @@ text = "Quit
 [node name="Fighters" type="Node2D" parent="." unique_id=357628340]
 
 [node name="JohnFight" parent="Fighters" unique_id=1012419678 instance=ExtResource("3_68gu7")]
-position = Vector2(121, 242)
+position = Vector2(66, -5)
 
 [node name="Dummy" parent="Fighters" unique_id=1279721510 instance=ExtResource("4_5guaq")]
-position = Vector2(1012, 515)
+position = Vector2(989, 446)
+
+[node name="guy1" type="Sprite2D" parent="Fighters" unique_id=1138650628]
+position = Vector2(323, 505)
+scale = Vector2(5.3, 5.3)
+texture = ExtResource("5_q3gu4")
+
+[node name="guy2" type="Sprite2D" parent="Fighters/guy1" unique_id=1657502959]
+position = Vector2(0, -32)
+texture = ExtResource("5_q3gu4")
+
+[node name="guy3" type="Sprite2D" parent="Fighters/guy1/guy2" unique_id=532707806]
+position = Vector2(0, -32)
+texture = ExtResource("5_q3gu4")

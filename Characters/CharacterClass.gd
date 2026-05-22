@@ -18,6 +18,7 @@ var gatling_count : int
 @export var character_side : CharacterSide
 @export var input_reader : InputReader
 @export var character_anim : CharacterAnim
+@export var state_machine : StateMachine
 
 @export_category("Movement Stats")
 @export var forward_move_speed : float = 500
@@ -48,4 +49,17 @@ var gatling_count : int
 @export var standing_l_damage : int = 10
 @export var standing_m_damage : int = 15
 @export var standing_h_damage : int = 25
-@export var projectile_x_speed : float = 1000
+@export var projectile_x_speed : float = 2000
+
+@export_category("Jump Frame Data")
+@export var jump_startup_frames : int = 3
+@export var landing_recovery_frames : int = 1
+
+## The light medium heavy attacks
+func lmh_attacks_handle() -> void:
+	if AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE):
+		state_machine.change_state("StandingLight")
+	if AttackInput.attack_just_pressed(self, Command.CommandTypes.TWO):
+		state_machine.change_state("StandingMedium")
+	if AttackInput.attack_just_pressed(self, Command.CommandTypes.THREE):
+		state_machine.change_state("StandingHeavy")
