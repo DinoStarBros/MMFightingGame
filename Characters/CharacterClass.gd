@@ -5,9 +5,15 @@ enum CharacterSide {
 	P1, P2
 }
 
-## False = Character is currently on the Left
-## True = Character is currently on the Right
-var current_side : bool = false
+## 1 = Character is currently on the Left, facing right
+## -1 = Character is currently on the Right, facing left
+## : Basically, the number is just what way the character
+## should be facing
+var current_side : int = 1:
+	set(value):
+		current_side = value
+		character_anim.scale.x *= current_side
+
 var dir_history : Array
 var atk_history : Array
 var input_limit : int
@@ -25,12 +31,12 @@ var gatling_count : int
 
 @export_category("Movement Stats")
 @export var forward_move_speed : float = 500
-@export var backward_move_speed : float = 500
+@export var backward_move_speed : float = 400
 @export var jump_speed: float = 700
 @export_subgroup("Dash Stats")
 @export var forward_dash_speed : float = 800
 @export var f_dash_friction : float = 0.9
-@export var backward_dash_speed : float = -700
+@export var backward_dash_speed : float = 700
 @export var b_dash_friction : float = 0.9
 
 @export_category("Frame Data BS")

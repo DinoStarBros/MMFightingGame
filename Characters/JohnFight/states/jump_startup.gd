@@ -21,4 +21,4 @@ func jump_handle() -> void:
 		p.velocity.x = p.forward_move_speed
 	if DirectionInput.dir_pressed(p, Command.CommandTypes.UP_LEFT):
 		state_machine.change_state("BackJump")
-		p.velocity.x = p.backward_move_speed
+		p.velocity.x = -p.backward_move_speed
