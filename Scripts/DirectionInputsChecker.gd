@@ -48,7 +48,7 @@ static func upward_dir_pressed(p: Character) -> bool:
 		p.input_reader.current_dir == Command.CommandTypes.UP
 		or
 		p.input_reader.current_dir == Command.CommandTypes.UP_RIGHT
-		or 
+		or
 		p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
 	)
 

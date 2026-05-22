@@ -1,6 +1,13 @@
 extends Area2D
 class_name HitboxComponent
 
+enum attack_types {
+	HIGH, MID, LOW, OVERHEAD,
+	UNBLOCKABLE,
+}
+
+@export var attack_type : attack_types
+
 var attack : Attack = Attack.new()
 
 signal Hit(attack: Attack)
