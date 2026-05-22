@@ -12,7 +12,7 @@ func update(delta: float) -> void:
 		what_was_pressed = Command.CommandTypes.THREE
 
 func physics_update(delta: float) -> void:
-	p.velocity.x *= p.attack_friction
+	p.apply_friction()
 	frames += 1
 	
 	if frames >= p.standing_m_recovery_start_frame:

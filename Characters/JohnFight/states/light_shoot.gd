@@ -17,7 +17,7 @@ func enter() -> void:
 		bullet_velocity.x = -p.projectile_x_speed
 
 func physics_update(delta: float) -> void:
-	p.velocity.x *= p.attack_friction
+	p.apply_friction()
 	frames += 1
 	
 	if frames >= p.qcf_l_startup and !bullet_spawned:
