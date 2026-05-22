@@ -5,6 +5,7 @@ func enter() -> void:
 	p.character_anim.idle()
 
 func physics_update(delta: float) -> void:
+	#p.apply_friction()
 	
 	if DirectionInput.dir_pressed(p, Command.CommandTypes.RIGHT):
 		_forward_dir_pressed_handling(delta)
@@ -12,10 +13,8 @@ func physics_update(delta: float) -> void:
 	if DirectionInput.dir_pressed(p, Command.CommandTypes.LEFT):
 		_back_dir_pressed_handling(delta)
 	
-	p.lmh_attacks_handle()
-	
-	if AttackInput.attack_just_pressed(p, Command.CommandTypes.ONE_FOUR):
-		state_machine.change_state("QCFLight")
+	#p.lmh_attacks_handle()
+	p.grounded_attacks_handle()
 	
 	if DirectionInput.upward_dir_pressed(p):
 		state_machine.change_state("JumpStartup")

@@ -64,8 +64,25 @@ func lmh_attacks_handle() -> void:
 	if AttackInput.attack_just_pressed(self, Command.CommandTypes.THREE):
 		state_machine.change_state("StandingHeavy")
 
-## For States where I'm supposed to stand still
-## like attacks
+## Special Moves with the QCF
+func qcf_specials_handle() -> void:
+	if AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE):
+		state_machine.change_state("QCFLight")
+
+## All grounded attacks/actions, like LMH attacks, Fireball, DP, etc.
+func grounded_attacks_handle() -> void:
+	if DirectionInput.quarter_circle_forward(self):
+		qcf_specials_handle()
+	else:
+		lmh_attacks_handle()
+		
+		if (
+		AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE_FOUR)
+		or
+		AttackInput.attack_just_pressed(self, Command.CommandTypes.FOUR)
+		):
+			state_machine.change_state("QCFLight")
+
+## For States where the character's supposed to stand still, like attacks
 func apply_friction() -> void:
-	const friction : float = 0.7
-	velocity.x *= friction
+	velocity.x *= 0.7
