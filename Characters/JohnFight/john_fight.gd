@@ -2,7 +2,7 @@ extends Character
 class_name JohnFight
 
 func _ready() -> void:
-	current_side_facing = -1
+	current_side_facing = 1
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -27,3 +27,6 @@ func _physics_process(delta: float) -> void:
 	# 22
 	# 20
 	# 1
+	
+	if Input.is_action_just_pressed("Flip"):
+		current_side_facing *= -1

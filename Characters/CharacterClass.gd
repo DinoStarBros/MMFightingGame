@@ -12,7 +12,22 @@ enum CharacterSide {
 var current_side_facing : int = 1:
 	set(value):
 		current_side_facing = value
-		character_anim.scale.x *= current_side_facing
+		#character_anim.scale.x *= current_side_facing
+		flip_sprite_anims(current_side_facing)
+
+func flip_sprite_anims(side: int) -> void:
+	if side == 1:
+		# Switched to facing right
+		if character_anim.scale.x >= 0:
+			character_anim.scale.x *= 1
+		elif character_anim.scale.x <= 0:
+			character_anim.scale.x *= -1
+	else:
+		# Switched to facing left
+		if character_anim.scale.x >= 0:
+			character_anim.scale.x *= -1
+		elif character_anim.scale.x <= 0:
+			character_anim.scale.x *= 1
 
 var dir_history : Array
 var atk_history : Array
