@@ -101,3 +101,39 @@ static func up_backward_pressed(p: Character) -> bool:
 		return p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
 	else:
 		return p.input_reader.current_dir == Command.CommandTypes.UP_RIGHT
+
+static func down_forward_pressed(p: Character) -> bool:
+	if p.current_side_facing == 1:
+		return p.input_reader.current_dir == Command.CommandTypes.DOWN_RIGHT
+	else:
+		return p.input_reader.current_dir == Command.CommandTypes.DOWN_LEFT
+
+static func down_backward_pressed(p: Character) -> bool:
+	if p.current_side_facing == 1:
+		return p.input_reader.current_dir == Command.CommandTypes.DOWN_LEFT
+	else:
+		return p.input_reader.current_dir == Command.CommandTypes.DOWN_RIGHT
+
+static func is_input_down_forward(p, dir: Command.CommandTypes) -> bool:
+	if p.current_side_facing == 1:
+		return dir == Command.CommandTypes.DOWN_LEFT
+	else:
+		return dir == Command.CommandTypes.DOWN_RIGHT
+
+static func is_input_down_backward(p, dir: Command.CommandTypes) -> bool:
+	if p.current_side_facing == 1:
+		return dir == Command.CommandTypes.DOWN_RIGHT
+	else:
+		return dir == Command.CommandTypes.DOWN_LEFT
+
+static func is_input_up_forward(p, dir: Command.CommandTypes) -> bool:
+	if p.current_side_facing == 1:
+		return dir == Command.CommandTypes.UP_LEFT
+	else:
+		return dir == Command.CommandTypes.UP_RIGHT
+
+static func is_input_up_backward(p, dir: Command.CommandTypes) -> bool:
+	if p.current_side_facing == 1:
+		return dir == Command.CommandTypes.UP_RIGHT
+	else:
+		return dir == Command.CommandTypes.UP_LEFT
