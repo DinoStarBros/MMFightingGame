@@ -5,7 +5,6 @@ var bullet_spawned : bool = false
 
 func enter() -> void:
 	frames = 0
-	p.velocity.x = 0
 	
 	p.character_anim.qcf_light()
 	what_was_pressed = Command.CommandTypes.NEUTRAL

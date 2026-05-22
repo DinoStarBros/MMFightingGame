@@ -5,6 +5,9 @@ enum CharacterSide {
 	P1, P2
 }
 
+## False = Character is currently on the Left
+## True = Character is currently on the Right
+var current_side : bool = false
 var dir_history : Array
 var atk_history : Array
 var input_limit : int
@@ -22,7 +25,7 @@ var gatling_count : int
 
 @export_category("Movement Stats")
 @export var forward_move_speed : float = 500
-@export var backward_move_speed : float = -500
+@export var backward_move_speed : float = 500
 @export var jump_speed: float = 700
 @export_subgroup("Dash Stats")
 @export var forward_dash_speed : float = 800
@@ -82,6 +85,9 @@ func grounded_attacks_handle() -> void:
 		AttackInput.attack_just_pressed(self, Command.CommandTypes.FOUR)
 		):
 			state_machine.change_state("QCFLight")
+			
+		elif AttackInput.attack_just_pressed(self, Command.CommandTypes.TWO_FOUR):
+			state_machine.change_state("QCFMedium")
 
 ## For States where the character's supposed to stand still, like attacks
 func apply_friction() -> void:

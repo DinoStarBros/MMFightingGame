@@ -2,7 +2,6 @@ extends State
 
 func enter() -> void:
 	frames = 0
-	#p.velocity.x = 0
 	
 	p.character_anim.standing_light()
 	what_was_pressed = Command.CommandTypes.NEUTRAL

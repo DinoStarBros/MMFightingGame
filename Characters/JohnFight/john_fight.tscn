@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://5g65rc1jydtj" path="res://Characters/JohnFight/states/standing_medium.gd" id="16_3klag"]
 [ext_resource type="Script" uid="uid://bq2ptby6pnq4w" path="res://Characters/JohnFight/states/standing_heavy.gd" id="17_ur5bw"]
 [ext_resource type="Script" uid="uid://ba6t0fijg8f0c" path="res://Characters/JohnFight/states/light_shoot.gd" id="18_feh3i"]
+[ext_resource type="Script" uid="uid://ddy67n8jvl78x" path="res://Characters/JohnFight/states/qcf_medium.gd" id="21_ecpc3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
@@ -32,8 +33,6 @@ script = ExtResource("1_17b07")
 input_reader = NodePath("InputReader")
 character_anim = NodePath("JohnFightAnims")
 state_machine = NodePath("StateMachine")
-forward_move_speed = 350.0
-backward_move_speed = -200.0
 jump_speed = 2000.0
 forward_dash_speed = 700.0
 backward_dash_speed = -500.0
@@ -134,3 +133,6 @@ script = ExtResource("17_ur5bw")
 
 [node name="QCFLight" type="Node" parent="StateMachine" unique_id=245292477]
 script = ExtResource("18_feh3i")
+
+[node name="QCFMedium" type="Node" parent="StateMachine" unique_id=342276374]
+script = ExtResource("21_ecpc3")

@@ -1,11 +1,11 @@
 extends State
 
 func enter() -> void:
-	p.velocity.x = 0
 	p.character_anim.idle()
 
 func physics_update(delta: float) -> void:
 	#p.apply_friction()
+	p.velocity.x = 0
 	
 	if DirectionInput.dir_pressed(p, Command.CommandTypes.RIGHT):
 		_forward_dir_pressed_handling(delta)
@@ -13,7 +13,6 @@ func physics_update(delta: float) -> void:
 	if DirectionInput.dir_pressed(p, Command.CommandTypes.LEFT):
 		_back_dir_pressed_handling(delta)
 	
-	#p.lmh_attacks_handle()
 	p.grounded_attacks_handle()
 	
 	if DirectionInput.upward_dir_pressed(p):
