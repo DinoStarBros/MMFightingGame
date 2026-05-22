@@ -50,6 +50,7 @@ var gatling_count : int
 @export var standing_m_damage : int = 15
 @export var standing_h_damage : int = 25
 @export var projectile_x_speed : float = 2000
+@export var attack_friction : float = 0.7
 
 @export_category("Jump Frame Data")
 @export var jump_startup_frames : int = 3

@@ -8,6 +8,8 @@ func enter() -> void:
 	what_was_pressed = Command.CommandTypes.NEUTRAL
 
 func physics_update(delta: float) -> void:
+	
+	p.velocity.x *= p.attack_friction
 	frames += 1
 	
 	
