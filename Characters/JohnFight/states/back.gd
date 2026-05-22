@@ -6,7 +6,7 @@ func enter() -> void:
 func physics_update(delta: float) -> void:
 	p.grounded_attacks_handle()
 	
-	if DirectionInput.dir_pressed(p, Command.CommandTypes.LEFT):
-		p.velocity.x = -p.backward_move_speed
+	if DirectionInput.backward_pressed(p):
+		p.velocity.x = -p.backward_move_speed * p.current_side
 	else:
 		state_machine.change_state("idle")

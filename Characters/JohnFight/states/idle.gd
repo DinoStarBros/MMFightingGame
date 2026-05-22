@@ -6,14 +6,11 @@ func enter() -> void:
 func physics_update(delta: float) -> void:
 	p.velocity.x = 0
 	
-	#if DirectionInput.dir_pressed(p, Command.CommandTypes.RIGHT):
 	if DirectionInput.forward_pressed(p):
 		_forward_dir_pressed_handling(delta)
 	
-	#if DirectionInput.dir_pressed(p, Command.CommandTypes.LEFT):
 	if DirectionInput.backward_pressed(p):
 		_back_dir_pressed_handling(delta)
-
 	
 	p.grounded_attacks_handle()
 	
@@ -21,19 +18,13 @@ func physics_update(delta: float) -> void:
 		state_machine.change_state("JumpStartup")
 
 func _forward_dir_pressed_handling(delta: float) -> void:
-	
 	if DirectionInput.forward_dash(p):
-		p.velocity.x = p.forward_dash_speed
 		state_machine.change_state("ForwardDash")
 	else:
-		p.velocity.x = p.forward_move_speed
 		state_machine.change_state("Forward")
 
 func _back_dir_pressed_handling(delta: float) -> void:
-	
 	if DirectionInput.back_dash(p):
-		p.velocity.x = p.backward_dash_speed
 		state_machine.change_state("BackDash")
 	else:
-		p.velocity.x = p.backward_move_speed
 		state_machine.change_state("Back")

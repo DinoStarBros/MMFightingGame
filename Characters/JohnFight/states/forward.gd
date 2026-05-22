@@ -7,7 +7,7 @@ func physics_update(delta: float) -> void:
 	
 	p.grounded_attacks_handle()
 	
-	if DirectionInput.dir_pressed(p, Command.CommandTypes.RIGHT):
-		p.velocity.x = p.forward_move_speed
+	if DirectionInput.forward_pressed(p):
+		p.velocity.x = p.forward_move_speed * p.current_side
 	else:
 		state_machine.change_state("idle")

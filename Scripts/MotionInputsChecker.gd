@@ -1,4 +1,4 @@
-extends InputCheckerScript
+extends InputCheck
 ## Checker for motion & directional inputs
 ## so that I don't have to fucking copy-paste the same shit
 ## everywhere
@@ -80,19 +80,6 @@ static func quarter_circle_forward(p: Character) -> bool:
 	p.frames_since_last_dir_input <= MOTION_INPUT_BUFFER_WINDOW
 	)
 
-## Makes it so that this motion only registers once when you've just pressed it.
-static func dir_just_pressed(p: Character, dir : Command.CommandTypes) -> bool:
-	return (
-		p.input_reader.current_dir == dir
-		and
-		p.frames_since_last_atk_input <= 1
-	)
-
-static func dir_pressed(p: Character, dir : Command.CommandTypes) -> bool:
-	return (
-		p.input_reader.current_dir == dir
-	)
-
 ## For any upward direction input
 static func upward_dir_pressed(p: Character) -> bool:
 	return (
@@ -107,7 +94,7 @@ static func upward_dir_pressed(p: Character) -> bool:
 ## For the character on the left facing right, their forward would be Right
 ## Vice-Versa
 static func forward_pressed(p: Character) -> bool:
-	if p.current_side:
+	if p.current_side == 1:
 		return (
 			p.input_reader.current_dir == Command.CommandTypes.RIGHT
 		)
@@ -117,7 +104,7 @@ static func forward_pressed(p: Character) -> bool:
 		)
 
 static func backward_pressed(p: Character) -> bool:
-	if p.current_side:
+	if p.current_side == 1:
 		return (
 			p.input_reader.current_dir == Command.CommandTypes.LEFT
 		)

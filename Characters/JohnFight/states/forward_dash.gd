@@ -3,7 +3,7 @@ extends State
 func enter() -> void:
 	frames = 0
 	
-	p.velocity.x = p.forward_dash_speed
+	p.velocity.x = p.forward_dash_speed * p.current_side
 	p.character_anim.forward_dash()
 
 func physics_update(delta: float) -> void:

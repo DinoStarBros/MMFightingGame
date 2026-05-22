@@ -4,7 +4,7 @@ class_name JohnFight
 @onready var bullet_spawn_point: Marker2D = %BulletSpawnPoint
 
 func _ready() -> void:
-	current_side = 1
+	current_side = -1
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	atk_frames_length_history = input_reader.atk_frames_length_history
 	
 	if not is_on_floor():
-		if velocity.y >= 0: 
+		if velocity.y >= 0:
 			# Falling
 			velocity.y += Global.GRAVITY * delta * 3.4
 		else:
