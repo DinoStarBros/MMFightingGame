@@ -5,34 +5,68 @@ extends InputCheckerScript
 class_name DirectionInput
 
 static func forward_dash(p: Character) -> bool:
-	return (
-	p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
-	and
-	p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
-	and
-	p.frames_since_last_dir_input <= DASH_TAP_WINDOW
-	and
-	p.dir_history[p.input_limit - 2] == Command.CommandTypes.RIGHT
-	and
-	p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
-	and
-	p.dir_history[p.input_limit - 4] == Command.CommandTypes.RIGHT
-	)
+	if p.current_side == 1:
+		## Facing Right
+		return (
+		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
+		and
+		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
+		and
+		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
+		and
+		p.dir_history[p.input_limit - 2] == Command.CommandTypes.RIGHT
+		and
+		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
+		and
+		p.dir_history[p.input_limit - 4] == Command.CommandTypes.RIGHT
+		)
+	else:
+		## Facing Right
+		return (
+		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
+		and
+		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
+		and
+		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
+		and
+		p.dir_history[p.input_limit - 2] == Command.CommandTypes.LEFT
+		and
+		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
+		and
+		p.dir_history[p.input_limit - 4] == Command.CommandTypes.LEFT
+		)
 
 static func back_dash(p: Character) -> bool:
-	return (
-	p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
-	and
-	p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
-	and
-	p.frames_since_last_dir_input <= DASH_TAP_WINDOW
-	and
-	p.dir_history[p.input_limit - 2] == Command.CommandTypes.LEFT
-	and
-	p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
-	and
-	p.dir_history[p.input_limit - 4] == Command.CommandTypes.LEFT
-	)
+	if p.current_side == 1:
+		## Facing Right
+		return (
+		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
+		and
+		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
+		and
+		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
+		and
+		p.dir_history[p.input_limit - 2] == Command.CommandTypes.LEFT
+		and
+		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
+		and
+		p.dir_history[p.input_limit - 4] == Command.CommandTypes.LEFT
+		)
+	else:
+		## Facing Left
+		return (
+		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
+		and
+		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
+		and
+		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
+		and
+		p.dir_history[p.input_limit - 2] == Command.CommandTypes.RIGHT
+		and
+		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
+		and
+		p.dir_history[p.input_limit - 4] == Command.CommandTypes.RIGHT
+		)
 
 static func quarter_circle_forward(p: Character) -> bool:
 	
@@ -59,7 +93,7 @@ static func dir_pressed(p: Character, dir : Command.CommandTypes) -> bool:
 		p.input_reader.current_dir == dir
 	)
 
-## Works for any direction input going upward
+## For any upward direction input
 static func upward_dir_pressed(p: Character) -> bool:
 	return (
 		p.input_reader.current_dir == Command.CommandTypes.UP
@@ -68,3 +102,26 @@ static func upward_dir_pressed(p: Character) -> bool:
 		or 
 		p.input_reader.current_dir == Command.CommandTypes.UP_LEFT
 	)
+
+## This is side dependent. 
+## For the character on the left facing right, their forward would be Right
+## Vice-Versa
+static func forward_pressed(p: Character) -> bool:
+	if p.current_side:
+		return (
+			p.input_reader.current_dir == Command.CommandTypes.RIGHT
+		)
+	else:
+		return (
+			p.input_reader.current_dir == Command.CommandTypes.LEFT
+		)
+
+static func backward_pressed(p: Character) -> bool:
+	if p.current_side:
+		return (
+			p.input_reader.current_dir == Command.CommandTypes.LEFT
+		)
+	else:
+		return (
+			p.input_reader.current_dir == Command.CommandTypes.RIGHT
+		)

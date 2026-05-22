@@ -5,7 +5,7 @@ enum CharacterSide {
 	P1, P2
 }
 
-## 1 = Character is currently on the Left, facing right
+## 1 = Character is currently on the Left, facing right :::
 ## -1 = Character is currently on the Right, facing left
 ## : Basically, the number is just what way the character
 ## should be facing

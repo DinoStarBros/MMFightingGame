@@ -4,14 +4,16 @@ func enter() -> void:
 	p.character_anim.idle()
 
 func physics_update(delta: float) -> void:
-	#p.apply_friction()
 	p.velocity.x = 0
 	
-	if DirectionInput.dir_pressed(p, Command.CommandTypes.RIGHT):
+	#if DirectionInput.dir_pressed(p, Command.CommandTypes.RIGHT):
+	if DirectionInput.forward_pressed(p):
 		_forward_dir_pressed_handling(delta)
 	
-	if DirectionInput.dir_pressed(p, Command.CommandTypes.LEFT):
+	#if DirectionInput.dir_pressed(p, Command.CommandTypes.LEFT):
+	if DirectionInput.backward_pressed(p):
 		_back_dir_pressed_handling(delta)
+
 	
 	p.grounded_attacks_handle()
 	
@@ -19,6 +21,7 @@ func physics_update(delta: float) -> void:
 		state_machine.change_state("JumpStartup")
 
 func _forward_dir_pressed_handling(delta: float) -> void:
+	
 	if DirectionInput.forward_dash(p):
 		p.velocity.x = p.forward_dash_speed
 		state_machine.change_state("ForwardDash")
@@ -27,6 +30,7 @@ func _forward_dir_pressed_handling(delta: float) -> void:
 		state_machine.change_state("Forward")
 
 func _back_dir_pressed_handling(delta: float) -> void:
+	
 	if DirectionInput.back_dash(p):
 		p.velocity.x = p.backward_dash_speed
 		state_machine.change_state("BackDash")
