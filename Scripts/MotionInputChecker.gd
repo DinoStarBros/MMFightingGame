@@ -39,12 +39,14 @@ static func quarter_circle_forward(p: Character) -> bool:
 		is_input_down(p, p.dir_history[p.input_limit - 4])
 	]
 	
+	# "not false in" basically means, check if there's no false elements in the array
+	# check if all elements in array are true
 	return (
-	true_qcf_holdf.count(true) == true_qcf_holdf.size()
+	not false in true_qcf_holdf
 	or
-	true_qcf_tapf.count(true) == true_qcf_tapf.size()
+	not false in true_qcf_tapf
 	or
-	lenient_qcf_d_f_holdf.count(true) == lenient_qcf_d_f_holdf.size()
+	not false in lenient_qcf_d_f_holdf
 	or
-	lenient_qcf_d_n_f_holdf.count(true) == lenient_qcf_d_n_f_holdf.size()
+	not false in lenient_qcf_d_n_f_holdf
 	)

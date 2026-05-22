@@ -18,9 +18,9 @@ static func forward_dash(p: Character) -> bool:
 	]
 	
 	return (
-		double_tapf.count(true) == double_tapf.size()
+		not false in double_tapf
 		and
-		fdash_input_timings.count(true) == fdash_input_timings.size()
+		not false in fdash_input_timings
 	)
 
 static func back_dash(p: Character) -> bool:
@@ -37,9 +37,9 @@ static func back_dash(p: Character) -> bool:
 	]
 	
 	return (
-		double_tapb.count(true) == double_tapb.size()
+		not false in double_tapb
 		and
-		bdash_input_timings.count(true) == bdash_input_timings.size()
+		not false in bdash_input_timings
 	)
 
 ## For any upward direction input
