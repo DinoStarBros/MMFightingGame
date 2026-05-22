@@ -5,68 +5,42 @@ extends InputCheck
 class_name DirectionInput
 
 static func forward_dash(p: Character) -> bool:
-	if p.current_side_facing == 1:
-		## Facing Right
-		return (
-		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
-		and
-		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
-		and
+	var double_tapf : Array[bool] = [
+		forward_pressed(p),
+		is_input_neutral(p, p.dir_history[p.input_limit - 3]),
+		is_input_forward(p, p.dir_history[p.input_limit - 4])
+	]
+	
+	var fdash_input_timings : Array[bool] = [
+		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW,
+		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW,
 		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
+	]
+	
+	return (
+		double_tapf.count(true) == double_tapf.size()
 		and
-		p.dir_history[p.input_limit - 2] == Command.CommandTypes.RIGHT
-		and
-		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
-		and
-		p.dir_history[p.input_limit - 4] == Command.CommandTypes.RIGHT
-		)
-	else:
-		## Facing Right
-		return (
-		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
-		and
-		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
-		and
-		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
-		and
-		p.dir_history[p.input_limit - 2] == Command.CommandTypes.LEFT
-		and
-		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
-		and
-		p.dir_history[p.input_limit - 4] == Command.CommandTypes.LEFT
-		)
+		fdash_input_timings.count(true) == fdash_input_timings.size()
+	)
 
 static func back_dash(p: Character) -> bool:
-	if p.current_side_facing == 1:
-		## Facing Right
-		return (
-		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
-		and
-		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
-		and
+	var double_tapb : Array[bool] = [
+		backward_pressed(p),
+		is_input_neutral(p, p.dir_history[p.input_limit - 3]),
+		is_input_backward(p, p.dir_history[p.input_limit - 4])
+	]
+	
+	var bdash_input_timings : Array[bool] = [
+		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW,
+		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW,
 		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
+	]
+	
+	return (
+		double_tapb.count(true) == double_tapb.size()
 		and
-		p.dir_history[p.input_limit - 2] == Command.CommandTypes.LEFT
-		and
-		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
-		and
-		p.dir_history[p.input_limit - 4] == Command.CommandTypes.LEFT
-		)
-	else:
-		## Facing Left
-		return (
-		p.dir_frames_length_history[p.input_limit - 3] <= DASH_TAP_WINDOW
-		and
-		p.dir_frames_length_history[p.input_limit - 2] <= DASH_TAP_WINDOW
-		and
-		p.frames_since_last_dir_input <= DASH_TAP_WINDOW
-		and
-		p.dir_history[p.input_limit - 2] == Command.CommandTypes.RIGHT
-		and
-		p.dir_history[p.input_limit - 3] == Command.CommandTypes.NEUTRAL
-		and
-		p.dir_history[p.input_limit - 4] == Command.CommandTypes.RIGHT
-		)
+		bdash_input_timings.count(true) == bdash_input_timings.size()
+	)
 
 ## For any upward direction input
 static func upward_dir_pressed(p: Character) -> bool:
@@ -114,26 +88,50 @@ static func down_backward_pressed(p: Character) -> bool:
 	else:
 		return p.input_reader.current_dir == Command.CommandTypes.DOWN_RIGHT
 
-static func is_input_down_forward(p, dir: Command.CommandTypes) -> bool:
+## The "is" functions
+## Usually for stuff like if an input is forward or backward
+
+static func is_input_neutral(p: Character, dir: Command.CommandTypes) -> bool:
+	return dir == Command.CommandTypes.NEUTRAL
+
+static func is_input_forward(p: Character, dir: Command.CommandTypes) -> bool:
+	if p.current_side_facing == 1:
+		return dir == Command.CommandTypes.RIGHT
+	else:
+		return dir == Command.CommandTypes.LEFT
+
+static func is_input_backward(p: Character, dir: Command.CommandTypes) -> bool:
+	if p.current_side_facing == 1:
+		return dir == Command.CommandTypes.LEFT
+	else:
+		return dir == Command.CommandTypes.RIGHT
+
+static func is_input_down_forward(p: Character, dir: Command.CommandTypes) -> bool:
+	if p.current_side_facing == 1:
+		return dir == Command.CommandTypes.DOWN_RIGHT
+	else:
+		return dir == Command.CommandTypes.DOWN_LEFT
+
+static func is_input_down_backward(p: Character, dir: Command.CommandTypes) -> bool:
 	if p.current_side_facing == 1:
 		return dir == Command.CommandTypes.DOWN_LEFT
 	else:
 		return dir == Command.CommandTypes.DOWN_RIGHT
 
-static func is_input_down_backward(p, dir: Command.CommandTypes) -> bool:
+static func is_input_up_forward(p: Character, dir: Command.CommandTypes) -> bool:
 	if p.current_side_facing == 1:
-		return dir == Command.CommandTypes.DOWN_RIGHT
+		return dir == Command.CommandTypes.UP_RIGHT
 	else:
-		return dir == Command.CommandTypes.DOWN_LEFT
+		return dir == Command.CommandTypes.UP_LEFT
 
-static func is_input_up_forward(p, dir: Command.CommandTypes) -> bool:
+static func is_input_up_backward(p: Character, dir: Command.CommandTypes) -> bool:
 	if p.current_side_facing == 1:
 		return dir == Command.CommandTypes.UP_LEFT
 	else:
 		return dir == Command.CommandTypes.UP_RIGHT
 
-static func is_input_up_backward(p, dir: Command.CommandTypes) -> bool:
-	if p.current_side_facing == 1:
-		return dir == Command.CommandTypes.UP_RIGHT
-	else:
-		return dir == Command.CommandTypes.UP_LEFT
+static func is_input_up(p: Character, dir: Command.CommandTypes) -> bool:
+	return dir == Command.CommandTypes.UP
+
+static func is_input_down(p: Character, dir: Command.CommandTypes) -> bool:
+	return dir == Command.CommandTypes.DOWN
