@@ -21,12 +21,17 @@
 [ext_resource type="Script" uid="uid://bq2ptby6pnq4w" path="res://Characters/JohnFight/states/standing_heavy.gd" id="17_ur5bw"]
 [ext_resource type="Script" uid="uid://ba6t0fijg8f0c" path="res://Characters/JohnFight/states/light_shoot.gd" id="18_feh3i"]
 [ext_resource type="Script" uid="uid://ddy67n8jvl78x" path="res://Characters/JohnFight/states/qcf_medium.gd" id="21_ecpc3"]
+[ext_resource type="PackedScene" uid="uid://b22elq4qgcjq7" path="res://Components/HurtboxComponent/hurtbox_component.tscn" id="22_a66md"]
+[ext_resource type="PackedScene" uid="uid://cbhff7nk3xl23" path="res://Components/HealthComponent/health_component.tscn" id="23_4coxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17b07"]
 size = Vector2(100, 180)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fn73y"]
 font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4coxi"]
+size = Vector2(74, 159)
 
 [node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim", "state_machine")]
 script = ExtResource("1_17b07")
@@ -48,12 +53,6 @@ command_history_node = NodePath("../CanvasLayer/command_history")
 unique_name_in_owner = true
 position = Vector2(0, -38)
 scale = Vector2(5.3, 5.3)
-
-[node name="Guides" type="Node2D" parent="." unique_id=1503973948]
-
-[node name="BulletSpawnPoint" type="Marker2D" parent="Guides" unique_id=1401360423]
-unique_name_in_owner = true
-position = Vector2(97, -41)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
 
@@ -134,3 +133,12 @@ script = ExtResource("18_feh3i")
 
 [node name="QCFMedium" type="Node" parent="StateMachine" unique_id=342276374]
 script = ExtResource("21_ecpc3")
+
+[node name="HurtboxComponent" parent="." unique_id=1415980216 node_paths=PackedStringArray("health_component") instance=ExtResource("22_a66md")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=809265500]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_4coxi")
+
+[node name="HealthComponent" parent="." unique_id=1186497212 instance=ExtResource("23_4coxi")]

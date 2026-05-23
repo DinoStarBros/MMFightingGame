@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dqn1uxro2wexe" path="res://Projectiles/Bullet/bullet.gd" id="1_0yips"]
 [ext_resource type="Texture2D" uid="uid://bqubavsk5td7m" path="res://Art/newsprites.png" id="2_gd7i5"]
+[ext_resource type="PackedScene" uid="uid://cmd1vlynxp72q" path="res://Components/HitboxComponent/hitbox_component.tscn" id="3_5yfcm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yfcm"]
+size = Vector2(34, 16)
 
 [node name="Bullet" type="Node2D" unique_id=212937796]
 script = ExtResource("1_0yips")
@@ -14,3 +18,9 @@ vframes = 3
 [node name="Duration" type="Timer" parent="." unique_id=907302463]
 unique_name_in_owner = true
 autostart = true
+
+[node name="HitboxComponent" parent="." unique_id=1415980216 instance=ExtResource("3_5yfcm")]
+attack_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1092899795]
+shape = SubResource("RectangleShape2D_5yfcm")
