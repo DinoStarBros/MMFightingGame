@@ -1,5 +1,5 @@
 extends Node2D
-class_name P1CommandHistory
+class_name CommandHistory
 
 @onready var sspawner: P1StuffSpawner = %P1StuffSpawner
 @onready var p1_inputs: P1Inputs = %P1Inputs
@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 		atk_command_history,
 		)
 	
-	
 	if dir_command_history.size() >= INPUT_LIMIT:
 		current_dir = dir_command_history[INPUT_LIMIT - 1]
 		%current_dir.text = str(current_dir)
@@ -53,7 +52,6 @@ func _physics_process(delta: float) -> void:
 	if atk_command_history.size() >= INPUT_LIMIT:
 		current_atk = atk_command_history[INPUT_LIMIT - 1]
 		%current_atk.text = str(current_atk)
-	
 	
 	if dir_command_history.size() >= INPUT_LIMIT:
 		dir_command_history.remove_at(0)

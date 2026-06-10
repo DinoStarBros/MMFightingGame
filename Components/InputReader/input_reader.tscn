@@ -6,6 +6,7 @@
 script = ExtResource("1_wgd5w")
 
 [node name="label" type="CanvasLayer" parent="." unique_id=422526707]
+visible = false
 
 [node name="things" type="VBoxContainer" parent="label" unique_id=1341909091]
 offset_left = 761.0

@@ -7,7 +7,8 @@ func enter() -> void:
 	p.character_anim.back_dash()
 
 func physics_update(delta: float) -> void:
-	p.velocity.x *= p.f_dash_friction
+	
+	p.velocity.x *= p.b_dash_friction
 	
 	frames += 1
 	if frames >= p.b_dash_total_frames:

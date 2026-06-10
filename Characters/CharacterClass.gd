@@ -46,12 +46,12 @@ var gatling_count : int
 
 @export_category("Movement Stats")
 @export var forward_move_speed : float = 500
-@export var backward_move_speed : float = 400
+@export var backward_move_speed : float = 300
 @export var jump_speed: float = 700
 @export_subgroup("Dash Stats")
-@export var forward_dash_speed : float = 800
+@export var forward_dash_speed : float = 1000
 @export var f_dash_friction : float = 0.9
-@export var backward_dash_speed : float = 700
+@export var backward_dash_speed : float = 800
 @export var b_dash_friction : float = 0.9
 
 @export_category("Frame Data BS")
