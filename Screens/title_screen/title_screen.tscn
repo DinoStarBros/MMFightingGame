@@ -22,11 +22,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -61.0
-offset_right = 61.0
-offset_bottom = 23.0
+offset_left = -189.0
+offset_top = 53.0
+offset_right = 190.0
+offset_bottom = 122.0
 grow_horizontal = 2
-text = "MM Fighting Game"
+text = "Maternal Melee"
 label_settings = SubResource("LabelSettings_a8sjr")
 
 [node name="buttons" type="VBoxContainer" parent="." unique_id=111059672]
@@ -48,6 +49,12 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Play"
+
+[node name="settings" type="Button" parent="buttons" unique_id=1206706300]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Settings"
 
 [node name="credits" type="Button" parent="buttons" unique_id=1319035481]
 unique_name_in_owner = true

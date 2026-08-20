@@ -3,7 +3,7 @@ class_name HitboxComponent
 
 enum attack_types {
 	HIGH, MID, LOW, OVERHEAD,
-	UNBLOCKABLE,
+	UNBLOCKABLE, GRAB,
 }
 
 @export var attack_type : attack_types

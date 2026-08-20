@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://do3oy3lqr320g"]
+
+[ext_resource type="Script" uid="uid://cuqedscshbnth" path="res://UIStuff/settingsMenu/settings_menu.gd" id="1_ewieb"]
+[ext_resource type="AudioStream" uid="uid://dlb0mt6s5iyxk" path="res://Audio/amalgun/beam.wav" id="3_276ht"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vnbe3"]
+font_size = 30
+
+[node name="settingsMenu" type="Control" unique_id=1952453294]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ewieb")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=868223110]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -294.0
+offset_right = 360.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tabs" type="TabContainer" parent="PanelContainer" unique_id=1092594582]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+current_tab = 0
+
+[node name="Audio" type="VBoxContainer" parent="PanelContainer/Tabs" unique_id=628836382]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="txt" type="Label" parent="PanelContainer/Tabs/Audio" unique_id=741732207]
+layout_mode = 2
+text = "Master"
+label_settings = SubResource("LabelSettings_vnbe3")
+
+[node name="master_volume" type="HSlider" parent="PanelContainer/Tabs/Audio" unique_id=2047998443]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.5
+step = 0.15
+tick_count = 11
+
+[node name="txt2" type="Label" parent="PanelContainer/Tabs/Audio" unique_id=228066672]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_vnbe3")
+
+[node name="music_volume" type="HSlider" parent="PanelContainer/Tabs/Audio" unique_id=913467290]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.5
+step = 0.15
+tick_count = 11
+
+[node name="txt3" type="Label" parent="PanelContainer/Tabs/Audio" unique_id=2107574486]
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_vnbe3")
+
+[node name="sfx_vol" type="HSlider" parent="PanelContainer/Tabs/Audio" unique_id=394377676]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.5
+step = 0.15
+tick_count = 11
+
+[node name="Accessiblity" type="VBoxContainer" parent="PanelContainer/Tabs" unique_id=88187064]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="txt4" type="Label" parent="PanelContainer/Tabs/Accessiblity" unique_id=435970463]
+layout_mode = 2
+text = "Screen Shake:"
+label_settings = SubResource("LabelSettings_vnbe3")
+
+[node name="screen_shake" type="Button" parent="PanelContainer/Tabs/Accessiblity" unique_id=600914708]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "On"
+
+[node name="txt5" type="Label" parent="PanelContainer/Tabs/Accessiblity" unique_id=787353952]
+layout_mode = 2
+text = "Frame Freeze:"
+label_settings = SubResource("LabelSettings_vnbe3")
+
+[node name="frame_freeze" type="Button" parent="PanelContainer/Tabs/Accessiblity" unique_id=827247504]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "On"
+
+[node name="txt6" type="Label" parent="PanelContainer/Tabs/Accessiblity" unique_id=983230036]
+layout_mode = 2
+text = "Translations:"
+label_settings = SubResource("LabelSettings_vnbe3")
+
+[node name="translations" type="OptionButton" parent="PanelContainer/Tabs/Accessiblity" unique_id=806514426]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Filipino"
+popup/item_1/id = 1
+
+[node name="Video" type="VBoxContainer" parent="PanelContainer/Tabs" unique_id=989850531]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Label" type="Label" parent="PanelContainer/Tabs/Video" unique_id=177447974]
+layout_mode = 2
+text = "GRAPHICS"
+label_settings = SubResource("LabelSettings_vnbe3")
+
+[node name="buttons" type="HBoxContainer" parent="." unique_id=1126722063]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 552.0
+offset_right = 57.0
+offset_bottom = 608.0
+
+[node name="save" type="Button" parent="buttons" unique_id=306936774]
+visible = false
+layout_mode = 2
+text = "Save"
+
+[node name="load" type="Button" parent="buttons" unique_id=1206058044]
+visible = false
+layout_mode = 2
+text = "Load"
+
+[node name="reset" type="Button" parent="buttons" unique_id=1083534487]
+visible = false
+layout_mode = 2
+text = "Reset
+Settings"
+
+[node name="back" type="Button" parent="buttons" unique_id=1947483519]
+layout_mode = 2
+text = "Back"
+
+[node name="sfx_parent" type="Node" parent="." unique_id=1828465206]
+unique_name_in_owner = true
+
+[node name="button_pressed" type="AudioStreamPlayer" parent="sfx_parent" unique_id=411150750]
+unique_name_in_owner = true
+stream = ExtResource("3_276ht")
+volume_db = -80.0
+pitch_scale = 2.0
+
+[node name="vol_change_sfx" type="AudioStreamPlayer" parent="sfx_parent" unique_id=25643682]
+unique_name_in_owner = true
+stream = ExtResource("3_276ht")
+volume_db = -80.0
+bus = &"SFX"
+
+[node name="vol_change_music" type="AudioStreamPlayer" parent="sfx_parent" unique_id=670133880]
+unique_name_in_owner = true
+stream = ExtResource("3_276ht")
+volume_db = -80.0
+bus = &"Music"
+
+[node name="vol_change_master" type="AudioStreamPlayer" parent="sfx_parent" unique_id=2045399991]
+unique_name_in_owner = true
+stream = ExtResource("3_276ht")
+volume_db = -80.0
+
+[connection signal="value_changed" from="PanelContainer/Tabs/Audio/master_volume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="PanelContainer/Tabs/Audio/music_volume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="PanelContainer/Tabs/Audio/sfx_vol" to="." method="_on_sfx_vol_value_changed"]
+[connection signal="pressed" from="PanelContainer/Tabs/Accessiblity/screen_shake" to="." method="_on_screen_shake_pressed"]
+[connection signal="pressed" from="PanelContainer/Tabs/Accessiblity/frame_freeze" to="." method="_on_frame_freeze_pressed"]
+[connection signal="pressed" from="buttons/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="buttons/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="buttons/reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="buttons/back" to="." method="_on_back_pressed"]

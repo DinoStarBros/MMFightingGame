@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://w00ph22e3fd8"]
+
+[ext_resource type="Script" uid="uid://doc7snjcve7j1" path="res://UIStuff/DeveloperOptions/developer_options.gd" id="1_ty76e"]
+
+[node name="DeveloperOptions" type="CanvasLayer" unique_id=658918576]
+script = ExtResource("1_ty76e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1597623510]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GenericAddStuff" type="GridContainer" parent="VBoxContainer" unique_id=1786579411]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/GenericAddStuff" unique_id=1904970960]
+layout_mode = 2
+text = "Generic Add Stuff"
+
+[node name="Other" type="GridContainer" parent="VBoxContainer" unique_id=1834690585]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/Other" unique_id=553402313]
+layout_mode = 2
+text = "Other Stuff"

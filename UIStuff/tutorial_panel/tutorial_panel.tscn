@@ -1,0 +1,268 @@
+[gd_scene format=3 uid="uid://bwb7fwa8odqg3"]
+
+[ext_resource type="Script" uid="uid://b08p74vxb4xqk" path="res://UIStuff/tutorial_panel/tutorial_panel.gd" id="1_xkt6d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wflc"]
+font_size = 30
+
+[node name="TutorialPanel" type="Control" unique_id=1400776454]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xkt6d")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1497731110]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -265.0
+offset_right = 375.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="page1" type="MarginContainer" parent="PanelContainer" unique_id=2027162069]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/page1" unique_id=192366755]
+layout_mode = 2
+size_flags_vertical = 0
+text = "The line going back & forth on the belt is your \"cursor\". Time your
+presses when the cursor is on a box to deal damage or defend from
+enemy attacks."
+label_settings = SubResource("LabelSettings_1wflc")
+
+[node name="vid" type="Node2D" parent="PanelContainer/page1" unique_id=1438799622]
+position = Vector2(-596, 235)
+
+[node name="vid1" type="VideoStreamPlayer" parent="PanelContainer/page1/vid" unique_id=1273072982]
+unique_name_in_owner = true
+offset_left = 659.0
+offset_top = -95.0
+offset_right = 1261.0
+offset_bottom = 219.0
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="page2" type="MarginContainer" parent="PanelContainer" unique_id=1238480738]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/page2" unique_id=304925630]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Timing your press with a \"product box\" slices it open and deals
+ damage to the enemy, having a chance to drop an item."
+label_settings = SubResource("LabelSettings_1wflc")
+
+[node name="vid" type="Node2D" parent="PanelContainer/page2" unique_id=749730726]
+position = Vector2(-596, 235)
+
+[node name="vid2" type="VideoStreamPlayer" parent="PanelContainer/page2/vid" unique_id=1025297293]
+unique_name_in_owner = true
+offset_left = 624.0
+offset_top = -28.0
+offset_right = 970.0
+offset_bottom = 219.0
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+buffering_msec = 1000
+
+[node name="page3" type="MarginContainer" parent="PanelContainer" unique_id=1457254621]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/page3" unique_id=731216572]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Enemies send out red boxes that damage you when reaching the end
+of the belt. Time your press to delete them."
+label_settings = SubResource("LabelSettings_1wflc")
+
+[node name="vid" type="Node2D" parent="PanelContainer/page3" unique_id=1477277206]
+position = Vector2(-596, 235)
+
+[node name="vid3" type="VideoStreamPlayer" parent="PanelContainer/page3/vid" unique_id=447000745]
+unique_name_in_owner = true
+offset_left = 659.0
+offset_top = -95.0
+offset_right = 1261.0
+offset_bottom = 219.0
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="page4" type="MarginContainer" parent="PanelContainer" unique_id=1272471586]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/page4" unique_id=1140164515]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Pressing when there isn't a box on the cursor also deals damage to
+you."
+label_settings = SubResource("LabelSettings_1wflc")
+
+[node name="vid" type="Node2D" parent="PanelContainer/page4" unique_id=2043534093]
+position = Vector2(-596, 235)
+
+[node name="vid4" type="VideoStreamPlayer" parent="PanelContainer/page4/vid" unique_id=1720192095]
+unique_name_in_owner = true
+offset_left = 659.0
+offset_top = -95.0
+offset_right = 1261.0
+offset_bottom = 219.0
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="page5" type="MarginContainer" parent="PanelContainer" unique_id=1777105211]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/page5" unique_id=49140214]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Consecutively pressing on boxes builds up combo and speeds up 
+your cursor. You can spend your combo on items by pressing them 
+or the number key, their combo cost being  shown on their bottom 
+left. You can know what each item does in the settings/pause menu."
+label_settings = SubResource("LabelSettings_1wflc")
+
+[node name="vid" type="Node2D" parent="PanelContainer/page5" unique_id=1626011007]
+position = Vector2(-596, 235)
+
+[node name="vid5" type="VideoStreamPlayer" parent="PanelContainer/page5/vid" unique_id=891541482]
+unique_name_in_owner = true
+offset_left = 624.0
+offset_top = -95.0
+offset_right = 1226.0
+offset_bottom = 219.0
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="51" type="Sprite2D" parent="PanelContainer/page5/vid" unique_id=801254660]
+position = Vector2(1184, 182)
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="PanelContainer/page5/vid" unique_id=1347672602]
+position = Vector2(1163.0002, 265)
+rotation = 4.1887903
+hframes = 2
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="PanelContainer/page5/vid" unique_id=923391024]
+position = Vector2(1327, 265)
+rotation = 4.1887903
+hframes = 2
+frame = 1
+
+[node name="page6" type="MarginContainer" parent="PanelContainer" unique_id=298647707]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/page6" unique_id=1448840285]
+layout_mode = 2
+size_flags_vertical = 0
+text = "After defeating an enemy, you get to choose a stat to upgrade."
+label_settings = SubResource("LabelSettings_1wflc")
+
+[node name="pic" type="Node2D" parent="PanelContainer/page6" unique_id=1413560067]
+position = Vector2(-596, 235)
+
+[node name="6" type="Sprite2D" parent="PanelContainer/page6" unique_id=101602577]
+position = Vector2(374.00006, 284.99994)
+scale = Vector2(0.8, 0.8)
+
+[node name="page7" type="MarginContainer" parent="PanelContainer" unique_id=1896390128]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="PanelContainer/page7" unique_id=796583634]
+layout_mode = 2
+size_flags_vertical = 0
+text = "And that's pretty much it. This is playtest version 1, so please give
+suggestions, changes, and bug reports so that we can improve this
+game."
+label_settings = SubResource("LabelSettings_1wflc")
+
+[node name="Buttons" type="Control" parent="." unique_id=1850599887]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -27.0
+offset_right = 20.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="next" type="Button" parent="Buttons" unique_id=699623903]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 400.0
+offset_right = 441.32413
+offset_bottom = 54.251
+text = ">>"
+
+[node name="prev" type="Button" parent="Buttons" unique_id=1469403397]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -400.0
+offset_right = -358.67578
+offset_bottom = 54.251007
+text = "<<"
+
+[node name="close" type="Button" parent="Buttons" unique_id=1724286867]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.000015
+offset_top = 200.99998
+offset_right = 36.324112
+offset_bottom = 255.25098
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+
+[node name="page_no_txt" type="Label" parent="." unique_id=1772919979]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 903.0
+offset_top = 582.0
+offset_right = 950.0
+offset_bottom = 612.0
+text = "1/67"
+horizontal_alignment = 2
+vertical_alignment = 1

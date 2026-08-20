@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cdxvfdhpxmj5b" path="res://Characters/JohnFight/john_fight.tscn" id="3_68gu7"]
 [ext_resource type="PackedScene" uid="uid://hs23v0i258q3" path="res://Dummy/dummy.tscn" id="4_5guaq"]
 [ext_resource type="Texture2D" uid="uid://0p5oyvjobhee" path="res://CharacterAnims/JohnFight/JohnFightSprites/Idle.png" id="5_q3gu4"]
+[ext_resource type="PackedScene" uid="uid://hsre18l1fya1" path="res://UIStuff/PlayerPauseUI/player_pause_ui.tscn" id="6_fdvew"]
 
 [node name="training_room" type="Node2D" unique_id=1879368795]
 script = ExtResource("1_2mw5h")
@@ -13,29 +14,6 @@ script = ExtResource("1_2mw5h")
 position = Vector2(640, 657)
 
 [node name="UIStuff" type="CanvasLayer" parent="." unique_id=1507901714]
-
-[node name="h2p" type="OptionButton" parent="UIStuff" unique_id=390048978]
-offset_right = 126.0
-offset_bottom = 31.0
-selected = 0
-item_count = 2
-popup/item_0/text = "How to play"
-popup/item_0/id = 0
-popup/item_1/text = "WASD move"
-popup/item_1/id = 1
-
-[node name="quit" type="Button" parent="UIStuff" unique_id=1536242906]
-unique_name_in_owner = true
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -59.0
-offset_top = 14.0
-offset_right = -17.0
-offset_bottom = 45.0
-grow_horizontal = 0
-text = "Quit
-"
 
 [node name="Fighters" type="Node2D" parent="." unique_id=357628340]
 
@@ -58,3 +36,6 @@ texture = ExtResource("5_q3gu4")
 [node name="guy3" type="Sprite2D" parent="Fighters/guy1/guy2" unique_id=532707806]
 position = Vector2(0, -32)
 texture = ExtResource("5_q3gu4")
+
+[node name="PlayerPauseUI" parent="." unique_id=1837853034 instance=ExtResource("6_fdvew")]
+visible = false

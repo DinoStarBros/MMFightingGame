@@ -515,6 +515,7 @@ hframes = 10
 frame = 1
 
 [node name="standing_heavy" type="Sprite2D" parent="sprites" unique_id=8280806]
+visible = false
 texture = ExtResource("15_pehwl")
 hframes = 14
 frame = 1

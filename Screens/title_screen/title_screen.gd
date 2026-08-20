@@ -2,6 +2,8 @@ extends Control
 class_name TitleScreen
 
 func _ready() -> void:
+	get_tree().paused = false
+	
 	%quit.pressed.connect(
 		func(): get_tree().quit()
 	)
