@@ -1,5 +1,5 @@
 extends Node2D
-class_name CommandHistory
+class_name P1CommandHistory
 
 @onready var sspawner: P1StuffSpawner = %P1StuffSpawner
 @onready var p1_inputs: P1Inputs = %P1Inputs

@@ -2,7 +2,11 @@ extends Character
 class_name JohnFight
 
 func _ready() -> void:
-	current_side_facing = 1
+	match character_side:
+		CharacterSide.P1:
+			current_side_facing = 1
+		CharacterSide.P2:
+			current_side_facing = -1
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()

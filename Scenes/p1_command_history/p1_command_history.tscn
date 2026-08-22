@@ -9,7 +9,7 @@ script = ExtResource("1_4nxwf")
 
 [node name="dir_command_start_point" type="Marker2D" parent="." unique_id=864022042]
 unique_name_in_owner = true
-position = Vector2(1272, 560)
+position = Vector2(1272, 650)
 
 [node name="P1Inputs" type="Node" parent="." unique_id=2091861082]
 unique_name_in_owner = true

@@ -2,7 +2,7 @@ extends Node
 class_name P1StuffSpawner
 
 @onready var command_start_point: Marker2D = %dir_command_start_point
-@onready var command_history : CommandHistory = get_parent()
+@onready var command_history : P1CommandHistory = get_parent()
 
 const command_scn : PackedScene = preload("res://Scenes/p1_command/p1_command.tscn")
 const belt_box_scn : PackedScene = preload("res://Scenes/p1_command/p1_belt_box.tscn")
