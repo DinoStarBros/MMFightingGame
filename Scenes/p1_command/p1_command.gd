@@ -1,6 +1,8 @@
 extends Node2D
 class_name Command
 
+var is_player_1 : bool
+
 enum CommandTypes {
 	NEUTRAL,
 	
@@ -22,14 +24,21 @@ enum CommandTypes {
 var command_type : CommandTypes
 var velocity : Vector2
 
-func _init() -> void:
-	GlobalSignal.TickInputP1.connect(_tick_input)
-
 func _ready() -> void:
 	sprite.frame = command_type + 1
 	velocity.x = -sprite.scale.x * 16
 
-func _tick_input() -> void:
+	if is_player_1:
+		GlobalSignal.TickInputP1.connect(_tick_input_p1)
+	else:
+		GlobalSignal.TickInputP2.connect(_tick_input_p2)
+
+func _tick_input_p1() -> void:
+	global_position += velocity
+	if global_position.x <= -16:
+		queue_free()
+
+func _tick_input_p2() -> void:
 	global_position += velocity
 	if global_position.x <= -16:
 		queue_free()

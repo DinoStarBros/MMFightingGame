@@ -3,8 +3,8 @@ class_name CommandHistory
 
 @export var input_reader : InputReader
 
-@onready var p1_stuff_spawner: P1StuffSpawner = %P1StuffSpawner
-@onready var p1_inputs: P1Inputs = %P1Inputs
+@onready var stuff_spawner: StuffSpawner = %StuffSpawner
+@onready var p1_inputs: PlayerInputs = %PlayerInputs
 
 var input_attack : Array[bool] = [false, false, false, false]:
 	set(value):
@@ -16,7 +16,7 @@ var current_atk : int
 var current_dir : int
 var parent_character : Character
 ## True = Player1, False = Player2
-var is_player_1 : bool = true 
+var is_player_1 : bool = true
 
 const INPUT_LIMIT : int = 15
 
@@ -24,10 +24,14 @@ func _ready() -> void:
 	parent_character = input_reader.parent_character
 	is_player_1 = parent_character.character_p1_or_p2 == Character.CharacterP1orP2.P1
 	
-	
-	for n in (1280.0/16.0):
-		p1_stuff_spawner.spawn_belt_box(n * -16, 0)
-		p1_stuff_spawner.spawn_belt_box(n * -16, 32)
+	if is_player_1:
+		for n in (1280.0/16.0):
+			stuff_spawner.spawn_belt_box(n * -16, 0)
+			stuff_spawner.spawn_belt_box(n * -16, 16)
+	else:
+		for n in (1280.0/16.0):
+			stuff_spawner.spawn_belt_box(n * -16, 48)
+			stuff_spawner.spawn_belt_box(n * -16, 64)
 	
 	for n in INPUT_LIMIT:
 		dir_command_history.append(0)

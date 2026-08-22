@@ -1,7 +1,7 @@
 extends Node
-class_name P1Inputs
+class_name PlayerInputs
 
-@onready var sspawner: P1StuffSpawner = %P1StuffSpawner
+@onready var sspawner: StuffSpawner = %StuffSpawner
 
 const diag : float = sqrt(2)/2
 

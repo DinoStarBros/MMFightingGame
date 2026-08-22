@@ -11,7 +11,6 @@ func physics_update(delta: float) -> void:
 	p.apply_friction()
 	frames += 1
 	
-	
 	if frames >= p.standing_h_total_frames:
 		state_machine.change_state("Idle")
 

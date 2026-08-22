@@ -2,22 +2,22 @@
 
 [ext_resource type="Script" uid="uid://d2esub8pkfnf3" path="res://Scenes/command_history/command_history.gd" id="1_idqe7"]
 [ext_resource type="Script" uid="uid://g406edel25bn" path="res://Scenes/command_history/p1_inputs.gd" id="2_idqe7"]
-[ext_resource type="Script" uid="uid://cp1mej2mlhybi" path="res://Scenes/command_history/p1_stuff_spawner.gd" id="3_5t5i6"]
+[ext_resource type="Script" uid="uid://cp1mej2mlhybi" path="res://Scenes/command_history/stuff_spawner.gd" id="3_idqe7"]
 
 [node name="command_history" type="Node2D" unique_id=1725422575]
 script = ExtResource("1_idqe7")
 
 [node name="dir_command_start_point" type="Marker2D" parent="." unique_id=864022042]
 unique_name_in_owner = true
-position = Vector2(1272, 650)
+position = Vector2(1272, 640)
 
-[node name="P1Inputs" type="Node" parent="." unique_id=2091861082]
+[node name="PlayerInputs" type="Node" parent="." unique_id=2091861082]
 unique_name_in_owner = true
 script = ExtResource("2_idqe7")
 
-[node name="P1StuffSpawner" type="Node" parent="." unique_id=52194027]
+[node name="StuffSpawner" type="Node" parent="." unique_id=52194027]
 unique_name_in_owner = true
-script = ExtResource("3_5t5i6")
+script = ExtResource("3_idqe7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1613130476]
 offset_left = 385.0

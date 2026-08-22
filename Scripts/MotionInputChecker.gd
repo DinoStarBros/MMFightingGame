@@ -1,6 +1,6 @@
 extends DirectionInput
 ## For motion inputs SPECIFICALLY
-## like Quuarter Circle Forwards, DPs, etc.
+## like Quarter Circle Forwards, DPs, etc.
 ## So that the DirectionInputScript wont be bloated as helll
 class_name MotionInput
 
