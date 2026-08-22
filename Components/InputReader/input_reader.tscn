@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cpni1q7bd30sg"]
 
 [ext_resource type="Script" uid="uid://d0w7io0jfwdfu" path="res://Components/InputReader/input_reader.gd" id="1_wgd5w"]
-[ext_resource type="PackedScene" uid="uid://cuij304o7bqou" path="res://Scenes/p1_command_history/p1_command_history.tscn" id="2_lmwf5"]
+[ext_resource type="PackedScene" uid="uid://cuij304o7bqou" path="res://Scenes/command_history/command_history.tscn" id="2_lmwf5"]
 
 [node name="InputReader" type="Node2D" unique_id=1706886587 node_paths=PackedStringArray("command_history_node")]
 script = ExtResource("1_wgd5w")
-command_history_node = NodePath("label/p1_command_history")
+command_history_node = NodePath("label/command_history")
 
 [node name="label" type="CanvasLayer" parent="." unique_id=422526707]
 visible = false
@@ -42,4 +42,5 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "67777"
 
-[node name="p1_command_history" parent="label" unique_id=1725422575 instance=ExtResource("2_lmwf5")]
+[node name="command_history" parent="label" unique_id=1725422575 node_paths=PackedStringArray("input_reader") instance=ExtResource("2_lmwf5")]
+input_reader = NodePath("../..")

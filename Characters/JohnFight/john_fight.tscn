@@ -54,7 +54,8 @@ visible = false
 shape = SubResource("RectangleShape2D_17b07")
 debug_color = Color(0.7112961, 0.48489213, 0, 0)
 
-[node name="InputReader" parent="." unique_id=1706886587 instance=ExtResource("7_th7mi")]
+[node name="InputReader" parent="." unique_id=1706886587 node_paths=PackedStringArray("parent_character") instance=ExtResource("7_th7mi")]
+parent_character = NodePath("..")
 
 [node name="JohnFightAnims" parent="." unique_id=1228057302 instance=ExtResource("2_fqhhd")]
 unique_name_in_owner = true

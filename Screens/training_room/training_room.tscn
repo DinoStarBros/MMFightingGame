@@ -19,6 +19,10 @@ position = Vector2(640, 657)
 [node name="JohnFight" parent="Fighters" unique_id=1012419678 instance=ExtResource("3_68gu7")]
 position = Vector2(166, 433)
 
+[node name="JohnFight2" parent="Fighters" unique_id=1792749692 instance=ExtResource("3_68gu7")]
+position = Vector2(1115, 433)
+character_p1_or_p2 = 1
+
 [node name="guy1" type="Sprite2D" parent="Fighters" unique_id=1138650628]
 visible = false
 position = Vector2(323, 505)

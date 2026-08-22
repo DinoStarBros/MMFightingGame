@@ -1,7 +1,8 @@
 extends Node2D
 class_name InputReader
 
-@export var command_history_node : P1CommandHistory
+@export var parent_character : Character
+@export var command_history_node : CommandHistory
 
 var dir_history : Array:
 	set(value):

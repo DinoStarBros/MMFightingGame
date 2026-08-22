@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Character
 
-enum CharacterSide {
+enum CharacterP1orP2 {
 	P1, P2
 }
 
@@ -39,7 +39,7 @@ var atk_frames_length_history : Array
 
 var gatling_count : int
 
-@export var character_side : CharacterSide
+@export var character_p1_or_p2 : CharacterP1orP2
 @export var input_reader : InputReader
 @export var character_anim : CharacterAnim
 @export var state_machine : StateMachine
