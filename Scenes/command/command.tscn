@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cxvup7qmlxmko"]
 
-[ext_resource type="Script" uid="uid://1kyhtk3l1uw8" path="res://Scenes/p1_command/p1_command.gd" id="1_2c7kg"]
+[ext_resource type="Script" uid="uid://1kyhtk3l1uw8" path="res://Scenes/command/command.gd" id="1_2c7kg"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_2c7kg"]
 _data = PackedByteArray("AAADAAUAAAABAAAAUAAAAFAAAACKAQAAUklGRoIBAABXRUJQVlA4THYBAAAvT8ATEDdAJmAx8QTT0yeGGgTZNiPcKe6PMDIBixURR2h5vDqY/wC8F7akH69iAHJtO44UfcxeH7dnMuBMBJhEfP4xIP1f6sH0NqL/Dty2cSRt8dY73cWvCFkoy7dCopnkwkMRh2yft4KcEjTiRZIYIaEX+z8xwgfBSCaIEf52MIhEcoINIpiMhHhcWvz3todQSEwhij43bjjp7tvmq882rTk+t2FzIzY34nKKnxeKsKjXxHf1LZblT3RAcU42oSQVxDQjYXWYnKUj2QlimpEq1O8kfbKpKsaIVFEdnAoVTrf7OJwviqQEu6g9EYNkQfTbhQY6RgCJpN5mhIn1fBKEzocRLpbzJmkGxLDRMdMTVbHxIfZ6m4OKRpFLEsJpl9evrzt053w4Hq/LwV8vr/LZD/jrlvXve3x5uVGH+8PhSr32g983t3VPtD/rHu0H/HWL9qO+QPtRX7DuzX7AX7dUL3xvtC/qo1+wD/yN3q97oz77AU+1EA==")

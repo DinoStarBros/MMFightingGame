@@ -4,12 +4,12 @@ class_name CommandHistory
 @export var input_reader : InputReader
 
 @onready var stuff_spawner: StuffSpawner = %StuffSpawner
-@onready var p1_inputs: PlayerInputs = %PlayerInputs
+@onready var inputs: PlayerInputs = %PlayerInputs
 
 var input_attack : Array[bool] = [false, false, false, false]:
 	set(value):
 		input_attack = value
-		p1_inputs.input_attack = input_attack
+		inputs.input_attack = input_attack
 var dir_command_history : Array
 var atk_command_history : Array
 var current_atk : int
@@ -40,11 +40,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if is_player_1:
-		p1_inputs.input_dir = Input.get_vector(
+		inputs.input_dir = Input.get_vector(
 			"p1left", "p1right", "p1up", "p1down"
 		)
 	else:
-		p1_inputs.input_dir = Input.get_vector(
+		inputs.input_dir = Input.get_vector(
 			"p2left", "p2right", "p2up", "p2down"
 		)
 	
