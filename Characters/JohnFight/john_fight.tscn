@@ -33,6 +33,7 @@ size = Vector2(100, 180)
 font_size = 40
 
 [node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim", "state_machine")]
+collision_layer = 0
 script = ExtResource("1_17b07")
 input_reader = NodePath("InputReader")
 character_anim = NodePath("JohnFightAnims")
@@ -71,14 +72,6 @@ offset_right = 145.0
 offset_bottom = 184.0
 text = "State"
 label_settings = SubResource("LabelSettings_fn73y")
-
-[node name="Label" type="Label" parent="." unique_id=956029841]
-unique_name_in_owner = true
-offset_left = -99.0
-offset_top = -136.0
-offset_right = -59.0
-offset_bottom = -113.0
-text = "67"
 
 [node name="StateMachine" type="Node" parent="." unique_id=2143610001 node_paths=PackedStringArray("initial_state", "debug")]
 script = ExtResource("4_p1p80")

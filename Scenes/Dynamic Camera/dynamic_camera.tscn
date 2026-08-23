@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://k16w5ves0dc3"]
+
+[ext_resource type="Script" uid="uid://bt41johilnsr3" path="res://Scenes/Dynamic Camera/dynamic_camera.gd" id="1_cafs8"]
+
+[node name="DynamicCamera" type="Camera2D" unique_id=2125353297]
+script = ExtResource("1_cafs8")

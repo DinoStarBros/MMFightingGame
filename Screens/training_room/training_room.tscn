@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1vvjrwtg8mjd" path="res://Scenes/ground/ground.tscn" id="2_n6oql"]
 [ext_resource type="PackedScene" uid="uid://cdxvfdhpxmj5b" path="res://Characters/JohnFight/john_fight.tscn" id="3_68gu7"]
 [ext_resource type="Texture2D" uid="uid://0p5oyvjobhee" path="res://CharacterAnims/JohnFight/JohnFightSprites/Idle.png" id="5_q3gu4"]
+[ext_resource type="PackedScene" uid="uid://k16w5ves0dc3" path="res://Scenes/Dynamic Camera/dynamic_camera.tscn" id="6_0juoi"]
 [ext_resource type="PackedScene" uid="uid://hsre18l1fya1" path="res://UIStuff/PlayerPauseUI/player_pause_ui.tscn" id="6_fdvew"]
 
 [node name="training_room" type="Node2D" unique_id=1879368795]
@@ -11,31 +12,35 @@ script = ExtResource("1_2mw5h")
 
 [node name="Ground" parent="." unique_id=548214944 instance=ExtResource("2_n6oql")]
 position = Vector2(640, 657)
+scale = Vector2(2, 1)
 
 [node name="UIStuff" type="CanvasLayer" parent="." unique_id=1507901714]
 
-[node name="Fighters" type="Node2D" parent="." unique_id=357628340]
-
-[node name="JohnFight" parent="Fighters" unique_id=1012419678 instance=ExtResource("3_68gu7")]
-position = Vector2(166, 433)
-
-[node name="JohnFight2" parent="Fighters" unique_id=1792749692 instance=ExtResource("3_68gu7")]
-position = Vector2(1115, 433)
-character_p1_or_p2 = 1
-
-[node name="guy1" type="Sprite2D" parent="Fighters" unique_id=1138650628]
+[node name="guy1" type="Sprite2D" parent="." unique_id=1138650628]
 visible = false
 position = Vector2(323, 505)
 scale = Vector2(5.3, 5.3)
 texture = ExtResource("5_q3gu4")
 
-[node name="guy2" type="Sprite2D" parent="Fighters/guy1" unique_id=1657502959]
+[node name="guy2" type="Sprite2D" parent="guy1" unique_id=1657502959]
 position = Vector2(0, -32)
 texture = ExtResource("5_q3gu4")
 
-[node name="guy3" type="Sprite2D" parent="Fighters/guy1/guy2" unique_id=532707806]
+[node name="guy3" type="Sprite2D" parent="guy1/guy2" unique_id=532707806]
 position = Vector2(0, -32)
 texture = ExtResource("5_q3gu4")
+
+[node name="Fighters" type="Node2D" parent="." unique_id=357628340]
+
+[node name="JohnFight" parent="Fighters" unique_id=1012419678 instance=ExtResource("3_68gu7")]
+position = Vector2(75, 508)
+
+[node name="JohnFight2" parent="Fighters" unique_id=1792749692 instance=ExtResource("3_68gu7")]
+position = Vector2(1182, 500)
+character_p1_or_p2 = 1
 
 [node name="PlayerPauseUI" parent="." unique_id=1837853034 instance=ExtResource("6_fdvew")]
 visible = false
+
+[node name="DynamicCamera" parent="." unique_id=2125353297 instance=ExtResource("6_0juoi")]
+position = Vector2(640, 360)

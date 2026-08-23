@@ -14,6 +14,17 @@ var current_side_facing : int = 1:
 		current_side_facing = value
 		#character_anim.scale.x *= current_side_facing
 		flip_sprite_anims(current_side_facing)
+var is_p1 : bool 
+
+func _ready() -> void:
+	is_p1 = character_p1_or_p2 == CharacterP1orP2.P1
+	match character_p1_or_p2:
+		CharacterP1orP2.P1:
+			current_side_facing = 1
+			References.player_1_character = self
+		CharacterP1orP2.P2:
+			current_side_facing = -1
+			References.player_2_character = self
 
 func flip_sprite_anims(side: int) -> void:
 	if side == 1:
@@ -28,6 +39,28 @@ func flip_sprite_anims(side: int) -> void:
 			character_anim.scale.x *= -1
 		elif character_anim.scale.x <= 0:
 			character_anim.scale.x *= 1
+
+func face_enemy() -> void:
+	var both_players_on_floor : bool = (
+		References.player_1_character.is_on_floor() and
+		References.player_2_character.is_on_floor()
+	)
+	
+	# You should only be able to autoface once both characters are on the floor
+	# So that you can do crossups & cool stuff like that
+	if !both_players_on_floor:
+		return
+	
+	if is_p1:
+		if global_position.x < References.player_2_character.global_position.x:
+			current_side_facing = 1
+		else:
+			current_side_facing = -1
+	else:
+		if global_position.x < References.player_1_character.global_position.x:
+			current_side_facing = 1
+		else:
+			current_side_facing = -1
 
 var dir_history : Array
 var atk_history : Array

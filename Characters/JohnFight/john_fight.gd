@@ -1,13 +1,6 @@
 extends Character
 class_name JohnFight
 
-func _ready() -> void:
-	match character_p1_or_p2:
-		CharacterP1orP2.P1:
-			current_side_facing = 1
-		CharacterP1orP2.P2:
-			current_side_facing = -1
-
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
@@ -26,6 +19,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			# Jumping
 			velocity.y += Global.GRAVITY * delta * 2.9
+	
+	face_enemy()
 	
 	# 3
 	# 22
