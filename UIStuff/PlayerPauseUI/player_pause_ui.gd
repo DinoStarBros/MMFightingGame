@@ -8,6 +8,8 @@ class_name PlayerPauseUI
 func pause_or_unpause() -> void:
 	visible = !visible
 	get_tree().paused = !get_tree().paused
+	
+	SaveLoad._save()
 
 func _resume_btn_pressed() -> void:
 	pause_or_unpause()

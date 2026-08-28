@@ -10,6 +10,7 @@ func _ready()->void:
 	
 	%translations.item_selected.connect(_on_translations_pressed)
 	
+	_on_load_pressed()
 	await get_tree().process_frame
 	_on_load_pressed()
 	

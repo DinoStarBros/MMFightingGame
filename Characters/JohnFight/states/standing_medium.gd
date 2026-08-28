@@ -7,6 +7,10 @@ func enter() -> void:
 	what_was_pressed = Command.CommandTypes.NEUTRAL
 
 func update(delta: float) -> void:
+	if p.input_reader.just_atk_pressed(Command.CommandTypes.ONE):
+		what_was_pressed = Command.CommandTypes.ONE
+	if p.input_reader.just_atk_pressed(Command.CommandTypes.TWO):
+		what_was_pressed = Command.CommandTypes.TWO
 	if p.input_reader.just_atk_pressed(Command.CommandTypes.THREE):
 		what_was_pressed = Command.CommandTypes.THREE
 
