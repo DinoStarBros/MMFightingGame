@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c5ndxt1bqvoq5"]
+
+[ext_resource type="Texture2D" uid="uid://d302otlqulpwq" path="res://Art/portrait_sprite_placeholder.png" id="1_i28cu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i28cu"]
+font_size = 50
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-9.115, -4.37)
+
+[node name="JohnFightBigPortrait" type="Sprite2D" unique_id=1103603567]
+
+[node name="l" type="Sprite2D" parent="." unique_id=750082297]
+position = Vector2(239.99998, 410.99997)
+scale = Vector2(10, 10)
+texture = ExtResource("1_i28cu")
+region_enabled = true
+region_rect = Rect2(64, 0, 64, 64)
+
+[node name="Label" type="Label" parent="." unique_id=1387482630]
+offset_left = 124.0
+offset_top = 564.0
+offset_right = 202.0
+offset_bottom = 587.0
+text = "John Fight"
+label_settings = SubResource("LabelSettings_i28cu")

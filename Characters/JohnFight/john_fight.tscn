@@ -45,6 +45,7 @@ metadata/_edit_vertical_guides_ = [1282.0]
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=809265500]
+visible = false
 position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_4coxi")
 

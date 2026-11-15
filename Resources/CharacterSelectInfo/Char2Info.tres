@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterSelectInfo" format=3 uid="uid://d0nuwa8cohwdx"]
+
+[ext_resource type="Texture2D" uid="uid://d302otlqulpwq" path="res://Art/portrait_sprite_placeholder.png" id="2_hedsi"]
+[ext_resource type="Script" uid="uid://kjjsnnqoa5wn" path="res://Resources/CharacterSelectInfo/CharacterSelectInfo.gd" id="3_5tipg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsk6j"]
+atlas = ExtResource("2_hedsi")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+script = ExtResource("3_5tipg")
+key = "Char 2"
+portrait_texture = SubResource("AtlasTexture_rsk6j")
+metadata/_custom_type_script = "uid://kjjsnnqoa5wn"

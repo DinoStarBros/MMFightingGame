@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c4rc8bvt6q8bq"]
+
+[ext_resource type="Texture2D" uid="uid://d302otlqulpwq" path="res://Art/portrait_sprite_placeholder.png" id="1_1hnvm"]
+[ext_resource type="Script" uid="uid://cx78560xjocki" path="res://Scenes/CharacterSelectButton/character_select_button.gd" id="1_iwe2x"]
+[ext_resource type="Script" uid="uid://bo42h6g8ytmjh" path="res://Scenes/CharacterSelectButton/char_sel_btn_area.gd" id="3_vmlky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwe2x"]
+atlas = ExtResource("1_1hnvm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpl4s"]
+size = Vector2(30, 30)
+
+[node name="CharacterSelectButton" type="PanelContainer" unique_id=487085844]
+custom_minimum_size = Vector2(70, 70)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_iwe2x")
+
+[node name="portrait" type="TextureRect" parent="." unique_id=81683989]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_iwe2x")
+stretch_mode = 3
+
+[node name="CharSelBtnArea" type="Area2D" parent="." unique_id=1037165376 node_paths=PackedStringArray("parent")]
+position = Vector2(35, 35)
+collision_layer = 32768
+collision_mask = 16384
+script = ExtResource("3_vmlky")
+parent = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharSelBtnArea" unique_id=2083758457]
+shape = SubResource("RectangleShape2D_qpl4s")

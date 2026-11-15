@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MMFightingGame"
-run/main_scene="uid://djq2p3mu3u3s2"
+run/main_scene="uid://c2n7dbd8euabb"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -54,6 +54,7 @@ folder_colors={
 "res://Characters/": "blue",
 "res://Components/": "green",
 "res://Globals/": "purple",
+"res://Resources/": "orange",
 "res://Scenes/": "green",
 "res://Screens/": "yellow",
 "res://Scripts/": "purple"
@@ -169,6 +170,8 @@ pause={
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Hurtboxes"
 2d_physics/layer_3="Hitboxes"
+2d_physics/layer_15="Character Select Cursor"
+2d_physics/layer_16="Character Select Button/Slot"
 
 [physics]
 

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://c2n7dbd8euabb"]
+
+[ext_resource type="Script" uid="uid://bnr5a253rd3pf" path="res://Screens/character_select_screen/character_select_screen.gd" id="1_rsk6j"]
+[ext_resource type="PackedScene" uid="uid://ci3qgah4vleyn" path="res://Scenes/CharacterSelectCursor/character_select_cursor.tscn" id="3_ki6on"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j713a"]
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CharacterSelectScreen" type="Control" unique_id=1813176331]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsk6j")
+
+[node name="PortraitContainers" type="Node2D" parent="." unique_id=1752092522]
+
+[node name="txt" type="Label" parent="." unique_id=1520218310]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_right = 204.0
+offset_bottom = 69.0
+grow_horizontal = 2
+text = "Character Select:"
+label_settings = SubResource("LabelSettings_j713a")
+
+[node name="buttons" type="VBoxContainer" parent="." unique_id=1882811085]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 436.0
+offset_top = 269.0
+offset_right = 616.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="next_btn" type="Button" parent="buttons" unique_id=463086997]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Next"
+
+[node name="CharacterSelectButtonsParent" type="GridContainer" parent="." unique_id=1346170734]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -75.0
+offset_right = 195.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="CharacterSelectCursor" parent="." unique_id=1464795133 instance=ExtResource("3_ki6on")]
+position = Vector2(640, 320)
+
+[node name="CharacterSelectCursor2" parent="." unique_id=1071229425 instance=ExtResource("3_ki6on")]
+position = Vector2(640, 320)
+is_p1 = false

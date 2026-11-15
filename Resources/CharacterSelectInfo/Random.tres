@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterSelectInfo" format=3 uid="uid://8r1bs70r8ma4"]
+
+[ext_resource type="Texture2D" uid="uid://bl1sma74wk35c" path="res://Art/rand.png" id="2_8d28r"]
+[ext_resource type="Script" uid="uid://kjjsnnqoa5wn" path="res://Resources/CharacterSelectInfo/CharacterSelectInfo.gd" id="3_ph2fk"]
+
+[resource]
+script = ExtResource("3_ph2fk")
+key = "Random"
+portrait_texture = ExtResource("2_8d28r")
+metadata/_custom_type_script = "uid://kjjsnnqoa5wn"
