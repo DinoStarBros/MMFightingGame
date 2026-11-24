@@ -1,5 +1,7 @@
 extends PanelContainer
-class_name CharacterSelectButton
+class_name CharacterSelectSlot
+
+@export var top_slot : CharacterSelectSlot
 
 @onready var portrait: TextureRect = %portrait
 

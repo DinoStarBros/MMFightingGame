@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c2n7dbd8euabb"]
 
 [ext_resource type="Script" uid="uid://bnr5a253rd3pf" path="res://Screens/character_select_screen/character_select_screen.gd" id="1_rsk6j"]
-[ext_resource type="PackedScene" uid="uid://ci3qgah4vleyn" path="res://Scenes/CharacterSelectCursor/character_select_cursor.tscn" id="3_ki6on"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j713a"]
 font_size = 50
@@ -17,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rsk6j")
 
-[node name="PortraitContainers" type="Node2D" parent="." unique_id=1752092522]
+[node name="BigPortraitContainers" type="Node2D" parent="." unique_id=1752092522]
 
 [node name="txt" type="Label" parent="." unique_id=1520218310]
 layout_mode = 1
@@ -68,10 +67,3 @@ grow_vertical = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 5
-
-[node name="CharacterSelectCursor" parent="." unique_id=1464795133 instance=ExtResource("3_ki6on")]
-position = Vector2(640, 320)
-
-[node name="CharacterSelectCursor2" parent="." unique_id=1071229425 instance=ExtResource("3_ki6on")]
-position = Vector2(640, 320)
-is_p1 = false
