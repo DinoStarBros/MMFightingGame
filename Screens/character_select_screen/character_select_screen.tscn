@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://c2n7dbd8euabb"]
 
 [ext_resource type="Script" uid="uid://bnr5a253rd3pf" path="res://Screens/character_select_screen/character_select_screen.gd" id="1_rsk6j"]
+[ext_resource type="PackedScene" uid="uid://c4rc8bvt6q8bq" path="res://Scenes/CharacterSelectButton/character_select_button.tscn" id="2_22mtl"]
+[ext_resource type="Texture2D" uid="uid://bta4pb1kfkqy2" path="res://Resources/CharacterSelectInfo/image.png" id="3_ki6on"]
+[ext_resource type="Resource" uid="uid://2ei6c4bps55p" path="res://Resources/CharacterSelectInfo/JohnFightInfo.tres" id="3_rptqn"]
+[ext_resource type="Resource" uid="uid://d0nuwa8cohwdx" path="res://Resources/CharacterSelectInfo/Char2Info.tres" id="4_eq6fj"]
+[ext_resource type="Resource" uid="uid://8r1bs70r8ma4" path="res://Resources/CharacterSelectInfo/Random.tres" id="5_eq6fj"]
+[ext_resource type="Texture2D" uid="uid://bj8mpgmuywdpp" path="res://Art/CharacterSelectCursors.png" id="7_g3sd6"]
+[ext_resource type="AudioStream" uid="uid://3bx8jf1jpnix" path="res://Audio/kenney_interface-sounds/Audio/pluck_001.ogg" id="8_mbvos"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j713a"]
 font_size = 50
@@ -15,6 +22,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rsk6j")
+
+[node name="bg" type="Sprite2D" parent="." unique_id=789972145]
+position = Vector2(640.5, 359.5)
+scale = Vector2(7.070652, 7.105769)
+texture = ExtResource("3_ki6on")
+region_enabled = true
+region_rect = Rect2(0, 0, 184, 104)
 
 [node name="BigPortraitContainers" type="Node2D" parent="." unique_id=1752092522]
 
@@ -59,11 +73,64 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -195.0
-offset_top = -75.0
+offset_top = -276.0
 offset_right = 195.0
-offset_bottom = 75.0
+offset_bottom = -126.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 5
+
+[node name="1" parent="CharacterSelectButtonsParent" unique_id=487085844 node_paths=PackedStringArray("left_slot", "right_slot") instance=ExtResource("2_22mtl")]
+layout_mode = 2
+character_select_info = ExtResource("3_rptqn")
+left_slot = NodePath("../4")
+right_slot = NodePath("../2")
+
+[node name="2" parent="CharacterSelectButtonsParent" unique_id=1746852051 node_paths=PackedStringArray("left_slot", "right_slot") instance=ExtResource("2_22mtl")]
+layout_mode = 2
+character_select_info = ExtResource("4_eq6fj")
+left_slot = NodePath("../1")
+right_slot = NodePath("../rand")
+
+[node name="rand" parent="CharacterSelectButtonsParent" unique_id=419478187 node_paths=PackedStringArray("left_slot", "right_slot") instance=ExtResource("2_22mtl")]
+unique_name_in_owner = true
+layout_mode = 2
+character_select_info = ExtResource("5_eq6fj")
+left_slot = NodePath("../2")
+right_slot = NodePath("../3")
+
+[node name="3" parent="CharacterSelectButtonsParent" unique_id=496854930 node_paths=PackedStringArray("left_slot", "right_slot") instance=ExtResource("2_22mtl")]
+layout_mode = 2
+character_select_info = ExtResource("4_eq6fj")
+left_slot = NodePath("../rand")
+right_slot = NodePath("../4")
+
+[node name="4" parent="CharacterSelectButtonsParent" unique_id=166184626 node_paths=PackedStringArray("left_slot", "right_slot") instance=ExtResource("2_22mtl")]
+layout_mode = 2
+character_select_info = ExtResource("3_rptqn")
+left_slot = NodePath("../3")
+right_slot = NodePath("../1")
+
+[node name="Image" type="Sprite2D" parent="." unique_id=956427870]
+position = Vector2(-277, -452)
+texture = ExtResource("3_ki6on")
+
+[node name="p1cursor" type="Sprite2D" parent="." unique_id=217036610]
+unique_name_in_owner = true
+position = Vector2(642, 119)
+texture = ExtResource("7_g3sd6")
+hframes = 2
+
+[node name="p2cursor" type="Sprite2D" parent="." unique_id=1955866289]
+unique_name_in_owner = true
+position = Vector2(642, 119)
+texture = ExtResource("7_g3sd6")
+hframes = 2
+frame = 1
+
+[node name="move_selection_sfx" type="AudioStreamPlayer" parent="." unique_id=610324594]
+unique_name_in_owner = true
+stream = ExtResource("8_mbvos")
+bus = &"SFX"
