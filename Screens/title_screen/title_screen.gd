@@ -10,5 +10,5 @@ func _ready() -> void:
 	
 	%play.pressed.connect(
 		#func(): SceneManager.change_scene("res://Screens/training_room/training_room.tscn")
-		func(): SceneManager.change_scene("res://Screens/character_select/character_select.tscn")
+		func(): SceneManager.change_scene("res://Screens/character_select_screen/character_select_screen.tscn")
 	)

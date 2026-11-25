@@ -126,11 +126,24 @@ func qcf_specials_handle() -> void:
 	if AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE):
 		state_machine.change_state("QCFLight")
 
+## Special Moves with the DP input
+func dp_specials_handle() -> void:
+	if AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE):
+		
+		print("BRUH")
+		pass
+
 ## All grounded attacks/actions, like LMH attacks, Fireball, DP, etc.
 func grounded_attacks_handle() -> void:
 	
 	if MotionInput.quarter_circle_forward(self):
+		
 		qcf_specials_handle()
+		
+	elif MotionInput.dragon_punch_forward(self):
+		
+		dp_specials_handle()
+		
 	else:
 		lmh_attacks_handle()
 		

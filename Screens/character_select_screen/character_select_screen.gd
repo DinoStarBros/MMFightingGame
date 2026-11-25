@@ -23,9 +23,11 @@ func _ready() -> void:
 	%next_btn.pressed.connect(
 		func(): SceneManager.change_scene("res://Screens/training_room/training_room.tscn")
 	)
+	
 	await get_tree().process_frame
 	p1_selected_slot = rand_slot
 	p2_selected_slot = rand_slot
+	move_selection_sfx.stop()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("p1up") and p1_selected_slot.top_slot:

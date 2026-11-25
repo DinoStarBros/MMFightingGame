@@ -19,12 +19,12 @@ func physics_update(delta: float) -> void:
 
 func _forward_dir_pressed_handling(delta: float) -> void:
 	if DirectionInput.forward_dash(p):
-		state_machine.change_state("ForwardDash")
+		state_machine.change_state("ForwardGroundDash")
 	else:
 		state_machine.change_state("Forward")
 
 func _back_dir_pressed_handling(delta: float) -> void:
 	if DirectionInput.back_dash(p):
-		state_machine.change_state("BackDash")
+		state_machine.change_state("BackGroundDash")
 	else:
 		state_machine.change_state("Back")

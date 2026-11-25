@@ -33,6 +33,7 @@ region_rect = Rect2(0, 0, 184, 104)
 [node name="BigPortraitContainers" type="Node2D" parent="." unique_id=1752092522]
 
 [node name="txt" type="Label" parent="." unique_id=1520218310]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

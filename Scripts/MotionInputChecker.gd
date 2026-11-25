@@ -4,6 +4,7 @@ extends DirectionInput
 ## So that the DirectionInputScript wont be bloated as helll
 class_name MotionInput
 
+
 static func quarter_circle_forward(p: Character) -> bool:
 	if p.dir_history.size() == 0:
 		return false
@@ -56,6 +57,7 @@ static func quarter_circle_forward(p: Character) -> bool:
 	
 	# "not false in" basically means, check if there's no false elements in the array
 	# check if all elements in array are true
+	# which means all the inputs are in the correct order
 	return (
 	not false in true_qcf_holdf
 	or
@@ -68,4 +70,33 @@ static func quarter_circle_forward(p: Character) -> bool:
 	not false in lenient_qcf_d_tapf
 	or
 	not false in lenient_qcf_d_n_tapf
+	)
+
+## Forward, Down, Down-Forward
+static func dragon_punch_forward(p: Character) -> bool:
+	if p.dir_history.size() == 0:
+		return false
+	
+	if not(p.frames_since_last_dir_input <= MOTION_INPUT_BUFFER_WINDOW):
+		return false
+	
+	var dp_with_neutral_holddf : Array[bool] = [
+		down_forward_pressed(p),
+		is_input_down(p, p.dir_history[p.input_limit - 3]),
+		is_input_neutral(p, p.dir_history[p.input_limit - 4]),
+		is_input_forward(p, p.dir_history[p.input_limit - 5]),
+	]
+	
+	var dp_with_neutral_tapdf : Array[bool] = [
+		neutral_pressed(p),
+		is_input_down_forward(p, p.dir_history[p.input_limit - 3]),
+		is_input_down(p, p.dir_history[p.input_limit - 4]),
+		is_input_neutral(p, p.dir_history[p.input_limit - 5]),
+		is_input_forward(p, p.dir_history[p.input_limit - 6]),
+	]
+	
+	return (
+		not false in dp_with_neutral_holddf
+		or
+		not false in dp_with_neutral_tapdf
 	)
