@@ -99,4 +99,5 @@ static func dragon_punch_forward(p: Character) -> bool:
 		not false in dp_with_neutral_holddf
 		or
 		not false in dp_with_neutral_tapdf
+		
 	)

@@ -88,6 +88,7 @@ var gatling_count : int
 @export var b_dash_friction : float = 0.9
 
 @export_category("Frame Data BS")
+
 @export_subgroup("Dash Frames")
 @export var f_dash_total_frames : int = 19
 @export var b_dash_total_frames : int = 23
@@ -101,6 +102,8 @@ var gatling_count : int
 @export_subgroup("Specials")
 @export var qcf_light_frame_total : int = 47
 @export var qcf_l_startup : int = 14
+@export var dp_l_startup : int = 5
+@export var dp_l_frame_total : int = 14
 
 @export_category("Combat Stats")
 @export var standing_l_damage : int = 10
@@ -129,9 +132,7 @@ func qcf_specials_handle() -> void:
 ## Special Moves with the DP input
 func dp_specials_handle() -> void:
 	if AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE):
-		
-		print("BRUH")
-		pass
+		state_machine.change_state("DPLight")
 
 ## All grounded attacks/actions, like LMH attacks, Fireball, DP, etc.
 func grounded_attacks_handle() -> void:
@@ -147,6 +148,9 @@ func grounded_attacks_handle() -> void:
 	else:
 		lmh_attacks_handle()
 		
+		easy_button_specials()
+
+func easy_button_specials() -> void:
 		if (
 		AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE_FOUR)
 		or
@@ -156,6 +160,8 @@ func grounded_attacks_handle() -> void:
 			
 		elif AttackInput.attack_just_pressed(self, Command.CommandTypes.TWO_FOUR):
 			state_machine.change_state("QCFMedium")
+		elif AttackInput.attack_just_pressed(self, Command.CommandTypes.THREE_FOUR):
+			state_machine.change_state("QCFHeavy")
 
 ## For States where the character's supposed to stand still, like attacks
 func apply_friction() -> void:
