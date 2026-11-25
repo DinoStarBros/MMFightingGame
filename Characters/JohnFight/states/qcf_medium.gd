@@ -4,7 +4,7 @@ var bullet_velocity : Vector2
 var bullet_spawned : bool = false
 
 func enter() -> void:
-	frames = 0
+	frames_elapsed = 0
 	
 	p.character_anim.qcf_medium()
 	what_was_pressed = Command.CommandTypes.NEUTRAL
@@ -14,13 +14,13 @@ func enter() -> void:
 
 func physics_update(delta: float) -> void:
 	p.apply_friction()
-	frames += 1
+	frames_elapsed += 1
 	
-	if frames >= p.qcf_l_startup and !bullet_spawned:
+	if frames_elapsed >= p.qcf_l_startup and !bullet_spawned:
 		spawn_bullet(bullet_velocity)
 		bullet_spawned = true
 	
-	if frames >= p.qcf_light_frame_total:
+	if frames_elapsed >= p.qcf_light_frame_total:
 		state_machine.change_state("Idle")
 
 func exit() -> void:

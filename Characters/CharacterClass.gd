@@ -88,7 +88,9 @@ var gatling_count : int
 @export var b_dash_friction : float = 0.9
 
 @export_category("Frame Data BS")
-
+@export_subgroup("Jump Frame Data")
+@export var jump_startup_frames : int = 3
+@export var landing_recovery_frames : int = 1
 @export_subgroup("Dash Frames")
 @export var f_dash_total_frames : int = 19
 @export var b_dash_total_frames : int = 23
@@ -99,9 +101,10 @@ var gatling_count : int
 @export var standing_m_recovery_start_frame : int = 10 ## This is how many frames till u can start buffering/cancels
 @export var standing_h_total_frames : int = 31
 @export var standing_h_recovery_start_frame : int = 14 ## This is how many frames till u can start buffering/cancels
-@export_subgroup("Specials")
+@export_subgroup("QCF Specials")
 @export var qcf_light_frame_total : int = 47
 @export var qcf_l_startup : int = 14
+@export_subgroup("DP Specials")
 @export var dp_l_startup : int = 5
 @export var dp_l_frame_total : int = 14
 
@@ -110,10 +113,6 @@ var gatling_count : int
 @export var standing_m_damage : int = 15
 @export var standing_h_damage : int = 25
 @export var projectile_x_speed : float = 2000
-
-@export_category("Jump Frame Data")
-@export var jump_startup_frames : int = 3
-@export var landing_recovery_frames : int = 1
 
 ## The light medium heavy attacks
 func lmh_attacks_handle() -> void:

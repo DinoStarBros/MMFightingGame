@@ -1,13 +1,12 @@
 extends State
 
 func enter() -> void:
-	frames = 0
+	frames_elapsed = 0
 
 func physics_update(delta: float) -> void:
-	frames += 1
+	frames_elapsed += 1
 	
-	if frames >= p.jump_startup_frames:
-		#print(frames)
+	if frames_elapsed >= p.jump_startup_frames:
 		if DirectionInput.upward_dir_pressed(p):
 			jump_handle()
 		else:

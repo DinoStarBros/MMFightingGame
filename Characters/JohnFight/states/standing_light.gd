@@ -1,7 +1,7 @@
 extends State
 
 func enter() -> void:
-	frames = 0
+	frames_elapsed = 0
 	
 	p.character_anim.standing_light()
 	what_was_pressed = Command.CommandTypes.NEUTRAL
@@ -15,15 +15,15 @@ func update(delta: float) -> void:
 func physics_update(delta: float) -> void:
 	p.apply_friction()
 	
-	frames += 1
+	frames_elapsed += 1
 	
-	if frames >= p.standing_l_recovery_start_frame:
+	if frames_elapsed >= p.standing_l_recovery_start_frame:
 		if what_was_pressed == Command.CommandTypes.TWO:
 			state_machine.change_state("StandingMedium")
 		elif what_was_pressed == Command.CommandTypes.THREE:
 			state_machine.change_state("StandingHeavy")
 	
-	if frames >= p.standing_l_total_frames:
+	if frames_elapsed >= p.standing_l_total_frames:
 		state_machine.change_state("Idle")
 
 func exit() -> void:
