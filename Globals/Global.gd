@@ -2,6 +2,8 @@ extends Node
 
 const GRAVITY : float = 980 * 2
 
+var show_command_history : bool = false
+
 func volume_handle() -> void:
 	AudioServer.set_bus_volume_db(
 		0,

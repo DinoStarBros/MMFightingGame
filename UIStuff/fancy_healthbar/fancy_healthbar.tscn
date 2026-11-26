@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dryipx6eo8d1y"]
+
+[ext_resource type="Script" uid="uid://enbiwhg3tll5" path="res://UIStuff/fancy_healthbar/fancy_healthbar.gd" id="1_1620c"]
+[ext_resource type="Material" uid="uid://bhkdvn07xjay3" path="res://UIStuff/fancy_healthbar/hp_barticle.tres" id="2_l6s5o"]
+[ext_resource type="Texture2D" uid="uid://bxi1xb61q71gy" path="res://Art/CrokDag/luhCircle.png" id="2_qjbgn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6s5o"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1nbx"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjbgn"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6dh6"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1620c"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_1620c"]
+font_size = 35
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjbgn"]
+font_size = 35
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FancyHealthbar" type="ProgressBar" unique_id=526919355]
+self_modulate = Color(0.36854124, 0.7507515, 3.85046e-07, 1)
+custom_minimum_size = Vector2(350, 35)
+offset_right = 350.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_l6s5o")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w1nbx")
+value = 100.0
+show_percentage = false
+script = ExtResource("1_1620c")
+
+[node name="WhiteBar" type="ProgressBar" parent="." unique_id=409648164]
+unique_name_in_owner = true
+show_behind_parent = true
+custom_minimum_size = Vector2(350, 35)
+layout_mode = 0
+offset_right = 350.0
+offset_bottom = 35.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qjbgn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v6dh6")
+value = 100.0
+show_percentage = false
+
+[node name="BGBar" type="ProgressBar" parent="WhiteBar" unique_id=1675018441]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 355.0
+offset_bottom = 40.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1620c")
+show_percentage = false
+
+[node name="HPText" type="Label" parent="." unique_id=1276473422]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -18.5
+offset_right = 175.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "67 / 100"
+label_settings = SubResource("LabelSettings_1620c")
+horizontal_alignment = 1
+
+[node name="HpBarticle" type="GPUParticles2D" parent="." unique_id=916696418]
+unique_name_in_owner = true
+position = Vector2(0, 18)
+emitting = false
+amount = 10
+texture = ExtResource("2_qjbgn")
+lifetime = 0.2
+process_material = ExtResource("2_l6s5o")
+
+[node name="name_text" type="Label" parent="." unique_id=965427874]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -45.0
+offset_right = 117.0
+offset_bottom = -9.0
+text = "Player HP:"
+label_settings = SubResource("LabelSettings_qjbgn")
+
+[node name="dmg_txt" type="Label" parent="." unique_id=349511090]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 38.0
+offset_top = 85.0
+offset_right = 94.0
+offset_bottom = 111.0
+text = "aaaaaa"
+horizontal_alignment = 2

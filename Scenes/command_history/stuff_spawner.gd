@@ -7,7 +7,14 @@ class_name StuffSpawner
 const command_scn : PackedScene = preload("res://Scenes/command/command.tscn")
 const belt_box_scn : PackedScene = preload("res://Scenes/command/belt_box.tscn")
 
+func _ready() -> void:
+	pass
+
 func spawn_dir_command(command_type: Command.CommandTypes) -> void:
+	command_history.dir_command_history.append(command_type)
+	
+	if !Global.show_command_history:
+		return
 	
 	var command : Command = command_scn.instantiate()
 	command.command_type = command_type
@@ -21,9 +28,12 @@ func spawn_dir_command(command_type: Command.CommandTypes) -> void:
 		GlobalSignal.TickInputP2.emit()
 	
 	add_child(command)
-	command_history.dir_command_history.append(command_type)
 
 func spawn_attack_command(command_type: Command.CommandTypes) -> void:
+	command_history.atk_command_history.append(command_type)
+	
+	if !Global.show_command_history:
+		return
 	
 	var command : Command = command_scn.instantiate()
 	command.command_type = command_type
@@ -38,9 +48,11 @@ func spawn_attack_command(command_type: Command.CommandTypes) -> void:
 		GlobalSignal.TickInputP2.emit()
 	
 	add_child(command)
-	command_history.atk_command_history.append(command_type)
 
 func spawn_belt_box(posx : float, y_offset: float) -> void:
+	if !Global.show_command_history:
+		return
+	
 	var belt_box : Sprite2D = belt_box_scn.instantiate()
 	add_child(belt_box)
 	belt_box.global_position.x = posx + command_start_point.global_position.x

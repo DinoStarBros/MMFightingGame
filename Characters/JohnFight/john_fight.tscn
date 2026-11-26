@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://0xqnu655yqy0" path="res://Characters/JohnFight/states/dp_medium.gd" id="25_g6r8u"]
 [ext_resource type="Script" uid="uid://ctvvm5rewb5j2" path="res://Characters/JohnFight/states/dp_heavy.gd" id="26_32m8y"]
 [ext_resource type="Script" uid="uid://dsytli4jp4uqn" path="res://Characters/JohnFight/states/hurt_1.gd" id="27_32m8y"]
+[ext_resource type="PackedScene" uid="uid://dryipx6eo8d1y" path="res://UIStuff/fancy_healthbar/fancy_healthbar.tscn" id="28_ewtop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4coxi"]
 size = Vector2(74, 159)
@@ -57,7 +58,8 @@ position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_4coxi")
 debug_color = Color(0, 0.6, 0, 0.41960785)
 
-[node name="HealthComponent" parent="." unique_id=1186497212 instance=ExtResource("23_4coxi")]
+[node name="HealthComponent" parent="." unique_id=1186497212 node_paths=PackedStringArray("health_bar") instance=ExtResource("23_4coxi")]
+health_bar = NodePath("../CanvasLayer/FancyHealthbar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1929916068]
 visible = false
@@ -74,7 +76,14 @@ scale = Vector2(5.3, 5.3)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
 
+[node name="FancyHealthbar" parent="CanvasLayer" unique_id=526919355 instance=ExtResource("28_ewtop")]
+offset_left = 13.0
+offset_top = 48.0
+offset_right = 363.0
+offset_bottom = 83.0
+
 [node name="state" type="Label" parent="CanvasLayer" unique_id=1809092595]
+visible = false
 offset_left = 45.0
 offset_top = 129.0
 offset_right = 145.0

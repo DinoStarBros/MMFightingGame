@@ -15,6 +15,7 @@ position = Vector2(640, 657)
 scale = Vector2(2, 1)
 
 [node name="UIStuff" type="CanvasLayer" parent="." unique_id=1507901714]
+visible = false
 
 [node name="guy1" type="Sprite2D" parent="." unique_id=1138650628]
 visible = false

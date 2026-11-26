@@ -13,6 +13,7 @@ var attack : Attack = Attack.new()
 signal Hit(attack: Attack)
 
 func _ready() -> void:
+	attack.damage = 500
 	area_entered.connect(_hurtbox_entered)
 
 func collision_layer_setup(is_p1: bool) -> void:

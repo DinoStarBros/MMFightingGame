@@ -15,7 +15,7 @@ position = Vector2(1272, 640)
 unique_name_in_owner = true
 script = ExtResource("2_idqe7")
 
-[node name="StuffSpawner" type="Node" parent="." unique_id=52194027]
+[node name="StuffSpawner" type="Node" parent="." unique_id=1952404983]
 unique_name_in_owner = true
 script = ExtResource("3_idqe7")
 
