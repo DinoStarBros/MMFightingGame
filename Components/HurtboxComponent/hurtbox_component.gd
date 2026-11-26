@@ -1,6 +1,8 @@
 extends Area2D
 class_name HurtboxComponent
 
+signal Hurt(attack:Attack)
+
 @export var health_component : HealthComponent
 
 func _ready() -> void:
@@ -25,4 +27,4 @@ func collision_layer_setup(is_p1: bool) -> void:
 
 func on_hit(attack: Attack) -> void:
 	health_component.hp -= roundi(attack.damage)
-	breakpoint
+	Hurt.emit(attack)

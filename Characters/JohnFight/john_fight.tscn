@@ -22,10 +22,11 @@
 [ext_resource type="Script" uid="uid://ddy67n8jvl78x" path="res://Characters/JohnFight/states/qcf_medium.gd" id="21_ecpc3"]
 [ext_resource type="PackedScene" uid="uid://b22elq4qgcjq7" path="res://Components/HurtboxComponent/hurtbox_component.tscn" id="22_a66md"]
 [ext_resource type="PackedScene" uid="uid://cbhff7nk3xl23" path="res://Components/HealthComponent/health_component.tscn" id="23_4coxi"]
-[ext_resource type="Script" uid="uid://cow2jorw367uq" path="res://Characters/JohnFight/dp_light.gd" id="23_6rbuj"]
-[ext_resource type="Script" uid="uid://dshicrgcb5hiw" path="res://Characters/JohnFight/qcf_heavy.gd" id="23_sw3hs"]
-[ext_resource type="Script" uid="uid://0xqnu655yqy0" path="res://Characters/JohnFight/dp_medium.gd" id="25_g6r8u"]
-[ext_resource type="Script" uid="uid://ctvvm5rewb5j2" path="res://Characters/JohnFight/dp_heavy.gd" id="26_32m8y"]
+[ext_resource type="Script" uid="uid://cow2jorw367uq" path="res://Characters/JohnFight/states/dp_light.gd" id="23_6rbuj"]
+[ext_resource type="Script" uid="uid://dshicrgcb5hiw" path="res://Characters/JohnFight/states/qcf_heavy.gd" id="23_sw3hs"]
+[ext_resource type="Script" uid="uid://0xqnu655yqy0" path="res://Characters/JohnFight/states/dp_medium.gd" id="25_g6r8u"]
+[ext_resource type="Script" uid="uid://ctvvm5rewb5j2" path="res://Characters/JohnFight/states/dp_heavy.gd" id="26_32m8y"]
+[ext_resource type="Script" uid="uid://dsytli4jp4uqn" path="res://Characters/JohnFight/states/hurt_1.gd" id="27_32m8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4coxi"]
 size = Vector2(74, 159)
@@ -82,6 +83,7 @@ text = "State"
 label_settings = SubResource("LabelSettings_fn73y")
 
 [node name="StateMachine" type="Node" parent="." unique_id=2143610001 node_paths=PackedStringArray("initial_state", "debug")]
+unique_name_in_owner = true
 script = ExtResource("4_p1p80")
 initial_state = NodePath("Idle")
 debug = NodePath("../CanvasLayer/state")
@@ -151,3 +153,8 @@ script = ExtResource("25_g6r8u")
 
 [node name="DPHeavy" type="Node" parent="StateMachine" unique_id=1148403091]
 script = ExtResource("26_32m8y")
+
+[node name="HurtDamageStates" type="Node" parent="StateMachine" unique_id=1055790082]
+
+[node name="Hurt1" type="Node" parent="StateMachine" unique_id=871778356]
+script = ExtResource("27_32m8y")

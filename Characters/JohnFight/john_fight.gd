@@ -5,6 +5,7 @@ class_name JohnFight
 
 func _onready() -> void:
 	hurtbox_component.collision_layer_setup(is_p1)
+	hurtbox_component.Hurt.connect(hurt)
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -31,3 +32,6 @@ func _physics_process(delta: float) -> void:
 	# 22
 	# 20
 	# 1
+
+func hurt(attack: Attack) -> void:
+	state_machine.change_state("Hurt1")
