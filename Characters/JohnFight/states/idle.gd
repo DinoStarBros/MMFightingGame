@@ -16,6 +16,7 @@ func physics_update(delta: float) -> void:
 	
 	if DirectionInput.upward_dir_pressed(p):
 		state_machine.change_state("JumpStartup")
+	
 
 func _forward_dir_pressed_handling(delta: float) -> void:
 	if DirectionInput.forward_dash(p):

@@ -48,6 +48,9 @@ func standing_heavy() -> void:
 func qcf_light() -> void:
 	play_animation("qcf_light")
 
+func dp_light() -> void:
+	play_animation("dp_light")
+
 func play_animation(animation_name : String):
 	anim.stop()
 	anim.play(animation_name)

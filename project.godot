@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MMFightingGame"
-run/main_scene="uid://c2n7dbd8euabb"
+run/main_scene="uid://djq2p3mu3u3s2"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
