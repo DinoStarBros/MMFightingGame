@@ -14,10 +14,11 @@ var current_side_facing : int = 1:
 		current_side_facing = value
 		#character_anim.scale.x *= current_side_facing
 		flip_sprite_anims(current_side_facing)
-var is_p1 : bool 
+var is_p1 : bool
 
 func _ready() -> void:
 	is_p1 = character_p1_or_p2 == CharacterP1orP2.P1
+	
 	match character_p1_or_p2:
 		CharacterP1orP2.P1:
 			current_side_facing = 1
@@ -25,6 +26,11 @@ func _ready() -> void:
 		CharacterP1orP2.P2:
 			current_side_facing = -1
 			References.player_2_character = self
+	
+	_onready()
+
+func _onready() -> void:
+	pass
 
 func flip_sprite_anims(side: int) -> void:
 	if side == 1:
@@ -41,6 +47,9 @@ func flip_sprite_anims(side: int) -> void:
 			character_anim.scale.x *= 1
 
 func face_enemy() -> void:
+	if !References.player_1_character:
+		return
+	
 	var both_players_on_floor : bool = (
 		References.player_1_character.is_on_floor() and
 		References.player_2_character.is_on_floor()
@@ -150,6 +159,18 @@ func grounded_attacks_handle() -> void:
 		easy_button_specials()
 
 func easy_button_specials() -> void:
+	if DirectionInput.is_input_down(self, input_reader.current_dir):
+		if (
+			AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE_FOUR)
+			or
+			AttackInput.attack_just_pressed(self, Command.CommandTypes.FOUR)
+		):
+			state_machine.change_state("DPLight")
+		elif AttackInput.attack_just_pressed(self, Command.CommandTypes.TWO_FOUR):
+			state_machine.change_state("DPMedium")
+		elif AttackInput.attack_just_pressed(self, Command.CommandTypes.THREE_FOUR):
+			state_machine.change_state("DPHeavy")
+	else:
 		if (
 		AttackInput.attack_just_pressed(self, Command.CommandTypes.ONE_FOUR)
 		or

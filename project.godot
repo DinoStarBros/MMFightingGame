@@ -168,8 +168,10 @@ pause={
 [layer_names]
 
 2d_physics/layer_1="Environment"
-2d_physics/layer_2="Hurtboxes"
-2d_physics/layer_3="Hitboxes"
+2d_physics/layer_2="P1 Hurtboxes"
+2d_physics/layer_3="P2 Hurtboxes"
+2d_physics/layer_4="P1 Hitboxes"
+2d_physics/layer_5="P2 Hitboxes"
 2d_physics/layer_15="Character Select Cursor"
 2d_physics/layer_16="Character Select Button/Slot"
 

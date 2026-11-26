@@ -1,6 +1,11 @@
 extends Character
 class_name JohnFight
 
+@onready var hurtbox_component: HurtboxComponent = %HurtboxComponent
+
+func _onready() -> void:
+	hurtbox_component.collision_layer_setup(is_p1)
+
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	

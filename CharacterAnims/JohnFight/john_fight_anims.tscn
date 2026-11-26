@@ -488,14 +488,16 @@ size = Vector2(21, 8)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xi5uw"]
 load_path = "res://.godot/imported/Dash.png-a80705b26dc6f70a0e8be7641685e4e1.ctex"
 
-[node name="JohnFightAnims" type="Node2D" unique_id=1228057302]
+[node name="JohnFightAnims" type="Node2D" unique_id=1228057302 node_paths=PackedStringArray("all_hitboxes")]
 script = ExtResource("1_2mi20")
+all_hitboxes = [NodePath("High")]
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=233840107]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ci7t1")
 
 [node name="High" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
+unique_name_in_owner = true
 position = Vector2(21, -4)
 
 [node name="hc" type="CollisionShape2D" parent="High" unique_id=1378672286]

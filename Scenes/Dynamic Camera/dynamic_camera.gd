@@ -8,12 +8,18 @@ var player_2 : Character
 
 ## The average position of the 2 players' positions
 func get_average_position_between_players() -> Vector2:
+	if !References.player_1_character:
+		return Vector2.ZERO
+	
 	return Vector2(
 		(player_1.global_position.x + player_2.global_position.x) / 2,
 		(player_1.global_position.y + player_2.global_position.y) / 2
 		)
 
 func get_distance_between_players() -> float:
+	if !References.player_1_character:
+		return 0.0
+	
 	return (
 		References.player_1_character.global_position.distance_to(
 			References.player_2_character.global_position
