@@ -1,6 +1,6 @@
 extends State
 
-func enter() -> void:
+func enter(extra_data: Dictionary = {}) -> void:
 	p.character_anim.walk_backward()
 
 func physics_update(delta: float) -> void:

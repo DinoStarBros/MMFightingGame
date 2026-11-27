@@ -85,6 +85,7 @@ var gatling_count : int
 @export var input_reader : InputReader
 @export var character_anim : CharacterAnim
 @export var state_machine : StateMachine
+@export var generic_character_sfx : GenericCharacterSFX
 
 @export_category("Movement Stats")
 @export var forward_move_speed : float = 500

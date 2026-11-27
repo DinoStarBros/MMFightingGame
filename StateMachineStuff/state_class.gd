@@ -8,7 +8,7 @@ var frames_elapsed : int = 0
 
 var what_was_pressed : Command.CommandTypes
 
-func enter() -> void:
+func enter(extra_data: Dictionary = {}) -> void:
 	pass
 
 func exit() -> void:

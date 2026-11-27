@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://ctvvm5rewb5j2" path="res://Characters/JohnFight/states/dp_heavy.gd" id="26_32m8y"]
 [ext_resource type="Script" uid="uid://dsytli4jp4uqn" path="res://Characters/JohnFight/states/hurt_1.gd" id="27_32m8y"]
 [ext_resource type="PackedScene" uid="uid://dryipx6eo8d1y" path="res://UIStuff/fancy_healthbar/fancy_healthbar.tscn" id="28_ewtop"]
+[ext_resource type="PackedScene" uid="uid://bvyupa5am5ug6" path="res://Scenes/GenericCharacterSFX/generic_character_sfx.tscn" id="29_2yygh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4coxi"]
 size = Vector2(74, 159)
@@ -38,12 +39,13 @@ size = Vector2(100, 180)
 [sub_resource type="LabelSettings" id="LabelSettings_fn73y"]
 font_size = 40
 
-[node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim", "state_machine")]
+[node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim", "state_machine", "generic_character_sfx")]
 collision_layer = 0
 script = ExtResource("1_17b07")
 input_reader = NodePath("InputReader")
 character_anim = NodePath("JohnFightAnims")
 state_machine = NodePath("StateMachine")
+generic_character_sfx = NodePath("GenericCharacterSFX")
 jump_speed = 2000.0
 forward_dash_speed = 1250.0
 backward_dash_speed = 1000.0
@@ -77,10 +79,10 @@ scale = Vector2(5.3, 5.3)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
 
 [node name="FancyHealthbar" parent="CanvasLayer" unique_id=526919355 instance=ExtResource("28_ewtop")]
-offset_left = 13.0
-offset_top = 48.0
-offset_right = 363.0
-offset_bottom = 83.0
+offset_left = 36.0
+offset_top = 73.0
+offset_right = 386.0
+offset_bottom = 108.0
 
 [node name="state" type="Label" parent="CanvasLayer" unique_id=1809092595]
 visible = false
@@ -167,3 +169,5 @@ script = ExtResource("26_32m8y")
 
 [node name="Hurt1" type="Node" parent="StateMachine" unique_id=871778356]
 script = ExtResource("27_32m8y")
+
+[node name="GenericCharacterSFX" parent="." unique_id=1641173561 instance=ExtResource("29_2yygh")]

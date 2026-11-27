@@ -34,7 +34,13 @@ func _physics_process(delta: float) -> void:
 	# 1
 
 func hurt(attack: AttackClass) -> void:
-	state_machine.change_state("Hurt1")
+	state_machine.change_state(
+		"Hurt1",
+		{
+			"knockback": attack.knockback,
+			"hitstun": 11
+		}
+	)
 
 func spawn_bullet() -> void:
 	var bullet : Projectile = References.bullet_scn.instantiate()

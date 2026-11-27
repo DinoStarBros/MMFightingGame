@@ -1,6 +1,6 @@
 extends State
 
-func enter() -> void:
+func enter(extra_data: Dictionary = {}) -> void:
 	frames_elapsed = 0
 	
 	p.velocity.x = -p.backward_dash_speed * p.current_side_facing

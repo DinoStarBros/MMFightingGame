@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bvyupa5am5ug6"]
+
+[ext_resource type="Script" uid="uid://ci7dosfe6ipwx" path="res://Scenes/GenericCharacterSFX/generic_character_sfx.gd" id="1_i5len"]
+[ext_resource type="AudioStream" uid="uid://dk4pw2aaihpsh" path="res://Audio/crokSfx/cartoon-punch-whack_A#_minor.wav" id="2_k0t2m"]
+
+[node name="GenericCharacterSFX" type="Node" unique_id=1641173561]
+script = ExtResource("1_i5len")
+
+[node name="hurt1" type="AudioStreamPlayer" parent="." unique_id=2045538420]
+unique_name_in_owner = true
+stream = ExtResource("2_k0t2m")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="hurt2" type="AudioStreamPlayer" parent="." unique_id=1483446119]
+unique_name_in_owner = true
+stream = ExtResource("2_k0t2m")
+volume_db = -5.0
+pitch_scale = 0.7
+bus = &"SFX"

@@ -1,6 +1,6 @@
 extends State
 
-func enter() -> void:
+func enter(extra_data: Dictionary = {}) -> void:
 	p.character_anim.fall()
 	
 	frames_elapsed = 0

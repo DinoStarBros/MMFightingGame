@@ -3,7 +3,7 @@ extends State
 #var bullet_velocity : Vector2
 var bullet_spawned : bool = false
 
-func enter() -> void:
+func enter(extra_data: Dictionary = {}) -> void:
 	frames_elapsed = 0
 	
 	p.character_anim.qcf_light()
