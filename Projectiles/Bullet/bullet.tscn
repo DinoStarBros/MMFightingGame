@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yfcm"]
 size = Vector2(34, 16)
 
-[node name="Bullet" type="Node2D" unique_id=212937796]
+[node name="Bullet" type="Node2D" unique_id=212937796 node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("1_0yips")
+hitboxes = [NodePath("HitboxComponent")]
 
 [node name="Newsprites" type="Sprite2D" parent="." unique_id=2029065729]
 texture = ExtResource("2_gd7i5")

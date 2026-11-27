@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://b8jxuqfyv5bfr" path="res://Characters/JohnFight/states/back_jump.gd" id="15_3klag"]
 [ext_resource type="Script" uid="uid://5g65rc1jydtj" path="res://Characters/JohnFight/states/standing_medium.gd" id="16_3klag"]
 [ext_resource type="Script" uid="uid://bq2ptby6pnq4w" path="res://Characters/JohnFight/states/standing_heavy.gd" id="17_ur5bw"]
-[ext_resource type="Script" uid="uid://ba6t0fijg8f0c" path="res://Characters/JohnFight/states/light_shoot.gd" id="18_feh3i"]
+[ext_resource type="Script" uid="uid://ba6t0fijg8f0c" path="res://Characters/JohnFight/states/qcf_light.gd" id="18_feh3i"]
 [ext_resource type="Script" uid="uid://ddy67n8jvl78x" path="res://Characters/JohnFight/states/qcf_medium.gd" id="21_ecpc3"]
 [ext_resource type="PackedScene" uid="uid://b22elq4qgcjq7" path="res://Components/HurtboxComponent/hurtbox_component.tscn" id="22_a66md"]
 [ext_resource type="PackedScene" uid="uid://cbhff7nk3xl23" path="res://Components/HealthComponent/health_component.tscn" id="23_4coxi"]

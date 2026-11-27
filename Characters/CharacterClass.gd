@@ -117,10 +117,11 @@ var gatling_count : int
 @export var dp_l_startup : int = 5
 @export var dp_l_frame_total : int = 14
 
-@export_category("Combat Stats")
-@export var standing_l_damage : int = 10
-@export var standing_m_damage : int = 15
-@export var standing_h_damage : int = 25
+@export_category("Damage Stats")
+@export var standing_l_dmg : int = 300
+@export var standing_m_dmg : int = 600
+@export var standing_h_dmg : int = 800
+@export var qcf_l_dmg : float = 700
 @export var projectile_x_speed : float = 2000
 
 ## The light medium heavy attacks

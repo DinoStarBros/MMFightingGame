@@ -1,19 +1,11 @@
 extends Area2D
 class_name HitboxComponent
 
-enum attack_types {
-	HIGH, MID, LOW, OVERHEAD,
-	UNBLOCKABLE, GRAB,
-}
-
-@export var attack_type : attack_types
-
 var attack : Attack = Attack.new()
 
 signal Hit(attack: Attack)
 
 func _ready() -> void:
-	attack.damage = 500
 	area_entered.connect(_hurtbox_entered)
 
 func collision_layer_setup(is_p1: bool) -> void:

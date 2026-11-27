@@ -35,3 +35,12 @@ func _physics_process(delta: float) -> void:
 
 func hurt(attack: Attack) -> void:
 	state_machine.change_state("Hurt1")
+
+func spawn_bullet() -> void:
+	var bullet : Projectile = References.bullet_scn.instantiate()
+	for hitbox in bullet.hitboxes: if hitbox is HitboxComponent:
+		hitbox.collision_layer_setup(is_p1)
+		hitbox.attack.damage = qcf_l_dmg
+	References.stage.add_child(bullet)
+	bullet.velocity.x = current_side_facing * projectile_x_speed
+	bullet.global_position = global_position
