@@ -20,6 +20,9 @@
 [ext_resource type="AudioStream" uid="uid://byygfe55sfi6t" path="res://Audio/pistol-shot-233473.mp3" id="17_jjsi8"]
 [ext_resource type="AudioStream" uid="uid://e7fgtf2ti3ki" path="res://Audio/41randsfx/15.wav" id="19_gyt5j"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67ub0"]
+size = Vector2(21, 8)
+
 [sub_resource type="Animation" id="Animation_ci7t1"]
 length = 0.001
 tracks/0/type = "value"
@@ -145,7 +148,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("High/hc:disabled")
+tracks/10/path = NodePath("StandingL/hc:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -174,6 +177,7 @@ step = 0.016666668
 
 [sub_resource type="Animation" id="Animation_67ub0"]
 resource_name = "dp_light"
+length = 0.31666666
 step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -240,7 +244,7 @@ step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("High/hc:disabled")
+tracks/0/path = NodePath("StandingL/hc:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -362,7 +366,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("High/hc:disabled")
+tracks/2/path = NodePath("StandingL/hc:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -391,7 +395,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("High/hc:disabled")
+tracks/1/path = NodePath("StandingL/hc:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -419,7 +423,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("High/hc:disabled")
+tracks/1/path = NodePath("StandingL/hc:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -482,27 +486,23 @@ _data = {
 &"walk_forward": SubResource("Animation_4dt3n")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_67ub0"]
-size = Vector2(21, 8)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xi5uw"]
 load_path = "res://.godot/imported/Dash.png-a80705b26dc6f70a0e8be7641685e4e1.ctex"
 
 [node name="JohnFightAnims" type="Node2D" unique_id=1228057302 node_paths=PackedStringArray("all_hitboxes")]
 script = ExtResource("1_2mi20")
-all_hitboxes = [NodePath("High")]
+all_hitboxes = [NodePath("StandingL")]
+
+[node name="StandingL" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
+position = Vector2(21, -4)
+
+[node name="hc" type="CollisionShape2D" parent="StandingL" unique_id=1378672286]
+shape = SubResource("RectangleShape2D_67ub0")
+debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=233840107]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ci7t1")
-
-[node name="High" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
-unique_name_in_owner = true
-position = Vector2(21, -4)
-
-[node name="hc" type="CollisionShape2D" parent="High" unique_id=1378672286]
-shape = SubResource("RectangleShape2D_67ub0")
-debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
 
 [node name="sprites" type="Node2D" parent="." unique_id=234839014]
 unique_name_in_owner = true

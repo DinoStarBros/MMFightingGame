@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	# 20
 	# 1
 
-func hurt(attack: Attack) -> void:
+func hurt(attack: AttackClass) -> void:
 	state_machine.change_state("Hurt1")
 
 func spawn_bullet() -> void:

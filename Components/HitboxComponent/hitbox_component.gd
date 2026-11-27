@@ -1,11 +1,12 @@
 extends Area2D
 class_name HitboxComponent
 
-var attack : Attack = Attack.new()
+var attack : AttackClass = AttackClass.new()
 
-signal Hit(attack: Attack)
+signal Hit(attack: AttackClass)
 
 func _ready() -> void:
+	attack.damage = 500
 	area_entered.connect(_hurtbox_entered)
 
 func collision_layer_setup(is_p1: bool) -> void:

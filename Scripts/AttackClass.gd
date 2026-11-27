@@ -1,5 +1,5 @@
 extends Node
-class_name Attack
+class_name AttackClass
 
 enum attack_types {
 	HIGH, MID, LOW, OVERHEAD,
