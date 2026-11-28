@@ -106,13 +106,6 @@ var gatling_count : int
 @export_subgroup("Dash Frames")
 @export var f_dash_total_frames : int = 19
 @export var b_dash_total_frames : int = 23
-#@export_subgroup("Base Attacks Frames")
-#@export var standing_l_total_frames : int = 13
-#@export var standing_l_recovery_start_frame : int = 7 ## This is how many frames till u can start buffering/cancels
-#@export var standing_m_total_frames : int = 20
-#@export var standing_m_recovery_start_frame : int = 10 ## This is how many frames till u can start buffering/cancels
-#@export var standing_h_total_frames : int = 31
-#@export var standing_h_recovery_start_frame : int = 14 ## This is how many frames till u can start buffering/cancels
 #@export_subgroup("QCF Specials")
 #@export var qcf_light_frame_total : int = 47
 #@export var qcf_l_startup : int = 14

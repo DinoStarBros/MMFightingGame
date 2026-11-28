@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BaseAttackResource" format=3 uid="uid://degsgqt2uj43t"]
+
+[ext_resource type="Script" uid="uid://cl78baa2ij84u" path="res://Resources/AttackResources/BaseAttackResource.gd" id="1_uhv7i"]
+
+[resource]
+script = ExtResource("1_uhv7i")
+damage = 750.0
+knockback = 700.0
+stun_frames_on_hit = 21
+stun_frames_on_block = 15
+recovery_start_frame = 14
+total_frames = 31
+metadata/_custom_type_script = "uid://cl78baa2ij84u"

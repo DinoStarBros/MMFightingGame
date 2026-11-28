@@ -62,5 +62,8 @@ func qcf_light() -> void:
 func dp_light() -> void:
 	assert(false, "Override this function")
 
+func play_hurt() -> void:
+	assert(false, "Override this function")
+
 func show_specific_sprite(sprite_name: String) -> void:
 	assert(false, "Override this function")

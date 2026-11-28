@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://cl78baa2ij84u" path="res://Resources/AttackResources/BaseAttackResource.gd" id="2_t33po"]
 [ext_resource type="Resource" uid="uid://dr7tb5dmfs51q" path="res://Resources/AttackResources/JohnFightAttackResources/JohnFightStandingL.tres" id="3_t12s2"]
 [ext_resource type="Script" uid="uid://cq31qgpvffhy8" path="res://StateMachineStuff/state_machine.gd" id="4_p1p80"]
+[ext_resource type="Resource" uid="uid://cielnq6udqfpx" path="res://Resources/AttackResources/JohnFightAttackResources/JohnFightStandingM.tres" id="4_t12s2"]
 [ext_resource type="Script" uid="uid://biyhsoc4h15fu" path="res://Characters/JohnFight/states/forward.gd" id="5_fn73y"]
+[ext_resource type="Resource" uid="uid://degsgqt2uj43t" path="res://Resources/AttackResources/JohnFightAttackResources/JohnFightStandingH.tres" id="5_q25jh"]
 [ext_resource type="Script" uid="uid://ccomh81lsgw3o" path="res://Characters/JohnFight/states/idle.gd" id="6_2st6u"]
 [ext_resource type="PackedScene" uid="uid://cpni1q7bd30sg" path="res://Components/InputReader/input_reader.tscn" id="7_th7mi"]
 [ext_resource type="Script" uid="uid://djxm2phipbel8" path="res://Characters/JohnFight/states/back.gd" id="8_l57mv"]
@@ -45,7 +47,9 @@ font_size = 40
 collision_layer = 0
 script = ExtResource("1_17b07")
 attacks_moveset = Dictionary[String, ExtResource("2_t33po")]({
-"StandingL": ExtResource("3_t12s2")
+"StandingH": ExtResource("5_q25jh"),
+"StandingL": ExtResource("3_t12s2"),
+"StandingM": ExtResource("4_t12s2")
 })
 input_reader = NodePath("InputReader")
 character_anim = NodePath("JohnFightAnims")
@@ -81,7 +85,9 @@ unique_name_in_owner = true
 position = Vector2(0, -38)
 scale = Vector2(5.3, 5.3)
 hitboxes = {
-"StandingL": NodePath("StandingLHitbox")
+"StandingH": NodePath("Node2D/StandingH"),
+"StandingL": NodePath("Node2D/StandingL"),
+"StandingM": NodePath("Node2D/StandingM")
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
@@ -144,7 +150,7 @@ script = ExtResource("13_un0rh")
 [node name="LandingRecovery" type="Node" parent="StateMachine" unique_id=1515631268]
 script = ExtResource("12_ecpc3")
 
-[node name="GroundAttacks" type="Node" parent="StateMachine" unique_id=1660733088]
+[node name="StandingAttacks" type="Node" parent="StateMachine" unique_id=1660733088]
 
 [node name="StandingLight" type="Node" parent="StateMachine" unique_id=70116017]
 script = ExtResource("11_hucss")

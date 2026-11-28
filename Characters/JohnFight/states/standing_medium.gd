@@ -18,11 +18,11 @@ func physics_update(delta: float) -> void:
 	p.apply_friction()
 	frames_elapsed += 1
 	
-	if frames_elapsed >= p.standing_m_recovery_start_frame:
+	if frames_elapsed >= p.attacks_moveset["StandingM"].recovery_start_frame:
 		if what_was_pressed == Command.CommandTypes.THREE:
 			state_machine.change_state("StandingHeavy")
 	
-	if frames_elapsed >= p.standing_m_total_frames:
+	if frames_elapsed >= p.attacks_moveset["StandingM"].total_frames:
 		state_machine.change_state("Idle")
 
 func exit() -> void:

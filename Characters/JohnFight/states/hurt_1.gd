@@ -11,6 +11,7 @@ func enter(extra_data: Dictionary = {}) -> void:
 	knockback = extra_data["knockback"]
 	
 	p.velocity.x = -knockback * p.current_side_facing
+	p.character_anim.play_hurt()
 	
 	frames_elapsed = 0
 	p.generic_character_sfx.play_hurt1()

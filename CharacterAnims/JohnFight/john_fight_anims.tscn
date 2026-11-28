@@ -20,9 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://byygfe55sfi6t" path="res://Audio/pistol-shot-233473.mp3" id="17_jjsi8"]
 [ext_resource type="AudioStream" uid="uid://e7fgtf2ti3ki" path="res://Audio/41randsfx/15.wav" id="19_gyt5j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_67ub0"]
-size = Vector2(21, 8)
-
 [sub_resource type="Animation" id="Animation_ci7t1"]
 length = 0.001
 tracks/0/type = "value"
@@ -148,14 +145,14 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("StandingLHitbox/hc:disabled")
+tracks/10/path = NodePath("Node2D/StandingL/slh:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -168,6 +165,42 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("sprites/hurt:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Node2D/StandingM/smh:disabled")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Node2D/StandingH/shh:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_8axca"]
@@ -238,13 +271,42 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_gyt5j"]
+resource_name = "hurt"
+length = 0.06666833681035786
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/hurt:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprites/hurt:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667),
+"transitions": PackedFloat32Array(0.59460366, 1),
+"update": 0,
+"values": [Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_xi5uw"]
 resource_name = "idle"
 step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StandingLHitbox/hc:disabled")
+tracks/0/path = NodePath("Node2D/StandingL/slh:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -366,11 +428,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StandingLHitbox/hc:disabled")
+tracks/2/path = NodePath("Node2D/StandingH/shh:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.23333335, 0.25),
+"times": PackedFloat32Array(0, 0.15, 0.18333334, 0.20000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, false, true]
@@ -395,7 +457,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StandingLHitbox/hc:disabled")
+tracks/1/path = NodePath("Node2D/StandingL/slh:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -423,7 +485,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StandingLHitbox/hc:disabled")
+tracks/1/path = NodePath("Node2D/StandingM/smh:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -476,6 +538,7 @@ _data = {
 &"dp_light": SubResource("Animation_67ub0"),
 &"fall": SubResource("Animation_ij605"),
 &"forward_dash": SubResource("Animation_wsgfn"),
+&"hurt": SubResource("Animation_gyt5j"),
 &"idle": SubResource("Animation_xi5uw"),
 &"jump": SubResource("Animation_dow8o"),
 &"qcf_light": SubResource("Animation_jjsi8"),
@@ -489,18 +552,22 @@ _data = {
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xi5uw"]
 load_path = "res://.godot/imported/Dash.png-a80705b26dc6f70a0e8be7641685e4e1.ctex"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyt5j"]
+size = Vector2(18, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utfsk"]
+size = Vector2(19.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67ub0"]
+size = Vector2(11.5, 8)
+
 [node name="JohnFightAnims" type="Node2D" unique_id=1228057302 node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("1_2mi20")
 hitboxes = {
-"StandingL": NodePath("StandingLHitbox")
+"StandingH": NodePath("Node2D/StandingH"),
+"StandingL": NodePath("Node2D/StandingL"),
+"StandingM": NodePath("Node2D/StandingM")
 }
-
-[node name="StandingLHitbox" parent="." unique_id=583575948 instance=ExtResource("4_ci7t1")]
-position = Vector2(21, -4)
-
-[node name="hc" type="CollisionShape2D" parent="StandingLHitbox" unique_id=1378672286]
-shape = SubResource("RectangleShape2D_67ub0")
-debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=233840107]
 unique_name_in_owner = true
@@ -536,7 +603,6 @@ visible = false
 texture = ExtResource("6_dl5dx")
 
 [node name="standing_light" type="Sprite2D" parent="sprites" unique_id=672655471]
-visible = false
 texture = ExtResource("9_8axca")
 hframes = 8
 frame = 1
@@ -580,9 +646,15 @@ energy = 0.0
 texture = ExtResource("12_67ub0")
 
 [node name="dp_light" type="Sprite2D" parent="sprites" unique_id=331620387]
+visible = false
 texture = ExtResource("8_h6moj")
 hframes = 10
 frame = 1
+
+[node name="hurt" type="Sprite2D" parent="sprites" unique_id=596936579]
+visible = false
+position = Vector2(0, -6)
+texture = ExtResource("6_dl5dx")
 
 [node name="sfx" type="Node" parent="." unique_id=268261747]
 
@@ -634,3 +706,31 @@ stream = ExtResource("13_ij605")
 volume_db = -5.0
 pitch_scale = 1.2
 bus = &"SFX"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1411597415]
+
+[node name="StandingM" parent="Node2D" unique_id=1415980216 instance=ExtResource("4_ci7t1")]
+position = Vector2(22, -1)
+
+[node name="smh" type="CollisionShape2D" parent="Node2D/StandingM" unique_id=1769817910]
+position = Vector2(-7, 1)
+shape = SubResource("RectangleShape2D_gyt5j")
+disabled = true
+debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
+
+[node name="StandingH" parent="Node2D" unique_id=389946121 instance=ExtResource("4_ci7t1")]
+position = Vector2(18, 6)
+
+[node name="shh" type="CollisionShape2D" parent="Node2D/StandingH" unique_id=1421878431]
+position = Vector2(-0.75, 0)
+shape = SubResource("RectangleShape2D_utfsk")
+disabled = true
+debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
+
+[node name="StandingL" parent="Node2D" unique_id=240308529 instance=ExtResource("4_ci7t1")]
+
+[node name="slh" type="CollisionShape2D" parent="Node2D/StandingL" unique_id=1378672286]
+position = Vector2(14.25, -1)
+shape = SubResource("RectangleShape2D_67ub0")
+disabled = true
+debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)

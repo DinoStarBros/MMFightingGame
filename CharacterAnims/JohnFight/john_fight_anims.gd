@@ -50,6 +50,9 @@ func qcf_light() -> void:
 func dp_light() -> void:
 	play_animation("dp_light")
 
+func play_hurt() -> void:
+	call_deferred("play_animation", "hurt")
+
 func play_animation(animation_name : String):
 	anim.stop()
 	anim.play(animation_name)
