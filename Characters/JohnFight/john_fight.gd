@@ -38,7 +38,7 @@ func hurt(attack: AttackClass) -> void:
 		"Hurt1",
 		{
 			"knockback": attack.knockback,
-			"hitstun": 11
+			"hitstun": attack.hitstun_frames
 		}
 	)
 
@@ -46,7 +46,9 @@ func spawn_bullet() -> void:
 	var bullet : Projectile = References.bullet_scn.instantiate()
 	for hitbox in bullet.hitboxes: if hitbox is HitboxComponent:
 		hitbox.collision_layer_setup(is_p1)
-		hitbox.attack.damage = qcf_l_dmg
+		#hitbox.attack.damage = qcf_l_dmg
+		hitbox.attack.damage = 700
 	References.stage.add_child(bullet)
-	bullet.velocity.x = current_side_facing * projectile_x_speed
+	#bullet.velocity.x = current_side_facing * projectile_x_speed
+	bullet.velocity.x = current_side_facing * 2000
 	bullet.global_position = global_position

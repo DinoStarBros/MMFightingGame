@@ -6,7 +6,6 @@ var attack : AttackClass = AttackClass.new()
 signal Hit(attack: AttackClass)
 
 func _ready() -> void:
-	attack.damage = 500
 	area_entered.connect(_hurtbox_entered)
 
 func collision_layer_setup(is_p1: bool) -> void:
@@ -24,6 +23,11 @@ func collision_layer_setup(is_p1: bool) -> void:
 		# P2 Hitbox hitting P1 hurtbox
 		set_collision_layer_value(5, true)
 		set_collision_mask_value(2, true)
+
+func load_data_from_resource(attack_move_resource: BaseAttackResource) -> void:
+	attack.damage = attack_move_resource.damage
+	attack.knockback = attack_move_resource.knockback
+	attack.hitstun_frames = attack_move_resource.stun_frames_on_hit
 
 func _hurtbox_entered(area : Area2D) -> void:
 	if area is HurtboxComponent:

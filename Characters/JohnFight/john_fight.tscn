@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d121p07cvbaga" path="res://Characters/JohnFight/john_fight.gd" id="1_17b07"]
 [ext_resource type="PackedScene" uid="uid://idc0d4kye7qi" path="res://CharacterAnims/JohnFight/john_fight_anims.tscn" id="2_fqhhd"]
+[ext_resource type="Script" uid="uid://cl78baa2ij84u" path="res://Resources/AttackResources/BaseAttackResource.gd" id="2_t33po"]
+[ext_resource type="Resource" uid="uid://dr7tb5dmfs51q" path="res://Resources/AttackResources/JohnFightAttackResources/JohnFightStandingL.tres" id="3_t12s2"]
 [ext_resource type="Script" uid="uid://cq31qgpvffhy8" path="res://StateMachineStuff/state_machine.gd" id="4_p1p80"]
 [ext_resource type="Script" uid="uid://biyhsoc4h15fu" path="res://Characters/JohnFight/states/forward.gd" id="5_fn73y"]
 [ext_resource type="Script" uid="uid://ccomh81lsgw3o" path="res://Characters/JohnFight/states/idle.gd" id="6_2st6u"]
@@ -42,6 +44,9 @@ font_size = 40
 [node name="JohnFight" type="CharacterBody2D" unique_id=1012419678 node_paths=PackedStringArray("input_reader", "character_anim", "state_machine", "generic_character_sfx")]
 collision_layer = 0
 script = ExtResource("1_17b07")
+attacks_moveset = Dictionary[String, ExtResource("2_t33po")]({
+"StandingL": ExtResource("3_t12s2")
+})
 input_reader = NodePath("InputReader")
 character_anim = NodePath("JohnFightAnims")
 state_machine = NodePath("StateMachine")
@@ -71,10 +76,13 @@ debug_color = Color(0.7112961, 0.48489213, 0, 0)
 [node name="InputReader" parent="." unique_id=1706886587 node_paths=PackedStringArray("parent_character") instance=ExtResource("7_th7mi")]
 parent_character = NodePath("..")
 
-[node name="JohnFightAnims" parent="." unique_id=1228057302 instance=ExtResource("2_fqhhd")]
+[node name="JohnFightAnims" parent="." unique_id=1228057302 node_paths=PackedStringArray("hitboxes") instance=ExtResource("2_fqhhd")]
 unique_name_in_owner = true
 position = Vector2(0, -38)
 scale = Vector2(5.3, 5.3)
+hitboxes = {
+"StandingL": NodePath("StandingLHitbox")
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1813402477]
 

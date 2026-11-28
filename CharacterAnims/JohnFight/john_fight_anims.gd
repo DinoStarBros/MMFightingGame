@@ -1,16 +1,11 @@
 extends CharacterAnim
 class_name JohnFightAnims
 
-@export var all_hitboxes : Array[HitboxComponent]
-
 @onready var anim: AnimationPlayer = %anim
 @onready var sprites_parent: Node2D = %sprites
-@onready var p : Character = get_parent()
 
 func _ready() -> void:
-	await get_tree().process_frame
-	for hitbox in all_hitboxes:
-		hitbox.collision_layer_setup(p.is_p1)
+	setup_hitboxes()
 
 func idle() -> void:
 	play_animation("idle")

@@ -10,6 +10,18 @@ class_name CharacterAnim
 ## dashing, attacking, etc.
 signal AnimationDone
 
+@onready var p : Character = get_parent()
+
+@export var hitboxes : Dictionary[String, HitboxComponent]
+
+func setup_hitboxes() -> void:
+	await get_tree().process_frame
+	for hitbox in hitboxes.values(): if hitbox is HitboxComponent:
+		hitbox.collision_layer_setup(p.is_p1)
+	
+	for attack_move_key in p.attacks_moveset.keys():
+		hitboxes[attack_move_key].load_data_from_resource(p.attacks_moveset[attack_move_key])
+
 func emit_anim_done() -> void:
 	AnimationDone.emit()
 

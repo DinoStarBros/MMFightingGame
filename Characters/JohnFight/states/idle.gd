@@ -14,9 +14,8 @@ func physics_update(delta: float) -> void:
 	
 	p.grounded_attacks_handle()
 	
-	if DirectionInput.upward_dir_pressed(p):
+	if DirectionInput.upward_dir_pressed(p) and p.is_on_floor():
 		state_machine.change_state("JumpStartup")
-	
 
 func _forward_dir_pressed_handling(delta: float) -> void:
 	if DirectionInput.forward_dash(p):

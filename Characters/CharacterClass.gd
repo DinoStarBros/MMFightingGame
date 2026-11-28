@@ -81,6 +81,8 @@ var atk_frames_length_history : Array
 
 var gatling_count : int
 
+@export var attacks_moveset : Dictionary[String, BaseAttackResource]
+
 @export var character_p1_or_p2 : CharacterP1orP2
 @export var input_reader : InputReader
 @export var character_anim : CharacterAnim
@@ -104,26 +106,26 @@ var gatling_count : int
 @export_subgroup("Dash Frames")
 @export var f_dash_total_frames : int = 19
 @export var b_dash_total_frames : int = 23
-@export_subgroup("Base Attacks Frames")
-@export var standing_l_total_frames : int = 13
-@export var standing_l_recovery_start_frame : int = 7 ## This is how many frames till u can start buffering/cancels
-@export var standing_m_total_frames : int = 20
-@export var standing_m_recovery_start_frame : int = 10 ## This is how many frames till u can start buffering/cancels
-@export var standing_h_total_frames : int = 31
-@export var standing_h_recovery_start_frame : int = 14 ## This is how many frames till u can start buffering/cancels
-@export_subgroup("QCF Specials")
-@export var qcf_light_frame_total : int = 47
-@export var qcf_l_startup : int = 14
-@export_subgroup("DP Specials")
-@export var dp_l_startup : int = 5
-@export var dp_l_frame_total : int = 14
-
-@export_category("Damage Stats")
-@export var standing_l_dmg : int = 300
-@export var standing_m_dmg : int = 600
-@export var standing_h_dmg : int = 800
-@export var qcf_l_dmg : float = 700
-@export var projectile_x_speed : float = 2000
+#@export_subgroup("Base Attacks Frames")
+#@export var standing_l_total_frames : int = 13
+#@export var standing_l_recovery_start_frame : int = 7 ## This is how many frames till u can start buffering/cancels
+#@export var standing_m_total_frames : int = 20
+#@export var standing_m_recovery_start_frame : int = 10 ## This is how many frames till u can start buffering/cancels
+#@export var standing_h_total_frames : int = 31
+#@export var standing_h_recovery_start_frame : int = 14 ## This is how many frames till u can start buffering/cancels
+#@export_subgroup("QCF Specials")
+#@export var qcf_light_frame_total : int = 47
+#@export var qcf_l_startup : int = 14
+#@export_subgroup("DP Specials")
+#@export var dp_l_startup : int = 5
+#@export var dp_l_frame_total : int = 14
+#
+#@export_category("Damage Stats")
+#@export var standing_l_dmg : int = 300
+#@export var standing_m_dmg : int = 600
+#@export var standing_h_dmg : int = 800
+#@export var qcf_l_dmg : float = 700
+#@export var projectile_x_speed : float = 2000
 
 ## The light medium heavy attacks
 func lmh_attacks_handle() -> void:
@@ -186,5 +188,5 @@ func easy_button_specials() -> void:
 			state_machine.change_state("QCFHeavy")
 
 ## For States where the character's supposed to stand still, like attacks
-func apply_friction() -> void:
-	velocity.x *= 0.7
+func apply_friction(friction:float = 0.7) -> void:
+	velocity.x *= friction

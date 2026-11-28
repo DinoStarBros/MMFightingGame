@@ -18,6 +18,6 @@ func enter(extra_data: Dictionary = {}) -> void:
 func physics_update(delta: float) -> void:
 	frames_elapsed += 1
 	
-	p.velocity.x *= 0.9
+	p.apply_friction(0.9)
 	if frames_elapsed >= hitstun:
 		state_machine.change_state("Idle")
