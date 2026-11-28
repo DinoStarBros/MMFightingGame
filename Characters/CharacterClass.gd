@@ -106,19 +106,16 @@ var gatling_count : int
 @export_subgroup("Dash Frames")
 @export var f_dash_total_frames : int = 19
 @export var b_dash_total_frames : int = 23
-#@export_subgroup("QCF Specials")
-#@export var qcf_light_frame_total : int = 47
-#@export var qcf_l_startup : int = 14
-#@export_subgroup("DP Specials")
-#@export var dp_l_startup : int = 5
-#@export var dp_l_frame_total : int = 14
-#
-#@export_category("Damage Stats")
-#@export var standing_l_dmg : int = 300
-#@export var standing_m_dmg : int = 600
-#@export var standing_h_dmg : int = 800
-#@export var qcf_l_dmg : float = 700
-#@export var projectile_x_speed : float = 2000
+@export_subgroup("QCF Specials")
+@export var qcf_light_frame_total : int = 47
+@export var qcf_l_startup : int = 14
+@export_subgroup("DP Specials")
+@export var dp_l_startup : int = 5
+@export var dp_l_frame_total : int = 14
+
+@export_category("Damage Stats")
+@export var qcf_l_dmg : float = 700
+@export var projectile_x_speed : float = 2000
 
 ## The light medium heavy attacks
 func lmh_attacks_handle() -> void:

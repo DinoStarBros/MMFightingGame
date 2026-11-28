@@ -1,7 +1,7 @@
 extends Node2D
 class_name HealthComponent
 
-@export var health_bar : ProgressBar
+@export var health_bar : FancyHealthbar
 
 @export var max_hp : int = 10000
 var hp : int:

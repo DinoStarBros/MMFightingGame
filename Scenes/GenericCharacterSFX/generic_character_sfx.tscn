@@ -9,12 +9,12 @@ script = ExtResource("1_i5len")
 [node name="hurt1" type="AudioStreamPlayer" parent="." unique_id=2045538420]
 unique_name_in_owner = true
 stream = ExtResource("2_k0t2m")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"SFX"
 
 [node name="hurt2" type="AudioStreamPlayer" parent="." unique_id=1483446119]
 unique_name_in_owner = true
 stream = ExtResource("2_k0t2m")
-volume_db = -5.0
+volume_db = -10.0
 pitch_scale = 0.7
 bus = &"SFX"

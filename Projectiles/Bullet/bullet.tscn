@@ -7,9 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yfcm"]
 size = Vector2(34, 16)
 
-[node name="Bullet" type="Node2D" unique_id=212937796 node_paths=PackedStringArray("hitboxes")]
+[node name="Bullet" type="Node2D" unique_id=212937796 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("1_0yips")
-hitboxes = [NodePath("HitboxComponent")]
+hitbox = NodePath("HitboxComponent")
 
 [node name="Newsprites" type="Sprite2D" parent="." unique_id=2029065729]
 texture = ExtResource("2_gd7i5")
@@ -21,7 +21,6 @@ unique_name_in_owner = true
 autostart = true
 
 [node name="HitboxComponent" parent="." unique_id=1415980216 instance=ExtResource("3_5yfcm")]
-attack_type = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1092899795]
 shape = SubResource("RectangleShape2D_5yfcm")

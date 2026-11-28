@@ -145,7 +145,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Node2D/StandingL/slh:disabled")
+tracks/10/path = NodePath("Hitboxes/StandingL/slh:disabled")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -181,7 +181,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Node2D/StandingM/smh:disabled")
+tracks/13/path = NodePath("Hitboxes/StandingM/smh:disabled")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -193,7 +193,7 @@ tracks/13/keys = {
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Node2D/StandingH/shh:disabled")
+tracks/14/path = NodePath("Hitboxes/StandingH/shh:disabled")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -306,10 +306,34 @@ step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/StandingL/slh:disabled")
+tracks/0/path = NodePath("Hitboxes/StandingL/slh:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/StandingM/smh:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/StandingH/shh:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -392,7 +416,7 @@ tracks/3/path = NodePath("sfx/shoot2:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.26666668),
+"times": PackedFloat32Array(0.25),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -428,7 +452,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/StandingH/shh:disabled")
+tracks/2/path = NodePath("Hitboxes/StandingH/shh:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -457,7 +481,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/StandingL/slh:disabled")
+tracks/1/path = NodePath("Hitboxes/StandingL/slh:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -485,7 +509,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/StandingM/smh:disabled")
+tracks/1/path = NodePath("Hitboxes/StandingM/smh:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -564,9 +588,9 @@ size = Vector2(11.5, 8)
 [node name="JohnFightAnims" type="Node2D" unique_id=1228057302 node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("1_2mi20")
 hitboxes = {
-"StandingH": NodePath("Node2D/StandingH"),
-"StandingL": NodePath("Node2D/StandingL"),
-"StandingM": NodePath("Node2D/StandingM")
+"StandingH": NodePath("Hitboxes/StandingH"),
+"StandingL": NodePath("Hitboxes/StandingL"),
+"StandingM": NodePath("Hitboxes/StandingM")
 }
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=233840107]
@@ -707,29 +731,29 @@ volume_db = -5.0
 pitch_scale = 1.2
 bus = &"SFX"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1411597415]
+[node name="Hitboxes" type="Node2D" parent="." unique_id=1411597415]
 
-[node name="StandingM" parent="Node2D" unique_id=1415980216 instance=ExtResource("4_ci7t1")]
+[node name="StandingM" parent="Hitboxes" unique_id=1415980216 instance=ExtResource("4_ci7t1")]
 position = Vector2(22, -1)
 
-[node name="smh" type="CollisionShape2D" parent="Node2D/StandingM" unique_id=1769817910]
+[node name="smh" type="CollisionShape2D" parent="Hitboxes/StandingM" unique_id=1769817910]
 position = Vector2(-7, 1)
 shape = SubResource("RectangleShape2D_gyt5j")
 disabled = true
 debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
 
-[node name="StandingH" parent="Node2D" unique_id=389946121 instance=ExtResource("4_ci7t1")]
+[node name="StandingH" parent="Hitboxes" unique_id=389946121 instance=ExtResource("4_ci7t1")]
 position = Vector2(18, 6)
 
-[node name="shh" type="CollisionShape2D" parent="Node2D/StandingH" unique_id=1421878431]
+[node name="shh" type="CollisionShape2D" parent="Hitboxes/StandingH" unique_id=1421878431]
 position = Vector2(-0.75, 0)
 shape = SubResource("RectangleShape2D_utfsk")
 disabled = true
 debug_color = Color(0.99409217, 0.07362086, 0, 0.41960785)
 
-[node name="StandingL" parent="Node2D" unique_id=240308529 instance=ExtResource("4_ci7t1")]
+[node name="StandingL" parent="Hitboxes" unique_id=240308529 instance=ExtResource("4_ci7t1")]
 
-[node name="slh" type="CollisionShape2D" parent="Node2D/StandingL" unique_id=1378672286]
+[node name="slh" type="CollisionShape2D" parent="Hitboxes/StandingL" unique_id=1378672286]
 position = Vector2(14.25, -1)
 shape = SubResource("RectangleShape2D_67ub0")
 disabled = true

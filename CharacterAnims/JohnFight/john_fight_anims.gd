@@ -52,6 +52,7 @@ func dp_light() -> void:
 
 func play_hurt() -> void:
 	call_deferred("play_animation", "hurt")
+	#play_animation("hurt")
 
 func play_animation(animation_name : String):
 	anim.stop()

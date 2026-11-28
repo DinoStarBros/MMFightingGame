@@ -20,7 +20,7 @@ func physics_update(delta: float) -> void:
 		p.spawn_bullet()
 		bullet_spawned = true
 	
-	if frames_elapsed >= p.qcf_light_frame_total:
+	if frames_elapsed >= p.attacks_moveset["QCFL"].total_frames:
 		state_machine.change_state("Idle")
 
 func exit() -> void:

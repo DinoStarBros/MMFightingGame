@@ -19,8 +19,8 @@ func setup_hitboxes() -> void:
 	for hitbox in hitboxes.values(): if hitbox is HitboxComponent:
 		hitbox.collision_layer_setup(p.is_p1)
 	
-	for attack_move_key in p.attacks_moveset.keys():
-		hitboxes[attack_move_key].load_data_from_resource(p.attacks_moveset[attack_move_key])
+	for hitbox_key in hitboxes.keys():
+		hitboxes[hitbox_key].load_data_from_resource(p.attacks_moveset[hitbox_key])
 
 func emit_anim_done() -> void:
 	AnimationDone.emit()
